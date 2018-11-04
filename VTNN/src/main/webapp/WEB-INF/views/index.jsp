@@ -108,127 +108,20 @@
 		<div class="col-md-10" id="backgroundsanpham">			
 				<hr class="dark my-4">
 				<div class="row">
-					<div class="col-md-4 col-lg-3 col-sm-6">
+				<c:forEach var="listsanpham" items="${danhsachchitiet }">
+				<div class="col-md-4 col-lg-3 col-sm-6">
 						<div class="card" style="width: 18rem;">
-						  <img class="card-img-top" src="img/header.jpg" alt="Card image cap">
+						  <img class="card-img-top" src='<c:url value="resources/img/sanpham/${listsanpham.getHinh().getHINH() }"/>' alt="Card image cap">
 						  <div class="card-body">
-							<h5 class="card-title">Card title</h5>
+							<h5 class="card-title">${listsanpham.getSanpham().getTENSANPHAM() }</h5>
 							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 							<a href="#" class="btn btn-primary">Go somewhere</a>
 						  </div>
 						</div>
 					</div>
-					<div class="col-md-4 col-lg-3 col-sm-6">
-						<div class="card" style="width: 18rem;">
-						  <img class="card-img-top" src="img/31-14223236988.png" alt="Card image cap">
-						  <div class="card-body">
-							<h5 class="card-title">Card title</h5>
-							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							<a href="#" class="btn btn-primary">Go somewhere</a>
-						  </div>
-						</div>
-					</div>
-					<div class="col-md-4 col-lg-3 col-sm-6">
-						<div class="card" style="width: 18rem;">
-						  <img class="card-img-top" src="img/5736_dc60.jpg" alt="Card image cap">
-						  <div class="card-body">
-							<h5 class="card-title">Card title</h5>
-							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							<a href="#" class="btn btn-primary">Go somewhere</a>
-						  </div>
-						</div>
-					</div>
-					<div class="col-12  col-sm-6 col-md-6 col-lg-4 col-xl-3">
-						<div class="card" style="width: 18rem;">
-						  <img class="card-img-top" src="img/1388476513.jpg" alt="Card image cap">
-						  <div class="card-body">
-							<h5 class="card-title">Card title</h5>
-							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							<a href="#" class="btn btn-primary">Go somewhere</a>
-						  </div>
-						</div>
-					</div>
-					<div class="col-12  col-sm-6 col-md-6 col-lg-4 col-xl-3">
-						<div class="card" style="width: 18rem;">
-						  <img class="card-img-top" src="img/header.jpg" alt="Card image cap">
-						  <div class="card-body">
-							<h5 class="card-title">Card title</h5>
-							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							<a href="#" class="btn btn-primary">Go somewhere</a>
-						  </div>
-						</div>
-					</div>
-					<div class="col-12  col-sm-6 col-md-6 col-lg-4 col-xl-3">
-						<div class="card" style="width: 18rem;">
-						  <img class="card-img-top" src="img/header.jpg" alt="Card image cap">
-						  <div class="card-body">
-							<h5 class="card-title">Card title</h5>
-							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							<a href="#" class="btn btn-primary">Go somewhere</a>
-						  </div>
-						</div>
-					</div>
-					<div class="col-12  col-sm-6 col-md-6 col-lg-4 col-xl-3">
-						<div class="card" style="width: 18rem;">
-						  <img class="card-img-top" src="img/header.jpg" alt="Card image cap">
-						  <div class="card-body">
-							<h5 class="card-title">Card title</h5>
-							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							<a href="#" class="btn btn-primary">Go somewhere</a>
-						  </div>
-						</div>
-					</div>
-										<div class="col-12  col-sm-6 col-md-6 col-lg-4 col-xl-3">
-						<div class="card" style="width: 18rem;">
-						  <img class="card-img-top" src="img/header.jpg" alt="Card image cap">
-						  <div class="card-body">
-							<h5 class="card-title">Card title</h5>
-							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							<a href="#" class="btn btn-primary">Go somewhere</a>
-						  </div>
-						</div>
-					</div>
-						<div class="col-12  col-sm-6 col-md-6 col-lg-4 col-xl-3">
-						<div class="card" style="width: 18rem;">
-						  <img class="card-img-top" src="img/header.jpg" alt="Card image cap">
-						  <div class="card-body">
-							<h5 class="card-title">Card title</h5>
-							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							<a href="#" class="btn btn-primary">Go somewhere</a>
-						  </div>
-						</div>
-					</div>
-						<div class="col-12  col-sm-6 col-md-6 col-lg-4 col-xl-3">
-						<div class="card" style="width: 18rem;">
-						  <img class="card-img-top" src="img/header.jpg" alt="Card image cap">
-						  <div class="card-body">
-							<h5 class="card-title">Card title</h5>
-							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							<a href="#" class="btn btn-primary">Go somewhere</a>
-						  </div>
-						</div>
-					</div>
-						<div class="col-12  col-sm-6 col-md-6 col-lg-4 col-xl-3">
-						<div class="card" style="width: 18rem;">
-						  <img class="card-img-top" src="img/header.jpg" alt="Card image cap">
-						  <div class="card-body">
-							<h5 class="card-title">Card title</h5>
-							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							<a href="#" class="btn btn-primary">Go somewhere</a>
-						  </div>
-						</div>
-					</div>
-						<div class="col-12  col-sm-6 col-md-6 col-lg-4 col-xl-3">
-						<div class="card" style="width: 18rem;">
-						  <img class="card-img-top" src="img/header.jpg" alt="Card image cap">
-						  <div class="card-body">
-							<h5 class="card-title">Card title</h5>
-							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							<a href="#" class="btn btn-primary">Go somewhere</a>
-						  </div>
-						</div>
-					</div>
-
+				</c:forEach>
+					
+					
 					
 					
 						

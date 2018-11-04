@@ -15,6 +15,7 @@ public class KhuyenMai {
 	String TENKHUYENMAI;
 	Date THOIGIANBATDAU;
 	Date THOIGIANKETTHUC;
+	int PHANTRAM;
 	String MOTA;
 	int ISDELETE;
 	int DELETEID;
@@ -23,6 +24,16 @@ public class KhuyenMai {
 	Date TIMECREATE;
 	int UPDATEID;
 	Date TIMEUPDATE;
+
+	
+
+	public int getPHANTRAM() {
+		return PHANTRAM;
+	}
+
+	public void setPHANTRAM(int pHANTRAM) {
+		PHANTRAM = pHANTRAM;
+	}
 
 	public int getMAKHUYENMAI() {
 		return MAKHUYENMAI;

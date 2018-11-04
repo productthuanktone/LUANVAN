@@ -20,21 +20,31 @@ public class ChiTietSanPham {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "MASANPHAM")
 	SanPham sanpham;
+	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "MAGIA")
 	Gia gia;
+	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "MAHINH")
 	Hinh hinh;
+	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "MANHASANXUAT")
 	NhaSanXuat nhasanpham;
-	 @OneToOne(cascade = CascadeType.ALL)
-	 @JoinColumn(name = "MADONVITINH")
-	 DonViTinh donvitinh;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "MADONVITINH")
+	DonViTinh donvitinh;
+	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "MAKHUYENMAI")
 	KhuyenMai khuyenmai;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "MADANHMUC")
+	DanhMucSanPham danhMucSanPham;
+	
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "MACHITIETSANPHAM")
 	Set<ChiTietHoaDon> chitiethoadon;
@@ -43,7 +53,6 @@ public class ChiTietSanPham {
 	@JoinColumn(name = "MACHITIETSANPHAM")
 	Set<ChiTietPhieuNhap> chitietphieunhap;
 
-	
 	public Hinh getHinh() {
 		return hinh;
 	}
@@ -116,12 +125,20 @@ public class ChiTietSanPham {
 		this.nhasanpham = nhasanpham;
 	}
 
-	 public DonViTinh getDonvitinh() {
-	 return donvitinh;
-	 }
-	
-	 public void setDonvitinh(DonViTinh donvitinh) {
-	 this.donvitinh = donvitinh;
-	 }
+	public DonViTinh getDonvitinh() {
+		return donvitinh;
+	}
+
+	public void setDonvitinh(DonViTinh donvitinh) {
+		this.donvitinh = donvitinh;
+	}
+
+	public DanhMucSanPham getDanhMucSanPham() {
+		return danhMucSanPham;
+	}
+
+	public void setDanhMucSanPham(DanhMucSanPham danhMucSanPham) {
+		this.danhMucSanPham = danhMucSanPham;
+	}
 
 }

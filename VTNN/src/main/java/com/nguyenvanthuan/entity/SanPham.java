@@ -20,9 +20,6 @@ public class SanPham {
 	String TENSANPHAM;
 	String MOTA;
 	@OneToMany(cascade=CascadeType.ALL)
-	@JoinColumn(name="MADANHMUC")
-	Set<DanhMucSanPham> danhmuc;
-	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="MASANPHAM")
 	Set<ChiTietSanPham> Chitietsanpham;
 	int ISDELETE;
@@ -32,24 +29,12 @@ public class SanPham {
 	Date TIMECREATE;
 	int UPDATEID;
 	Date TIMEUPDATE;
-
-	
 	public Set<ChiTietSanPham> getChitietsanpham() {
 		return Chitietsanpham;
 	}
 
 	public void setChitietsanpham(Set<ChiTietSanPham> chitietsanpham) {
 		Chitietsanpham = chitietsanpham;
-	}
-
-	
-
-	public Set<DanhMucSanPham> getDanhmuc() {
-		return danhmuc;
-	}
-
-	public void setDanhmuc(Set<DanhMucSanPham> danhmuc) {
-		this.danhmuc = danhmuc;
 	}
 
 	public int getISDELETE() {

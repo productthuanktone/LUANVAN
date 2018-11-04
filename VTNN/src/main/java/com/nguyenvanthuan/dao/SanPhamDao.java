@@ -26,15 +26,15 @@ public class SanPhamDao implements SanPhamImp {
 	public List<SanPham> ListSanPham() {
 		// TODO Auto-generated method stub
 		Session session=sessionFactory.getCurrentSession();
-		List<SanPham> ListSanPhham=(List<SanPham>) session.createQuery("from sanpham where MASANPHAM=1").getResultList();
-		for (SanPham sanPham : ListSanPhham) {
-			for (ChiTietSanPham chiTietSanPham : sanPham.getChitietsanpham()) {
-				System.out.println("Thông tin sản phẩm:"+sanPham.getTENSANPHAM()+chiTietSanPham.getSOLUONG()+sanPham.getMOTA()+chiTietSanPham.getGia().getGIA()+chiTietSanPham.getNhasanpham().getTENNHASANXUAT()+chiTietSanPham.getHinh().getHINH()+chiTietSanPham.getDonvitinh().getTENDONVITINH());
-			}
-			
-			
-		}
-		return null;
+		List<SanPham> ListSanPhham=(List<SanPham>) session.createQuery("from sanpham").setFirstResult(0).setMaxResults(20).getResultList();
+//		for (SanPham sanPham : ListSanPhham) {
+//			for (ChiTietSanPham chiTietSanPham : sanPham.getChitietsanpham()) {
+//				System.out.println("Thông tin sản phẩm:"+sanPham.getTENSANPHAM()+chiTietSanPham.getSOLUONG()+sanPham.getMOTA()+chiTietSanPham.getGia().getGIA()+chiTietSanPham.getNhasanpham().getTENNHASANXUAT()+chiTietSanPham.getHinh().getHINH()+chiTietSanPham.getDonvitinh().getTENDONVITINH()+chiTietSanPham.getKhuyenmai().getPHANTRAM());
+//			}
+//			
+//			
+//		}
+		return ListSanPhham;
 	}
 
 }
