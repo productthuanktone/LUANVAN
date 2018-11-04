@@ -25,8 +25,6 @@ public class KhuyenMai {
 	int UPDATEID;
 	Date TIMEUPDATE;
 
-	
-
 	public int getPHANTRAM() {
 		return PHANTRAM;
 	}

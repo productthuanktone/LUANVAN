@@ -70,12 +70,13 @@
         <div class="row">
           <div class="col-lg-10 mx-auto">
             <h1 class="text-uppercase">
-              <strong>BỤi CỎ, ĐỐNG RƠM KÝ ỨC TUỔI ẤU THƠ CÒN LƯU TRONG TIỀM THỨC</strong>
+              <strong>CHUYÊN KINH DOANH VẬT TƯ VÀ MÁY NÔNG NGHIỆP</strong>
             </h1>
             <hr>
           </div>
           <div class="col-lg-8 mx-auto">
-            <p class="text-faded mb-5">Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>
+            <p class="text-faded mb-5">Chúng tôi cam kết sẻ mang lại cho bạn sản
+					phẩm tốt nhất.</p>
             <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Mua Sản Phẩm</a>
           </div>
         </div>
@@ -87,50 +88,41 @@
 		<div class="row">
 			<div class="col-md-2">
 				<a href="#"> 
-					<div class="alert alert-primary" role="alert">Phân Bón Lúa</div>
+					<div class="alert alert-success" role="alert">Phân Bón Lúa</div>
 				</a>
 				<a href="#">
-					<div class="alert alert-secondary" role="alert">Thuốc Trị Bệnh</div>
+					<div class="alert alert-success" role="alert">Thuốc Trị Bệnh</div>
 				</a>
 				<a href="#">
 				<div class="alert alert-success" role="alert">Thuốc Trị Sâu</div>
 				</a>	
 				<a href="#">
-				<div class="alert alert-warning" role="alert">Thuốc Trị Rầy</div>
+				<div class="alert alert-success" role="alert">Thuốc Trị Rầy</div>
 				</a>
 				<a href="#">
-				<div class="alert alert-info" role="alert">This is a info alertâcheck it out!</div>
+				<div class="alert alert-success" role="alert">Máy móc, trang thiết bị</div>
 				</a>
-				<a href="#">
-				<div class="alert alert-light" role="alert">This is a light alertâcheck it out!</div>
-				</a>
+				
         </div>
-		<div class="col-md-10" id="backgroundsanpham">			
-				<hr class="dark my-4">
-				<div class="row">
+		<div class="col-md-10" id="backgroundsanpham" >			
+				<!-- <hr class="dark my-4"> -->
+				<div class="row" >
 				<c:forEach var="listsanpham" items="${danhsachchitiet }">
-				<div class="col-md-4 col-lg-3 col-sm-6">
-						<div class="card" style="width: 18rem;">
-						  <img class="card-img-top" src='<c:url value="resources/img/sanpham/${listsanpham.getHinh().getHINH() }"/>' alt="Card image cap">
-						  <div class="card-body">
-							<h5 class="card-title">${listsanpham.getSanpham().getTENSANPHAM() }</h5>
-							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							<a href="#" class="btn btn-primary">Go somewhere</a>
-						  </div>
+				<a href="#" style="color: black;text-decoration: none;">
+					<div class="col-md-4 col-lg-3 col-sm-6" style="margin-bottom: 30px; margin-top: 5px;">
+							<div class="card" style="width: 18rem;background-color: #00ffff7d;">
+							  <img class="card-img-top" src='<c:url value="resources/img/sanpham/${listsanpham.getHinh().getHINH() }"/>' alt="Card image cap" style="width: 286px;height: 250px">
+							  <div class="card-body">
+								<h5 class="card-title" style="height: 48px">${listsanpham.getSanpham().getTENSANPHAM() }</h5>
+								<p class="card-text">${listsanpham.getGia().getGIA()} VNĐ<br> <h6>Giảm ${listsanpham.getKhuyenmai().getPHANTRAM()}% Còn :</h6><h3 style="color: red;">${listsanpham.getGia().getGIA()*(1-(listsanpham.getKhuyenmai().getPHANTRAM()/100))} VNĐ</h3></p>
+								<a href="#" class="btn btn-primary">Mua Ngay</a>
+							  </div>
+							</div>
 						</div>
-					</div>
+				</a>	
 				</c:forEach>
 					
-					
-					
-					
-						
-					
-					
-				
-				</div>				
-				<a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Get Started!</a>
-					
+				</div>						
 	</div>
 	</div>
     </section>
