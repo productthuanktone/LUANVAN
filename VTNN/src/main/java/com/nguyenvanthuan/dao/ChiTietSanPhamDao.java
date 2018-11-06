@@ -28,4 +28,13 @@ public class ChiTietSanPhamDao implements ChiTietSanPhamImp {
 				.setFirstResult(0).setMaxResults(20).getResultList();
 		return ListSanPhham;
 	}
+
+	@Override
+	public ChiTietSanPham chiTietSanPham(int id) {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.getCurrentSession();
+		@SuppressWarnings("unchecked")
+		ChiTietSanPham SanPham = (ChiTietSanPham) session.createQuery("from chitietsanpham where MACHITIETSANPHAM="+id+"").getSingleResult();
+		return SanPham;
+	}
 }

@@ -108,7 +108,7 @@
 				<!-- <hr class="dark my-4"> -->
 				<div class="row" >
 				<c:forEach var="listsanpham" items="${danhsachchitiet }">
-				<a href="/VTNN/chitiet/" style="color: black;text-decoration: none;">
+				<a href="/VTNN/chitiet/${listsanpham.getMACHITIETSANPHAM() }" style="color: black;text-decoration: none;">
 					<div class="col-md-4 col-lg-3 col-sm-6" style="margin-bottom: 30px; margin-top: 5px;">
 							<div class="card" style="width: 18rem;background-color: #00ffff7d;">
 							  <img class="card-img-top" src='<c:url value="resources/img/sanpham/${listsanpham.getHinh().getHINH() }"/>' alt="Card image cap" style="width: 286px;height: 250px">

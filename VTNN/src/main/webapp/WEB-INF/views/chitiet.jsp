@@ -94,34 +94,37 @@
 				style="background-color: antiquewhite; height: 600px">
 				<div class="col-md-4 col-lg-4 col-sm-4"
 					style="background-color: #e8cfac;">
-					<img src="<c:url value="/resources/img/sanpham/nouvo.jpg"/>"
+					<img src="<c:url value="/resources/img/sanpham/${chitiet.getHinh().getHINH() }"/>"
 						id="imagechitiet"></<img>
 				</div>
 				<div class="col-md-5 col-lg-5 col-sm-5">
 					<div>
-						<h1>Phân NPK 16/16/8</h1>
+						<h1>${chitiet.getSanpham().getTENSANPHAM()}</h1>
 						<h6>
 							Thương Hiệu:
-							<p style="color: orange;">Đến từ thương hiệu nhật bản</p>
+							<p style="color: orange;">${chitiet.getNhasanxuat().getTENNHASANXUAT() }</p>
 						</h6>
 					</div>
 					<hr>
 					<div>
 						<h5>Mô Tả</h5>
-						<h6>Khi sâu tiếp xúc hoặc ăn phải thuốc sẽ lập tức xuất hiện
-							trạng thái tê liệt, không ăn, không hoạt động, không có khả năng
-							phá hại cây trồng, sau đó từ 2-4 ngày, sâu sẽ chết</h6>
+						<h6>${chitiet.getSanpham().getMOTA()}</h6>
 					</div>
 					<hr>
 					<div>
-						<p class="card-text">150.000 VNĐ<br>
-						<h6>Giảm 10% Còn :</h6>
-						<h3 style="color: red;">145.000 VNĐ</h3>
+						<label>Giá sản phẩm: </label>
+						<p class="card-text">${chitiet.getGia().getGIA()} VNĐ<br>
+						<h6>Giảm ${chitiet.getKhuyenmai().getPHANTRAM()}% Còn:</h6>
+						<h3 style="color: red;">${chitiet.getGia().getGIA()*(1-(chitiet.getKhuyenmai().getPHANTRAM()/100))} VNĐ</h3>
 						</p>
 					</div>
 					<hr>
-					<div>
+					<div style="margin-left: 13px;">
 						<div class="row">
+							<div><lable>Số lượng: </lable></div>			
+							<div><input min="1"class="soluongcuagiohang" type="number"  value="1"></div>			
+						</div>
+						<div class="row" style="margin-top: 5px;">
 							<div>
 								<a href="#" style="text-decoration: none;">
 									<div class="alert alert-success" role="alert"><i class="fas fa-money-bill-alt"></i> MUA NGAY</div>

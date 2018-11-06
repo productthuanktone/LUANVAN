@@ -31,7 +31,7 @@ public class ChiTietSanPham {
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "MANHASANXUAT")
-	NhaSanXuat nhasanpham;
+	NhaSanXuat nhasanxuat;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "MADONVITINH")
@@ -117,12 +117,13 @@ public class ChiTietSanPham {
 		this.gia = gia;
 	}
 
-	public NhaSanXuat getNhasanpham() {
-		return nhasanpham;
+
+	public NhaSanXuat getNhasanxuat() {
+		return nhasanxuat;
 	}
 
-	public void setNhasanpham(NhaSanXuat nhasanpham) {
-		this.nhasanpham = nhasanpham;
+	public void setNhasanxuat(NhaSanXuat nhasanxuat) {
+		this.nhasanxuat = nhasanxuat;
 	}
 
 	public DonViTinh getDonvitinh() {

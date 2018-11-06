@@ -20,4 +20,10 @@ public class ChiTietSanPhamService implements ChiTietSanPhamImp {
 
 		return chiTietSanPhamDao.ListChiTietSanPham();
 	}
+
+	@Override
+	public ChiTietSanPham chiTietSanPham(int id) {
+		
+		return chiTietSanPhamDao.chiTietSanPham(id);
+	}
 }
