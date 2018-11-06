@@ -13,3 +13,21 @@
 .canhgiua{
 	align-items: center;
 }
+#textkhuyenmai{
+	width: 950px;
+	color: orange;
+}
+#imagechitiet{
+	width: 380px;
+	height: 380px;
+	margin-left: -15px;
+}
+.formchitiet{
+	background-color: #faebd745;
+}
+a{
+	text-decoration: none;
+}
+.footertt{
+	font-size: 10px;
+}

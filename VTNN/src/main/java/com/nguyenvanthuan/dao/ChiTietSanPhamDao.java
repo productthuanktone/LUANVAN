@@ -1,4 +1,5 @@
 package com.nguyenvanthuan.dao;
+
 import java.util.List;
 
 import org.hibernate.Session;
@@ -10,22 +11,21 @@ import org.springframework.stereotype.Repository;
 
 import com.nguyenvanthuan.daoImp.ChiTietSanPhamImp;
 import com.nguyenvanthuan.entity.ChiTietSanPham;
-import com.nguyenvanthuan.entity.SanPham;;
+
 
 @Repository
-@Scope(proxyMode=ScopedProxyMode.TARGET_CLASS)
-public class ChiTietSanPhamDao implements ChiTietSanPhamImp{
+@Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)
+public class ChiTietSanPhamDao implements ChiTietSanPhamImp {
 
 	@Autowired
 	SessionFactory sessionFactory;
+
 	@Override
 	public List<ChiTietSanPham> ListChiTietSanPham() {
-		Session session=sessionFactory.getCurrentSession();
-		List<ChiTietSanPham> ListSanPhham=(List<ChiTietSanPham>) session.createQuery("from chitietsanpham").setFirstResult(0).setMaxResults(20).getResultList();
-		for (ChiTietSanPham chiTietSanPham : ListSanPhham) {
-			System.out.println("San Pham "+chiTietSanPham.getSanpham().getTENSANPHAM()+"  "+chiTietSanPham.getGia().getGIA()+" "+chiTietSanPham.getHinh().getHINH());
-		}
+		Session session = sessionFactory.getCurrentSession();
+		@SuppressWarnings("unchecked")
+		List<ChiTietSanPham> ListSanPhham = (List<ChiTietSanPham>) session.createQuery("from chitietsanpham")
+				.setFirstResult(0).setMaxResults(20).getResultList();
 		return ListSanPhham;
 	}
-
 }

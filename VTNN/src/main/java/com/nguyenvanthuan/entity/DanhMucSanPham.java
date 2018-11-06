@@ -20,7 +20,6 @@ public class DanhMucSanPham {
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "MADANHMUC")
 	Set<ChiTietSanPham> chiTietSanPhams;
-
 	int ISDELETE;
 	int DELETEID;
 	Date TIMEDELETE;
