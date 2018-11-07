@@ -31,3 +31,6 @@ a{
 .footertt{
 	font-size: 10px;
 }
+#minwidthchitiet{
+	min-width: 1200px;
+}

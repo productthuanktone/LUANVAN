@@ -115,7 +115,7 @@
 							  <div class="card-body">
 								<h5 class="card-title" style="height: 48px">${listsanpham.getSanpham().getTENSANPHAM() }</h5>
 								<p class="card-text">${listsanpham.getGia().getGIA()} VNĐ<br> <h6>Giảm ${listsanpham.getKhuyenmai().getPHANTRAM()}% Còn :</h6><h3 style="color: red;">${listsanpham.getGia().getGIA()*(1-(listsanpham.getKhuyenmai().getPHANTRAM()/100))} VNĐ</h3></p>
-								<a href="#" class="btn btn-primary">Mua Ngay</a>
+								<a href="/VTNN/chitiet/${listsanpham.getMACHITIETSANPHAM() }" class="btn btn-primary">Xem Chi Tiết</a>
 							  </div>
 							</div>
 						</div>
