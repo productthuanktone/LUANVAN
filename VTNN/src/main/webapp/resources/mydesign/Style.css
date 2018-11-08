@@ -18,7 +18,7 @@
 	color: orange;
 }
 #imagechitiet{
-	width: 380px;
+	width: 400px;
 	height: 380px;
 	margin-left: -15px;
 }
@@ -33,4 +33,25 @@ a{
 }
 #minwidthchitiet{
 	min-width: 1200px;
+}
+.icongiohang{
+	    position: absolute;
+    font-size: 24px;
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+    background-color: #28a745;
+    margin-left: 3px;
+    margin-top: -10px;
+    color: white;
+    text-align: center;
+    line-height: 36px;
+}
+.formgiohang{
+	text-align: center;
+	color: #3f7882;
+	font-size: 25px;
+}
+#tensp{
+	color: #3f7882;
 }

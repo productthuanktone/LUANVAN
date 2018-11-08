@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.nguyenvanthuan.entity.GioHang;
@@ -21,7 +22,8 @@ import com.nguyenvanthuan.entity.GioHang;
 public class ApiController {
 
 	@GetMapping("themgiohang")
-	public void ThemGioHang(@RequestParam int machitiet, @RequestParam int soluong, HttpSession httpSession) {
+	@ResponseBody
+	public String ThemGioHang(@RequestParam int machitiet, @RequestParam int soluong, HttpSession httpSession) {
 		if (null == httpSession.getAttribute("giohang")) {
 			GioHang gioHang = new GioHang();
 			List<GioHang> giohangs = new ArrayList<>();
@@ -29,6 +31,9 @@ public class ApiController {
 			gioHang.setSoluong(soluong);
 			giohangs.add(gioHang);
 			httpSession.setAttribute("giohang", giohangs);
+			List<GioHang> giohangss=(List<GioHang>) httpSession.getAttribute("giohang");
+			System.out.println(giohangss.size());
+			return giohangss.size()+"";
 		} else {
 			List<GioHang> listgiohang = (List<GioHang>) httpSession.getAttribute("giohang");
 			int vitri = KiemTraGioHang(listgiohang,machitiet,httpSession);
@@ -42,12 +47,13 @@ public class ApiController {
 				int soluongmoi = listgiohang.get(vitri).getSoluong() + soluong;
 				listgiohang.get(vitri).setSoluong(soluongmoi);
 			}
-
+			System.out.println(listgiohang.size());
+			return listgiohang.size()+"";
 		}
-		List<GioHang> giohangs=(List<GioHang>) httpSession.getAttribute("giohang");
-		for (GioHang gioHang : giohangs) {
-			System.out.println(gioHang.getMachitietsanpham() + " so luong :" + gioHang.getSoluong());
-		}
+//		List<GioHang> giohangs=(List<GioHang>) httpSession.getAttribute("giohang");
+//		for (GioHang gioHang : giohangs) {
+//			System.out.println(gioHang.getMachitietsanpham() + " so luong :" + gioHang.getSoluong());
+//		}
 		
 	}
 
@@ -58,5 +64,14 @@ public class ApiController {
 			}
 		}
 		return -1;
+	}
+	@GetMapping("Laysoluonggiohang")
+	@ResponseBody
+	public String ThemSanPPham(HttpSession httpSession) {
+		if(null!=httpSession.getAttribute("giohang")) {
+			List<GioHang> listgiohang=(List<GioHang>) httpSession.getAttribute("giohang");
+				return listgiohang.size()+"";
+		}
+		return "";
 	}
 }

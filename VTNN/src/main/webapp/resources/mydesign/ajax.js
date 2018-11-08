@@ -1,7 +1,6 @@
 $(document).ready(
 		function() {
-			$(".btn-giohang").click(function(){
-				//alert();	
+			$(".btn-giohang").click(function(){	
 				var machitiet = $(".btn-giohang").attr("data-idchitiet");
 				var soluong = $("#soluongsp").val();
 				//alert(machitiet+"song luong"+soluong);
@@ -14,10 +13,10 @@ $(document).ready(
 
 					},
 					success : function(value) {
-						$(".sogiohang").html(
-								"<span>" + value + "</span>");
+						//alert("saasdasd");
+						$(".icongiohang").html("<p>"+value+"</p>");
 					}
-
+					
 				});
 			});
 			

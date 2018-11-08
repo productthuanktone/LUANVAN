@@ -57,9 +57,8 @@
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#">CHANGE LANGUAGE</a>
             </li>
-             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">Liên Hệ</a>
-            </li>
+             <li class="nav-item"><a class="nav-link js-scroll-trigger"
+						href="/VTNN/giohang/"><i class="fas fa-cart-arrow-down"></i><span class="icongiohang">${soluonggiohang}</span></a></li>
           </ul>
         </div>
       </div>

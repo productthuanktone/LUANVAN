@@ -69,7 +69,7 @@
 						data-toggle="modal" data-target="#exampleModalCenter1"
 						style="color: orange;">Đăng Nhập</a></li>
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="/VTNN/giohang/"><i class="fas fa-cart-arrow-down"></i><span class="icongiohang"><p>${soluonggiohang}</p></span></a></li>
+						href="#contact"><i class="fas fa-cart-arrow-down"></i><span class="icongiohang"><p>${soluonggiohang}</p></span></a></li>
 				</ul>
 			</div>
 		</div>
@@ -80,7 +80,7 @@
 			<div class="row">
 				<div class="col-lg-10 mx-auto">
 					<h1 class="text-uppercase" id="textkhuyenmai">
-						<strong>KHUYẾN MÃI 10% TRÊN TẤT CẢ CÁC SẢN PHẨM </strong>
+						<strong>GIỎ HÀNG CỦA BẠN</strong>
 					</h1>
 				</div>
 
@@ -92,99 +92,13 @@
 		<div class="container" id="minwidthchitiet">
 			<div class="row"
 				style="background-color: antiquewhite; height: 600px">
-				<div class="col-md-4 col-lg-4 col-sm-4"
-					style="background-color: #e8cfac;">
-					<img src="<c:url value="/resources/img/sanpham/${chitiet.getHinh().getHINH() }"/>"
-						id="imagechitiet"></<img>
+				<div class="col-md-7 col-lg-7 col-sm-7 formgiohang">
+					<div>THÔNG TIN GIỎ HÀNG</div>
 				</div>
-				<div class="col-md-5 col-lg-5 col-sm-5">
-					<div>
-						<h1 id="tensp">${chitiet.getSanpham().getTENSANPHAM()}</h1>
-						<h6>
-							Thương Hiệu:
-							<p style="color: orange;">${chitiet.getNhasanxuat().getTENNHASANXUAT() }</p>
-						</h6>
-					</div>
-					<hr>
-					<div>
-						<h5>Mô Tả</h5>
-						<h6>${chitiet.getSanpham().getMOTA()}</h6>
-					</div>
-					<hr>
-					<div>
-						<label>Giá sản phẩm: </label>
-						<p class="card-text">${chitiet.getGia().getGIA()} VNĐ<br>
-						<h6>Giảm ${chitiet.getKhuyenmai().getPHANTRAM()}% Còn:</h6>
-						<h3 style="color: red;">${chitiet.getGia().getGIA()*(1-(chitiet.getKhuyenmai().getPHANTRAM()/100))} VNĐ</h3>
-						</p>
-					</div>
-					<hr>
-					<div style="margin-left: 13px;">
-						<div class="row">
-							<div><lable>Số lượng: </lable></div>			
-							<div><input min="1"id="soluongsp" type="number" value="1"></div>			
-						</div>
-						<div class="row" style="margin-top: 5px;">
-							<div>
-								<a href="#" style="text-decoration: none;">
-									<div class="alert alert-success" role="alert"><i class="fas fa-money-bill-alt"></i> MUA NGAY</div>
-								</a>
-							</div>
-							<div>
-								<a href="#" style="text-decoration: none;">
-									<div class="alert alert-success btn-giohang" data-idchitiet="${chitiet.getMACHITIETSANPHAM()}" role="alert"><i class="fas fa-cart-plus"></i> THÊM VÀO
-										GIỎ HÀNG</div>
-								</a>
-							</div>
-						</div>
-					</div>
+				<div class="col-md-5 col-lg-5 col-sm-5 formgiohang"style="background-color: #e8cfac;">
+				<div>THÔNG TIN KHÁCH HÀNG</div>
 				</div>
-				<div class="col-md-3 col-lg-3 col-sm-3"
-					style="background-color: #e8cfac;">
-					<div>
-					<h6>Tùy chọn giao hàng</h6>
-					<label style="font-size: 13px"><i class="fas fa-globe-asia"></i> Xã Thạnh Phước, huyện Giồng Riềng, tỉnh Kiên Giang.</label>
-					<label style="color: #1a9cb7; margin-left: 60%"data-toggle="modal" data-target="#exampleModalCenter1">THAY ĐỔI <i class="fas fa-exchange-alt"></i></label>
-					</div>
-					<hr>
-					<div>
-						<h6><i class="fas fa-bus"></i> Giao Hàng Tiêu Chuẩn</h6>
-						<label style="font-size: 13px">1-3 Ngày</label>
-						<label  style="font-size: 15px;color: red;"><i class="fas fa-hand-holding-usd"></i> Thanh toán khi nhận hàng</label>
-					</div>
-					<hr>
-					<div>
-					<h6>Đổi Trả</h6>
-					<label style="font-size: 13px"><i class="far fa-clock"></i> Đổi trả trong vòng 7 ngày</label>
-					<label style="font-size: 13px; color: red;">Đối với các sẩn phẩm còn đủ chắc lượng</label>
-					</div>
-					<hr>
-					<div>
-						<div class="row">
-						<div class="col-4">
-							<label class="footertt">Đánh Giá Tích Cực</label>
-							<h2>79%</h2>
-						</div>
-						<div class="col-4">
-							<label class="footertt">Giao đúng hạn</label>
-							<h2>90%</h2>
-						</div>
-						<div class="col-4">
-							<label class="footertt">Chất lượng</label>
-							<h6><i class="fas fa-star-half-alt"></i><i class="fas fa-star-half-alt"></i><i class="fas fa-star-half-alt"></i><i class="fas fa-star-half-alt"></i><i class="fas fa-star-half-alt"></i></h6>
-						</div>
-						</div>
-					</div>
-					</div>
 			</div>
-		</div>
-	</section>
-	<section class="bg-dark text-white">
-		<div class="container text-center">
-			<h2 class="mb-4">Free Download at Start Bootstrap!</h2>
-			<a class="btn btn-light btn-xl sr-button"
-				href="http://startbootstrap.com/template-overviews/creative/">Download
-				Now!</a>
 		</div>
 	</section>
 
@@ -192,8 +106,6 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 mx-auto text-center">
-					<h2 class="section-heading">Let's Get In Touch!</h2>
-					<hr class="my-4">
 					<p class="mb-5">Ready to start your next project with us?
 						That's great! Give us a call or send us an email and we will get
 						back to you as soon as possible!</p>
