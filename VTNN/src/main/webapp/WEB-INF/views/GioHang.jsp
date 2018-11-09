@@ -40,14 +40,13 @@
 
 </head>
 
-<body id="page-top">
+<body id="page-top" style="height: 100%; min-width: 540px;">
 
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-light fixed-top"
 		id="mainNav1">
 		<div class="container">
-			<a class="navbar-brand js-scroll-trigger" href="/VTNN/">Hương
-				Lúa</a>
+			<a class="navbar-brand js-scroll-trigger" href="/VTNN/">Hương Lúa</a>
 			<button class="navbar-toggler navbar-toggler-right" type="button"
 				data-toggle="collapse" data-target="#navbarResponsive"
 				aria-controls="navbarResponsive" aria-expanded="false"
@@ -69,7 +68,8 @@
 						data-toggle="modal" data-target="#exampleModalCenter1"
 						style="color: orange;">Đăng Nhập</a></li>
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#contact"><i class="fas fa-cart-arrow-down"></i><span class="icongiohang"><p>${soluonggiohang}</p></span></a></li>
+						href="#contact"><i class="fas fa-cart-arrow-down"></i><span
+							class="icongiohang"><p>${soluonggiohang}</p></span></a></li>
 				</ul>
 			</div>
 		</div>
@@ -92,17 +92,69 @@
 		<div class="container" id="minwidthchitiet">
 			<div class="row"
 				style="background-color: antiquewhite; height: 600px">
-				<div class="col-md-7 col-lg-7 col-sm-7 formgiohang">
+				<div class="col-md-8 col-lg-8 col-sm-8 formgiohang">
 					<div>THÔNG TIN GIỎ HÀNG</div>
+					<div>
+						<table class="table" id="tablesp">
+							<thead>
+								<tr>
+									<td>Hình Ảnh</td>
+									<td>Tên Sản Phẩm</td>
+									<td>Số Lượng</td>
+									<td>Giá<span>(VNĐ)</span></td>
+									<td></td>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach var="giohang" items="${giohang}">
+									<tr>
+										<td><img class="hinhgiohang" alt="hinh"
+											src='<c:url value="/resources/img/sanpham/${giohang.getHinh() }"/>' /></td>
+										<td class="tensp" data-idsanpham="">${giohang.getTensanpham() }</td>
+										<td style="color: blue"><input min="1"class="soluongcuagiohang" type="number" value="${giohang.getSoluong() }"></td>
+											<td style="color: red" class="giatien"
+											data-giatien="${giohang.getGia()}"><p>${giohang.getGia()}</p></td>
+										<td class="btnxoa"><i class="fa fa-times fa-lg"></i></td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</div>
+					<div>Tổng Tiền: <span id="tongtien"></span> VNĐ</div>
 				</div>
-				<div class="col-md-5 col-lg-5 col-sm-5 formgiohang"style="background-color: #e8cfac;">
-				<div>THÔNG TIN KHÁCH HÀNG</div>
+				<div class="col-md-4 col-lg-4 col-sm-4 formgiohang2"
+					style="background-color: #e8cfac;">
+					<div>THÔNG TIN KHÁCH HÀNG</div>
+					<div class="font-group" id="tablesp">
+						<form action="" method="POST">
+							<label for="tenkh">Tên khách hàng:</label> <input id="tenkh"
+								name="tenkh" class="form-control"> <label for="sdt">Số
+								điện thoại:</label> <input id="sdt" name="sdt" class="form-control">
+							<div class="radio">
+								<label><input type="radio" name="hinhthucgiaohang"
+									checked="checked" value="Tai Cua Hang"> Nhận hàng tại
+									cửa hàng</label>
+							</div>
+							<div class="radio">
+								<label><input type="radio" name="hinhthucgiaohang"
+									value="Tai Nha"> Nhận hàng tại nhà</label>
+							</div>
+							<label for="diachigiaohang">Địa chỉ:</label> <input
+								id="diachigiaohang" name="diachigiaohang" class="form-control">
+							<div class="form-group">
+								<label for="comment">Ghi chu:</label>
+								<textarea class="form-control" rows="5" id="comment"
+									name="ghichu"></textarea>
+							</div>
+							<input type="submit" class="btn btn-primary" value="Đặt Hàng">
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<section id="contact">
+	<section id="contact" class="footer">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 mx-auto text-center">
@@ -128,7 +180,7 @@
 
 	<!-- Bootstrap core JavaScript -->
 	<script src='<c:url value="/resources/vendor/jquery/jquery.min.js"/>'></script>
-	
+
 	<script
 		src='<c:url value="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"/>'></script>
 
@@ -142,7 +194,7 @@
 
 	<!-- Custom scripts for this template -->
 	<script src='<c:url value="/resources/js/creative.min.js"/>'></script>
-	
+
 </body>
 <div class="modal fade" id="exampleModalCenter1"
 	aria-labelledby="exampleModalCenterTitle" disabled="false">

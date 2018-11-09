@@ -23,12 +23,15 @@ public class ApiController {
 
 	@GetMapping("themgiohang")
 	@ResponseBody
-	public String ThemGioHang(@RequestParam int machitiet, @RequestParam int soluong, HttpSession httpSession) {
+	public String ThemGioHang(HttpSession httpSession,@RequestParam int machitiet, @RequestParam int soluong,@RequestParam String tensanpham,@RequestParam String hinh,@RequestParam float gia) {
 		if (null == httpSession.getAttribute("giohang")) {
 			GioHang gioHang = new GioHang();
 			List<GioHang> giohangs = new ArrayList<>();
 			gioHang.setMachitietsanpham(machitiet);
 			gioHang.setSoluong(soluong);
+			gioHang.setHinh(hinh);
+			gioHang.setGia(gia);
+			gioHang.setTensanpham(tensanpham);
 			giohangs.add(gioHang);
 			httpSession.setAttribute("giohang", giohangs);
 			List<GioHang> giohangss=(List<GioHang>) httpSession.getAttribute("giohang");
@@ -41,6 +44,9 @@ public class ApiController {
 				GioHang gioHang = new GioHang();
 				gioHang.setMachitietsanpham(machitiet);
 				gioHang.setSoluong(1);
+				gioHang.setHinh(hinh);
+				gioHang.setGia(gia);
+				gioHang.setTensanpham(tensanpham);
 				listgiohang.add(gioHang);
 			}
 			else {

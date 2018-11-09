@@ -52,6 +52,27 @@ a{
 	color: #3f7882;
 	font-size: 25px;
 }
+.formgiohang2{
+	/* text-align: center; */
+	color: #3f7882;
+	font-size: 25px;
+}
 #tensp{
 	color: #3f7882;
+}
+#tablesp{
+	font-size: 15px;
+}
+.hinhgiohang{
+	    height: 50px;
+    width: 50px;
+}
+.footer{
+	background-color: #81a6ad;
+}
+#tongtien{
+	color: red;
+}
+.soluongcuagiohang{
+	width: 100px;
 }

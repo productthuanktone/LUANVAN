@@ -40,7 +40,7 @@
 
 </head>
 
-<body id="page-top">
+<body id="page-top"style="height: 100%; min-width: 540px;">
 
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-light fixed-top"
@@ -94,12 +94,12 @@
 				style="background-color: antiquewhite; height: 600px">
 				<div class="col-md-4 col-lg-4 col-sm-4"
 					style="background-color: #e8cfac;">
-					<img src="<c:url value="/resources/img/sanpham/${chitiet.getHinh().getHINH() }"/>"
+					<img class="hinh" data-hinh="${chitiet.getHinh().getHINH()}"src="<c:url value="/resources/img/sanpham/${chitiet.getHinh().getHINH() }"/>"
 						id="imagechitiet"></<img>
 				</div>
 				<div class="col-md-5 col-lg-5 col-sm-5">
 					<div>
-						<h1 id="tensp">${chitiet.getSanpham().getTENSANPHAM()}</h1>
+						<h1 id="tensp" class="tensanpham" data-tensanpham="${chitiet.getSanpham().getTENSANPHAM()}">${chitiet.getSanpham().getTENSANPHAM()}</h1>
 						<h6>
 							Thương Hiệu:
 							<p style="color: orange;">${chitiet.getNhasanxuat().getTENNHASANXUAT() }</p>
@@ -108,12 +108,12 @@
 					<hr>
 					<div>
 						<h5>Mô Tả</h5>
-						<h6>${chitiet.getSanpham().getMOTA()}</h6>
+						<h6">${chitiet.getSanpham().getMOTA()}</h6>
 					</div>
 					<hr>
 					<div>
 						<label>Giá sản phẩm: </label>
-						<p class="card-text">${chitiet.getGia().getGIA()} VNĐ<br>
+						<p class="card-text gia" data-gia="${chitiet.getGia().getGIA()}">${chitiet.getGia().getGIA()} VNĐ<br>
 						<h6>Giảm ${chitiet.getKhuyenmai().getPHANTRAM()}% Còn:</h6>
 						<h3 style="color: red;">${chitiet.getGia().getGIA()*(1-(chitiet.getKhuyenmai().getPHANTRAM()/100))} VNĐ</h3>
 						</p>
@@ -179,16 +179,7 @@
 			</div>
 		</div>
 	</section>
-	<section class="bg-dark text-white">
-		<div class="container text-center">
-			<h2 class="mb-4">Free Download at Start Bootstrap!</h2>
-			<a class="btn btn-light btn-xl sr-button"
-				href="http://startbootstrap.com/template-overviews/creative/">Download
-				Now!</a>
-		</div>
-	</section>
-
-	<section id="contact">
+	<section id="contact" class="footer">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 mx-auto text-center">

@@ -27,7 +27,7 @@
 
   </head>
 
-  <body id="page-top">
+  <body id="page-top" style="style="height: 100%; min-width: 540px;"">
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
@@ -273,7 +273,7 @@
       </div>
     </section>
 
-    <section id="contact">
+    <section id="contact" class="footer">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto text-center">
