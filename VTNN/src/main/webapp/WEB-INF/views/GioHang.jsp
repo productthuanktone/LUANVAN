@@ -110,7 +110,7 @@
 									<tr>
 										<td><img class="hinhgiohang" alt="hinh"
 											src='<c:url value="/resources/img/sanpham/${giohang.getHinh() }"/>' /></td>
-										<td class="tensp" data-idsanpham="">${giohang.getTensanpham() }</td>
+										<td class="tensp" data-machitietsp="${giohang.getMachitietsanpham() }">${giohang.getTensanpham() }</td>
 										<td style="color: blue"><input min="1"class="soluongcuagiohang" type="number" value="${giohang.getSoluong() }"></td>
 											<td style="color: red" class="giatien"
 											data-giatien="${giohang.getGia()}"><p>${giohang.getGia()}</p></td>
@@ -132,20 +132,21 @@
 								điện thoại:</label> <input id="sdt" name="sdt" class="form-control">
 							<div class="radio">
 								<label><input type="radio" name="hinhthucgiaohang"
-									checked="checked" value="Tai Cua Hang"> Nhận hàng tại
+									checked="checked" value="1"> Nhận hàng tại
 									cửa hàng</label>
 							</div>
 							<div class="radio">
 								<label><input type="radio" name="hinhthucgiaohang"
-									value="Tai Nha"> Nhận hàng tại nhà</label>
+									value="0"> Nhận hàng tại nhà</label>
 							</div>
 							<label for="diachigiaohang">Địa chỉ:</label> <input
 								id="diachigiaohang" name="diachigiaohang" class="form-control">
 							<div class="form-group">
 								<label for="comment">Ghi chu:</label>
 								<textarea class="form-control" rows="5" id="comment"
-									name="ghichu"></textarea>
+									name="mota"></textarea>
 							</div>
+							
 							<input type="submit" class="btn btn-primary" value="Đặt Hàng">
 						</form>
 					</div>

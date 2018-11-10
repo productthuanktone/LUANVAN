@@ -18,10 +18,13 @@ public class HoaDon {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int MAHOADON;
 	int TINHTRANG;
+	int HINHTHUCGIAOHANG;
+	String MOTA;
+	String DIACHIGIAOHANG;
+	float TONGGIA;
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "MANHANVIEN")
 	NhanVien nhanvien;
-
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "MAKHACHHANG")
 	KhachHang khachhang;
@@ -36,6 +39,46 @@ public class HoaDon {
 	Date TIMECREATE;
 	int UPDATEID;
 	Date TIMEUPDATE;
+
+	public float getTONGGIA() {
+		return TONGGIA;
+	}
+
+	public void setTONGGIA(float tONGGIA) {
+		TONGGIA = tONGGIA;
+	}
+
+	public String getDIACHIGIAOHANG() {
+		return DIACHIGIAOHANG;
+	}
+
+	public void setDIACHIGIAOHANG(String dIACHIGIAOHANG) {
+		DIACHIGIAOHANG = dIACHIGIAOHANG;
+	}
+
+	public int getHINHTHUCGIAOHANG() {
+		return HINHTHUCGIAOHANG;
+	}
+
+	public void setHINHTHUCGIAOHANG(int hINHTHUCGIAOHANG) {
+		HINHTHUCGIAOHANG = hINHTHUCGIAOHANG;
+	}
+
+	public String getMOTA() {
+		return MOTA;
+	}
+
+	public void setMOTA(String mOTA) {
+		MOTA = mOTA;
+	}
+
+	public Set<ChiTietHoaDon> getChitiethoadon() {
+		return chitiethoadon;
+	}
+
+	public void setChitiethoadon(Set<ChiTietHoaDon> chitiethoadon) {
+		this.chitiethoadon = chitiethoadon;
+	}
 
 	public int getMAHOADON() {
 		return MAHOADON;

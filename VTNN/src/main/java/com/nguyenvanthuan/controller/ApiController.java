@@ -80,4 +80,26 @@ public class ApiController {
 		}
 		return "";
 	}
+	@GetMapping("thaydoisoluong")
+	@ResponseBody
+	public void capnhatgiohang(HttpSession httpSession,@RequestParam int machitiet, @RequestParam int soluong) {
+		if(null!=httpSession.getAttribute("giohang")) {
+			List<GioHang> listgiohang=(List<GioHang>) httpSession.getAttribute("giohang");
+			int vitri = KiemTraGioHang(listgiohang,machitiet,httpSession);
+		
+			listgiohang.get(vitri).setSoluong(soluong);
+		}
+		
+	}
+	@GetMapping("xoasanphamtronggiohang")
+	@ResponseBody
+	public void xoasanphamtronggiohang(HttpSession httpSession,@RequestParam int machitiet) {
+		if(null!=httpSession.getAttribute("giohang")) {
+			List<GioHang> listgiohang=(List<GioHang>) httpSession.getAttribute("giohang");
+			int vitri = KiemTraGioHang(listgiohang,machitiet,httpSession);
+		
+			listgiohang.remove(vitri);
+		}
+		
+	}
 }

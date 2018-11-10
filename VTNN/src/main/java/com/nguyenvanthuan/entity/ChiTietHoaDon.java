@@ -16,10 +16,8 @@ public class ChiTietHoaDon {
 	int SOLUONG;
 	float TONGGIA;
 	String MOTA;
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "MACHITIETSANPHAM")
-	ChiTietSanPham chitietsanpham;
-	
+
+	int MACHITIETSANPHAM;
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "MAHOADON")
 	HoaDon hoadon;
@@ -56,12 +54,13 @@ public class ChiTietHoaDon {
 		TONGGIA = tONGGIA;
 	}
 
-	public ChiTietSanPham getChitietsanpham() {
-		return chitietsanpham;
+
+	public int getMACHITIETSANPHAM() {
+		return MACHITIETSANPHAM;
 	}
 
-	public void setChitietsanpham(ChiTietSanPham chitietsanpham) {
-		this.chitietsanpham = chitietsanpham;
+	public void setMACHITIETSANPHAM(int mACHITIETSANPHAM) {
+		MACHITIETSANPHAM = mACHITIETSANPHAM;
 	}
 
 	public HoaDon getHoadon() {
