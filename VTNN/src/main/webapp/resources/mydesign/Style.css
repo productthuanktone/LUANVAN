@@ -1,78 +1,99 @@
-#backgroundsanpham{
-	background-color:rgba(212, 237, 218, 0.36)!important;
-	
-}
-.textblack{
-	color:black;
+#backgroundsanpham {
+	background-color: rgba(212, 237, 218, 0.36) !important;
 }
 
-#imgbanner{
-	height:100px;
-	width:1000px;
+.textblack {
+	color: black;
 }
-.canhgiua{
+
+#imgbanner {
+	height: 100px;
+	width: 1000px;
+}
+
+.canhgiua {
 	align-items: center;
 }
-#textkhuyenmai{
+
+#textkhuyenmai {
 	width: 950px;
 	color: orange;
 }
-#imagechitiet{
+
+#imagechitiet {
 	width: 400px;
 	height: 380px;
 	margin-left: -15px;
 }
-.formchitiet{
+
+.formchitiet {
 	background-color: #faebd745;
 }
-a{
+
+a {
 	text-decoration: none;
 }
-.footertt{
+
+.footertt {
 	font-size: 10px;
 }
-#minwidthchitiet{
+
+#minwidthchitiet {
 	min-width: 1200px;
 }
-.icongiohang{
-	    position: absolute;
-    font-size: 24px;
-    height: 40px;
-    width: 40px;
-    border-radius: 20px;
-    background-color: #28a745;
-    margin-left: 3px;
-    margin-top: -10px;
-    color: white;
-    text-align: center;
-    line-height: 36px;
+
+.icongiohang {
+	position: absolute;
+	font-size: 24px;
+	height: 40px;
+	width: 40px;
+	border-radius: 20px;
+	background-color: #28a745;
+	margin-left: 3px;
+	margin-top: -10px;
+	color: white;
+	text-align: center;
+	line-height: 36px;
 }
-.formgiohang{
+
+.formgiohang {
 	text-align: center;
 	color: #3f7882;
 	font-size: 25px;
 }
-.formgiohang2{
+
+.formgiohang2 {
 	/* text-align: center; */
 	color: #3f7882;
 	font-size: 25px;
 }
-#tensp{
+
+#tensp {
 	color: #3f7882;
 }
-#tablesp{
+
+#tablesp {
 	font-size: 15px;
 }
-.hinhgiohang{
-	    height: 50px;
-    width: 50px;
+
+.hinhgiohang {
+	height: 50px;
+	width: 50px;
 }
-.footer{
+
+.footer {
 	background-color: #81a6ad;
 }
-#tongtien{
+
+#tongtien {
 	color: red;
 }
-.soluongcuagiohang{
+
+.soluongcuagiohang {
 	width: 100px;
+}
+
+#formdangnhap {
+	width: 500px;
+	color: #3f7882;
 }

@@ -21,7 +21,7 @@ import com.nguyenvanthuan.service.SanPhamService;
 
 @Controller
 @RequestMapping("/")
-@SessionAttributes("giohang")
+@SessionAttributes("giohang,tendangnhap")
 public class TrangChuController {
 	@Autowired
 	SanPhamService sanphamService;

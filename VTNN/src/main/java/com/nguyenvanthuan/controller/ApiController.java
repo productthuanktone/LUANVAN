@@ -1,26 +1,30 @@
 package com.nguyenvanthuan.controller;
 
-import static org.hamcrest.CoreMatchers.theInstance;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
+import javax.transaction.Transactional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.nguyenvanthuan.entity.GioHang;
+import com.nguyenvanthuan.service.TaiKhoanSevice;
 
 @Controller
 @RequestMapping("api/")
 @SessionAttributes("giohang")
 public class ApiController {
-
+	@Autowired
+	TaiKhoanSevice taikhoanService;
 	@GetMapping("themgiohang")
 	@ResponseBody
 	public String ThemGioHang(HttpSession httpSession,@RequestParam int machitiet, @RequestParam int soluong,@RequestParam String tensanpham,@RequestParam String hinh,@RequestParam float gia) {
@@ -101,5 +105,22 @@ public class ApiController {
 			listgiohang.remove(vitri);
 		}
 		
+	}
+	@PostMapping
+	@Transactional
+	public String XuLyDangNhap(@RequestParam String tendangnhap, @RequestParam String matkhau,ModelMap map) {
+		boolean kiemtra = taikhoanService.kiemtradangnhap(tendangnhap, matkhau);
+		if(kiemtra) {
+			map.addAttribute("tendangnhap", tendangnhap);
+			System.out.println("Success");
+			return "redirect:quanly";
+		}
+		else {
+			String error="Lỗi đăng nhập!Sai email hoặc mật khẩu";
+			System.out.println("failure");
+			map.addAttribute("error", error);
+			return "NewDangNhap";
+		}
+
 	}
 }

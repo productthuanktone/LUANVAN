@@ -15,21 +15,12 @@ public class ChiTietHoaDon {
 	int MACHITIETHOADON;
 	int SOLUONG;
 	float TONGGIA;
-	String MOTA;
-
 	int MACHITIETSANPHAM;
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "MAHOADON")
 	HoaDon hoadon;
 
-	public String getMOTA() {
-		return MOTA;
-	}
-
-	public void setMOTA(String mOTA) {
-		MOTA = mOTA;
-	}
-
+	
 	public int getMACHITIETHOADON() {
 		return MACHITIETHOADON;
 	}

@@ -20,7 +20,7 @@ public class HoaDonDao implements HoaDonImp {
 	public boolean ThemHoaDon(HoaDon hoadon) {
 		// TODO Auto-generated method stub
 		Session session=sessionFactory.getCurrentSession();
-		long id=(long) session.save(hoadon);
+		int id=(int) session.save(hoadon);
 		if(0<id) {
 			return true;
 		}
