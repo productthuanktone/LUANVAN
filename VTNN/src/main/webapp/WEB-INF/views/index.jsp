@@ -41,23 +41,36 @@
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#about">Tin Tức Nông Nghiệp</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#services">Chăm Sóc Khách Hàng</a>
-            </li>
 			 <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#services">Kiểm Tra Đơn Hàng</a>
             </li>
-			 <li class="nav-item">
-              <a class="btn btn-primary"  href="/VTNN/dangnhap/">Đăng Nhập</a>
-            </li>
-            <li class="nav-item">
-              <a class="btn btn-primary"  href="/VTNN/dangnhap/">Đăng Ký</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#">CHANGE LANGUAGE</a>
-            </li>
-             <li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="/VTNN/giohang/"><i class="fas fa-cart-arrow-down"></i><span class="icongiohang">${soluonggiohang}</span></a></li>
+	
+             <li class="nav-item"><a class="nav-link js-scroll-trigger"href="/VTNN/giohang/">Giỏ hàng <i class="fas fa-cart-arrow-down"></i><span class="icongiohang">${soluonggiohang}</span></a></li>
+			<c:choose>
+			    <c:when test="${tendangnhap !=null}">
+			    <div class="btn-group cachdangnhap">
+						  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    ${tendangnhap}
+						  </button>
+						  <div class="dropdown-menu">
+						    <a class="dropdown-item" href="#">Thông Tin Cá Nhân</a>
+						    <a class="dropdown-item" href="#">Thông Tin Giỏ Hàng</a>
+						    <a class="dropdown-item" href="#">Something else here</a>
+						    <div class="dropdown-divider"></div>
+						    <a class="dropdown-item" href="#">Đăng Xuất</a>
+						  </div>
+						</div>
+			    </c:when>    
+			    <c:otherwise>
+			         <li class="nav-item cachdangnhap">
+			              <a class="btn btn-primary"  href="/VTNN/dangnhap/">Đăng Nhập</a>
+			          </li>
+			          <li class="nav-item">
+			              <a class="btn btn-primary"  href="/VTNN/dangnhap/">Đăng Ký</a>
+            		</li>
+			        <br />
+			    </c:otherwise>
+			</c:choose>
           </ul>
         </div>
       </div>

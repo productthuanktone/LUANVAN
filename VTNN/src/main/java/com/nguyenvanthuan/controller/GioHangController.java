@@ -1,9 +1,9 @@
 package com.nguyenvanthuan.controller;
 
+import static org.hamcrest.CoreMatchers.endsWith;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -12,7 +12,6 @@ import java.util.Set;
 import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,29 +23,40 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.nguyenvanthuan.entity.ChiTietHoaDon;
-import com.nguyenvanthuan.entity.ChiTietSanPham;
 import com.nguyenvanthuan.entity.GioHang;
 import com.nguyenvanthuan.entity.HoaDon;
+import com.nguyenvanthuan.entity.KhachHang;
+import com.nguyenvanthuan.entity.TaiKhoan;
 import com.nguyenvanthuan.service.HoaDonService;
+import com.nguyenvanthuan.service.KhachHangSevice;
+import com.nguyenvanthuan.service.TaiKhoanSevice;
 
 @Controller
 @RequestMapping("giohang/")
-@SessionAttributes("giohang")
+@SessionAttributes("giohang,tendangnhap")
 public class GioHangController {
 	@Autowired
 	HoaDonService hoadonservice;
 	@Autowired
 	SessionFactory sesionFactory;
-
+	@Autowired
+	TaiKhoanSevice taikhoanSV;
+	@Autowired
+	KhachHangSevice khachhangservice;
 	@GetMapping
 	@Transactional
 	public String GioHang(ModelMap modelMap, HttpSession httpSession) {
 		if (null != httpSession.getAttribute("giohang")) {
+			@SuppressWarnings("unchecked")
 			List<GioHang> listgiohang = (List<GioHang>) httpSession.getAttribute("giohang");
 			modelMap.addAttribute("soluonggiohang", listgiohang.size());
 			modelMap.addAttribute("giohang", listgiohang);
 		}
-
+		String tendangnhap=(String) httpSession.getAttribute("tendangnhap");
+		TaiKhoan taiKhoan=taikhoanSV.laytaikhoan(tendangnhap);
+		System.out.println(taiKhoan.getKhachhang().getHOTEN());
+		//System.out.println(tendangnhap);
+		modelMap.addAttribute("taikhoan",taiKhoan);
 		return "GioHang";
 	}
 
@@ -54,10 +64,9 @@ public class GioHangController {
 	@Transactional
 	public String MuaHang( @RequestParam int hinhthucgiaohang,
 			@RequestParam String diachigiaohang, @RequestParam String mota,
-			 HttpSession httpSession) {
-		Session session=sesionFactory.getCurrentSession();
+			 HttpSession httpSession,ModelMap modelMap) {
 		System.out.println("adssdfasdad");
-		// if (null != httpSession.getAttribute("giohang")) {
+		 if (null != httpSession.getAttribute("giohang")) {
 		List<GioHang> listgiohang=(List<GioHang>) httpSession.getAttribute("giohang");
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date = new Date();
@@ -83,22 +92,29 @@ public class GioHangController {
 //		 
 //		 chiTietHoaDons.add(chiTietHoaDon);
 //		 chiTietHoaDons.add(chiTietHoaDon1);
-		
+		 String tendangnhap=(String) httpSession.getAttribute("tendangnhap");
+			TaiKhoan taiKhoan=taikhoanSV.laytaikhoan(tendangnhap);
+			int makhachhang=taiKhoan.getKhachhang().getMAKHACHHANG();
+			KhachHang khachHang=khachhangservice.khachhang(makhachhang);
 		 HoaDon hoaDon = new HoaDon();
 		 hoaDon.setHINHTHUCGIAOHANG(hinhthucgiaohang);
 		 hoaDon.setDIACHIGIAOHANG(diachigiaohang);
 		 hoaDon.setMOTA(mota);
 		 hoaDon.setTIMECREATE((date));
+		 hoaDon.setKhachhang(khachHang);
 		 hoaDon.setChitiethoadon(chiTietHoaDons);
-		 session.save(hoaDon);
-//		 if (hoadonservice.ThemHoaDon(hoaDon)) {
-//		 System.out.println("Them TC");
-//		 } else {
-//		 System.out.println("Them TB");
-//		 }
-//		 }
-//		 @RequestParam float tonggia,
-		
-		return "GioHang";
-	}
-}
+		 if (hoadonservice.ThemHoaDon(hoaDon)) {
+		 System.out.println("Them TC");
+		 httpSession.removeAttribute("giohang");
+		 String thanhcong="Đặt Hàng Thành Công!";
+		 modelMap.addAttribute("tc", thanhcong);
+		 } else {
+		 System.out.println("Them TB");
+		 String thatbai="Đặt Hàng không Thành Công!";
+		 modelMap.addAttribute("tc", thatbai);
+		 }
+	 }
+	// @RequestParam float tonggia,
+
+	return"GioHang";
+}}

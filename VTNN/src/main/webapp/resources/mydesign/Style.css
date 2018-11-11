@@ -48,7 +48,7 @@ a {
 	height: 40px;
 	width: 40px;
 	border-radius: 20px;
-	background-color: #28a745;
+	background-color: #f05f40;
 	margin-left: 3px;
 	margin-top: -10px;
 	color: white;
@@ -96,4 +96,17 @@ a {
 #formdangnhap {
 	width: 500px;
 	color: #3f7882;
+}
+
+.cachdangnhap {
+	margin-left: 40px;
+}
+
+#texttendangnhap {
+	color: #dc3545 !important;
+}
+
+#thanhcong {
+	font-size: 60px;
+	margin-top: 128px;
 }

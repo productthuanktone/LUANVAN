@@ -35,4 +35,13 @@ public class TaiKhoanDAO implements TaiKhoanImp {
 		}
 	}
 
+	@Override
+	@Transactional
+	public TaiKhoan laytaikhoan(String tendangnhap) {
+		// TODO Auto-generated method stub
+		Session session=sessionFactory.getCurrentSession();
+		TaiKhoan taikhoan = (TaiKhoan) session.createQuery("from taikhoan where TENDANGNHAP='" + tendangnhap + "'").getSingleResult();
+		return taikhoan;
+	}
+
 }

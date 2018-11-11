@@ -121,15 +121,21 @@
 						</table>
 					</div>
 					<div>Tổng Tiền: <span id="tongtien"></span> VNĐ</div>
+					
+					<div id="thanhcong">${tc }</div>
+					<c:if test="${giohang.size() ==null}">
+						<a type="submit" class="btn btn-primary" href="/VTNN/">Tiếp Tục Mua hàng</a>
+					</c:if>
 				</div>
 				<div class="col-md-4 col-lg-4 col-sm-4 formgiohang2"
 					style="background-color: #e8cfac;">
 					<div>THÔNG TIN KHÁCH HÀNG</div>
 					<div class="font-group" id="tablesp">
 						<form action="" method="POST">
-							<label for="tenkh">Tên khách hàng:</label> <input id="tenkh"
-								name="tenkh" class="form-control"> <label for="sdt">Số
-								điện thoại:</label> <input id="sdt" name="sdt" class="form-control">
+							<label for="tenkh">Tên khách hàng:</label> 
+							<input id="tenkh"name="tenkh" class="form-control" value="${taikhoan.getKhachhang().getHOTEN()}" disabled="disabled"> 
+							<label for="sdt">Số điện thoại:</label> 
+							<input id="sdt" name="sdt" class="form-control" value="${taikhoan.getKhachhang().getSODIENTHOAI()}" disabled="disabled">
 							<div class="radio">
 								<label><input type="radio" name="hinhthucgiaohang"
 									checked="checked" value="1"> Nhận hàng tại
@@ -140,14 +146,21 @@
 									value="0"> Nhận hàng tại nhà</label>
 							</div>
 							<label for="diachigiaohang">Địa chỉ:</label> <input
-								id="diachigiaohang" name="diachigiaohang" class="form-control">
+								id="diachigiaohang" name="diachigiaohang" class="form-control" value="${taikhoan.getKhachhang().getDIACHI() }">
 							<div class="form-group">
 								<label for="comment">Ghi chu:</label>
 								<textarea class="form-control" rows="5" id="comment"
 									name="mota"></textarea>
 							</div>
+							<c:choose>
+							    <c:when test="${giohang.size() !=null}">
+							    <input type="submit" class="btn btn-primary" value="Đặt Hàng">
+							    </c:when>    
+							    <c:otherwise>
+							       
+							    </c:otherwise>
+							</c:choose>
 							
-							<input type="submit" class="btn btn-primary" value="Đặt Hàng">
 						</form>
 					</div>
 				</div>

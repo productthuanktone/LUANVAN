@@ -68,6 +68,7 @@
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
 						data-toggle="modal" data-target="#exampleModalCenter1"
 						style="color: orange;">Đăng Nhập</a></li>
+						
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
 						href="/VTNN/giohang/"><i class="fas fa-cart-arrow-down"></i><span class="icongiohang"><p>${soluonggiohang}</p></span></a></li>
 				</ul>

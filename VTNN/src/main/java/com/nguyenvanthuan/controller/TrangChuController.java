@@ -44,7 +44,10 @@ public class TrangChuController {
 			modelMap.addAttribute("soluonggiohang",listgiohang.size());
 		}
 		List<ChiTietSanPham> ListChiTietSP=chitietsasnphamservice.ListChiTietSanPham();
+		String tendangnhap=(String) httpSession.getAttribute("tendangnhap");
 		modelMap.addAttribute("danhsachchitiet",ListChiTietSP);
+		modelMap.addAttribute("tendangnhap", tendangnhap);
+		System.out.println(tendangnhap);
 		return "index";
 	}
 }
