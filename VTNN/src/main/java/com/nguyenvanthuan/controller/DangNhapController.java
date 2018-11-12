@@ -52,4 +52,9 @@ public class DangNhapController {
 		}
 
 	}
+	@PostMapping("dangxuat")
+	public String DangXuat(HttpSession httpSession) {
+		httpSession.removeAttribute("tendangnhap");
+		return "redirect:/";
+	}
 }

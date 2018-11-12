@@ -40,8 +40,14 @@ public class TaiKhoanDAO implements TaiKhoanImp {
 	public TaiKhoan laytaikhoan(String tendangnhap) {
 		// TODO Auto-generated method stub
 		Session session=sessionFactory.getCurrentSession();
-		TaiKhoan taikhoan = (TaiKhoan) session.createQuery("from taikhoan where TENDANGNHAP='" + tendangnhap + "'").getSingleResult();
-		return taikhoan;
+		try {
+			TaiKhoan taikhoan = (TaiKhoan) session.createQuery("from taikhoan where TENDANGNHAP='" + tendangnhap + "'").getSingleResult();
+			return taikhoan;
+		} catch (Exception e) {
+			return null;
+		}
+		
+		
 	}
 
 }

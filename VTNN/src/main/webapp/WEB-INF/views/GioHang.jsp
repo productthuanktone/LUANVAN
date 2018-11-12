@@ -110,9 +110,12 @@
 									<tr>
 										<td><img class="hinhgiohang" alt="hinh"
 											src='<c:url value="/resources/img/sanpham/${giohang.getHinh() }"/>' /></td>
-										<td class="tensp" data-machitietsp="${giohang.getMachitietsanpham() }">${giohang.getTensanpham() }</td>
-										<td style="color: blue"><input min="1"class="soluongcuagiohang" type="number" value="${giohang.getSoluong() }"></td>
-											<td style="color: red" class="giatien"
+										<td class="tensp"
+											data-machitietsp="${giohang.getMachitietsanpham() }">${giohang.getTensanpham() }</td>
+										<td style="color: blue"><input min="1"
+											class="soluongcuagiohang" type="number"
+											value="${giohang.getSoluong() }"></td>
+										<td style="color: red" class="giatien"
 											data-giatien="${giohang.getGia()}"><p>${giohang.getGia()}</p></td>
 										<td class="btnxoa"><i class="fa fa-times fa-lg"></i></td>
 									</tr>
@@ -120,11 +123,14 @@
 							</tbody>
 						</table>
 					</div>
-					<div>Tổng Tiền: <span id="tongtien"></span> VNĐ</div>
-					
+					<div>
+						Tổng Tiền: <span id="tongtien"></span> VNĐ
+					</div>
+
 					<div id="thanhcong">${tc }</div>
 					<c:if test="${giohang.size() ==null}">
-						<a type="submit" class="btn btn-primary" href="/VTNN/">Tiếp Tục Mua hàng</a>
+						<a type="submit" class="btn btn-primary" href="/VTNN/">Tiếp
+							Tục Mua hàng</a>
 					</c:if>
 				</div>
 				<div class="col-md-4 col-lg-4 col-sm-4 formgiohang2"
@@ -132,35 +138,45 @@
 					<div>THÔNG TIN KHÁCH HÀNG</div>
 					<div class="font-group" id="tablesp">
 						<form action="" method="POST">
-							<label for="tenkh">Tên khách hàng:</label> 
-							<input id="tenkh"name="tenkh" class="form-control" value="${taikhoan.getKhachhang().getHOTEN()}" disabled="disabled"> 
-							<label for="sdt">Số điện thoại:</label> 
-							<input id="sdt" name="sdt" class="form-control" value="${taikhoan.getKhachhang().getSODIENTHOAI()}" disabled="disabled">
+							<c:choose>
+								<c:when test="${taikhoan!=null}">
+									<label for="tenkh">Tên khách hàng:</label>
+									<input id="tenkh" name="tenkhachhang" class="form-control"value="${taikhoan.getKhachhang().getHOTEN()}">
+									<label for="sdt">Số điện thoại:</label>
+									<input id="sdt" name="sodienthoai" class="form-control"value="${taikhoan.getKhachhang().getSODIENTHOAI()}">
+								</c:when>
+								<c:otherwise>
+								<lable>Bạn có muốn đăng nhập không ?</lable><a href="/VTNN/dangnhap/" style="color: red;">Đăng Nhập</a>
+									<label for="tenkh">Tên khách hàng:</label>
+									<input id="tenkh" name="tenkhachhang" class="form-control">
+									<label for="sdt">Số điện thoại:</label>
+									<input id="sdt" name="sodienthoai" class="form-control">
+								</c:otherwise>
+							</c:choose>
 							<div class="radio">
 								<label><input type="radio" name="hinhthucgiaohang"
-									checked="checked" value="1"> Nhận hàng tại
-									cửa hàng</label>
+									checked="checked" value="1"> Nhận hàng tại cửa hàng</label>
 							</div>
 							<div class="radio">
 								<label><input type="radio" name="hinhthucgiaohang"
 									value="0"> Nhận hàng tại nhà</label>
 							</div>
 							<label for="diachigiaohang">Địa chỉ:</label> <input
-								id="diachigiaohang" name="diachigiaohang" class="form-control" value="${taikhoan.getKhachhang().getDIACHI() }">
+								id="diachigiaohang" name="diachigiaohang" class="form-control"
+								value="${taikhoan.getKhachhang().getDIACHI() }">
 							<div class="form-group">
 								<label for="comment">Ghi chu:</label>
-								<textarea class="form-control" rows="5" id="comment"
-									name="mota"></textarea>
+								<textarea class="form-control" rows="5" id="comment" name="mota"></textarea>
 							</div>
 							<c:choose>
-							    <c:when test="${giohang.size() !=null}">
-							    <input type="submit" class="btn btn-primary" value="Đặt Hàng">
-							    </c:when>    
-							    <c:otherwise>
-							       
-							    </c:otherwise>
+								<c:when test="${giohang.size() !=null}">
+									<input type="submit" class="btn btn-primary" value="Đặt Hàng">
+								</c:when>
+								<c:otherwise>
+
+								</c:otherwise>
 							</c:choose>
-							
+
 						</form>
 					</div>
 				</div>

@@ -21,6 +21,8 @@ public class HoaDon {
 	int HINHTHUCGIAOHANG;
 	String MOTA;
 	String DIACHIGIAOHANG;
+	String TENKHACHHANG;
+	int SODIENTHOAI;
 	float TONGGIA;
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "MANHANVIEN")
@@ -99,6 +101,18 @@ public class HoaDon {
 	}
 	public void setTIMECREATE(Date tIMECREATE) {
 		TIMECREATE = tIMECREATE;
+	}
+	public String getTENKHACHHANG() {
+		return TENKHACHHANG;
+	}
+	public void setTENKHACHHANG(String tENKHACHHANG) {
+		TENKHACHHANG = tENKHACHHANG;
+	}
+	public int getSODIENTHOAI() {
+		return SODIENTHOAI;
+	}
+	public void setSODIENTHOAI(int sODIENTHOAI) {
+		SODIENTHOAI = sODIENTHOAI;
 	}
 	
 }
