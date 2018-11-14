@@ -62,14 +62,34 @@
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
 						href="#services">Kiểm Tra Đơn Hàng</a></li>
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						data-toggle="modal" data-target="#exampleModalCenter1"
-						style="color: orange;">Đăng Ký</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						data-toggle="modal" data-target="#exampleModalCenter1"
-						style="color: orange;">Đăng Nhập</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
 						href="#contact"><i class="fas fa-cart-arrow-down"></i><span
 							class="icongiohang"><p>${soluonggiohang}</p></span></a></li>
+					<c:choose>
+						<c:when test="${tendangnhap !=null}">
+							<div class="btn-group cachdangnhap">
+								<button type="button" class="btn btn-danger dropdown-toggle"
+									data-toggle="dropdown" aria-haspopup="true"
+									aria-expanded="false">${tendangnhap}</button>
+								<div class="dropdown-menu">
+									<a class="dropdown-item" href="#">Thông Tin Cá Nhân</a> <a
+										class="dropdown-item" href="#">Thông Tin Giỏ Hàng</a> <a
+										class="dropdown-item" href="#">Something else here</a>
+									<div class="dropdown-divider"></div>
+									<form action="/VTNN/dangxuat" method="post">
+										<button type="submit">Đăng Xuất</button>
+									</form>
+									<!--   <a class="dropdown-item" href="/VTNN/dangnhap/dangxuat"></a> -->
+								</div>
+							</div>
+						</c:when>
+						<c:otherwise>
+							<li class="nav-item cachdangnhap"><a class="btn btn-primary"
+								href="/VTNN/dangnhap/">Đăng Nhập</a></li>
+							<li class="nav-item"><a class="btn btn-primary"
+								href="/VTNN/dangnhap/">Đăng Ký</a></li>
+							<br />
+						</c:otherwise>
+					</c:choose>
 				</ul>
 			</div>
 		</div>
@@ -141,12 +161,15 @@
 							<c:choose>
 								<c:when test="${taikhoan!=null}">
 									<label for="tenkh">Tên khách hàng:</label>
-									<input id="tenkh" name="tenkhachhang" class="form-control"value="${taikhoan.getKhachhang().getHOTEN()}">
+									<input id="tenkh" name="tenkhachhang" class="form-control"
+										value="${taikhoan.getKhachhang().getHOTEN()}">
 									<label for="sdt">Số điện thoại:</label>
-									<input id="sdt" name="sodienthoai" class="form-control"value="${taikhoan.getKhachhang().getSODIENTHOAI()}">
+									<input id="sdt" name="sodienthoai" class="form-control"
+										value="${taikhoan.getKhachhang().getSODIENTHOAI()}">
 								</c:when>
 								<c:otherwise>
-								<lable>Bạn có muốn đăng nhập không ?</lable><a href="/VTNN/dangnhap/" style="color: red;">Đăng Nhập</a>
+									<lable>Bạn có muốn đăng nhập không ?</lable>
+									<a href="/VTNN/dangnhap/" style="color: red;">Đăng Nhập</a>
 									<label for="tenkh">Tên khách hàng:</label>
 									<input id="tenkh" name="tenkhachhang" class="form-control">
 									<label for="sdt">Số điện thoại:</label>

@@ -68,8 +68,7 @@ public class GioHangController {
 	@PostMapping
 	@Transactional
 	public String MuaHang(@RequestParam String tenkhachhang, @RequestParam int sodienthoai,
-			@RequestParam int hinhthucgiaohang, @RequestParam String diachigiaohang, @RequestParam String mota,
-			HttpSession httpSession, ModelMap modelMap) {
+			@RequestParam int hinhthucgiaohang, @RequestParam String diachigiaohang, @RequestParam String mota, HttpSession httpSession, ModelMap modelMap) {
 		System.out.println(tenkhachhang);
 		if (null != httpSession.getAttribute("giohang")) {
 			List<GioHang> listgiohang = (List<GioHang>) httpSession.getAttribute("giohang");
@@ -77,12 +76,16 @@ public class GioHangController {
 			Date date = new Date();
 			System.out.println(dateFormat.format(date));
 			Set<ChiTietHoaDon> chiTietHoaDons = new HashSet<>();
+			float tonghoadon=0;
 			for (GioHang gioHang : listgiohang) {
 				ChiTietHoaDon chiTietHoaDon = new ChiTietHoaDon();
 				chiTietHoaDon.setSOLUONG(gioHang.getSoluong());
-				chiTietHoaDon.setTONGGIA(gioHang.getGia());
+				float tonggia1=gioHang.getGia()*gioHang.getSoluong();
+				chiTietHoaDon.setTONGGIA(tonggia1);
 				chiTietHoaDon.setMACHITIETSANPHAM(gioHang.getMachitietsanpham());
 				chiTietHoaDons.add(chiTietHoaDon);
+				tonghoadon=tonghoadon+tonggia1;
+
 			}
 			// Set<ChiTietHoaDon> chiTietHoaDons=new HashSet<>();
 			// ChiTietHoaDon chiTietHoaDon = new ChiTietHoaDon();
@@ -112,10 +115,10 @@ public class GioHangController {
 				hoaDon.setTENKHACHHANG(tenkhachhang);
 				hoaDon.setSODIENTHOAI(sodienthoai);
 				hoaDon.setChitiethoadon(chiTietHoaDons);
+				hoaDon.setTONGGIA(tonghoadon);
 				if (hoadonservice.ThemHoaDon(hoaDon)) {
 					System.out.println("Them TC");
 					httpSession.removeAttribute("giohang");
-					httpSession.removeAttribute("tendangnhap");
 					String thanhcong = "Đặt Hàng Thành Công!";
 					String tendangnhap1 = (String) httpSession.getAttribute("tendangnhap");
 					if (null != tendangnhap1) {
@@ -132,6 +135,7 @@ public class GioHangController {
 					modelMap.addAttribute("tc", thatbai);
 				}
 			} else {
+				System.out.println(tenkhachhang);
 				HoaDon hoaDon = new HoaDon();
 				hoaDon.setHINHTHUCGIAOHANG(hinhthucgiaohang);
 				hoaDon.setDIACHIGIAOHANG(diachigiaohang);
@@ -140,6 +144,7 @@ public class GioHangController {
 				hoaDon.setTENKHACHHANG(tenkhachhang);
 				hoaDon.setSODIENTHOAI(sodienthoai);
 				hoaDon.setChitiethoadon(chiTietHoaDons);
+				hoaDon.setTONGGIA(tonghoadon);
 				if (hoadonservice.ThemHoaDon(hoaDon)) {
 					System.out.println("Them TC");
 					httpSession.removeAttribute("giohang");

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
@@ -49,5 +50,10 @@ public class TrangChuController {
 		modelMap.addAttribute("tendangnhap", tendangnhap);
 		System.out.println(tendangnhap);
 		return "index";
+	}
+	@PostMapping("dangxuat")
+	public String DangXuat(HttpSession httpSession) {
+		httpSession.removeAttribute("tendangnhap");
+		return "redirect:/";
 	}
 }

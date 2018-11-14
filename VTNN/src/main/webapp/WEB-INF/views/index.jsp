@@ -75,7 +75,7 @@
 										class="dropdown-item" href="#">Thông Tin Giỏ Hàng</a> <a
 										class="dropdown-item" href="#">Something else here</a>
 									<div class="dropdown-divider"></div>
-									<form action="/VTNN/dangnhap/dangxuat" method="post">
+									<form action="/VTNN/dangxuat" method="post">
 										<button type="submit">Đăng Xuất</button>
 									</form>
 									<!--   <a class="dropdown-item" href="/VTNN/dangnhap/dangxuat"></a> -->
