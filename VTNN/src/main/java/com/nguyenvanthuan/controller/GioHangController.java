@@ -82,7 +82,7 @@ public class GioHangController {
 				chiTietHoaDon.setSOLUONG(gioHang.getSoluong());
 				float tonggia1=gioHang.getGia()*gioHang.getSoluong();
 				chiTietHoaDon.setTONGGIA(tonggia1);
-				chiTietHoaDon.setMACHITIETSANPHAM(gioHang.getMachitietsanpham());
+				//chiTietHoaDon.setMACHITIETSANPHAM(gioHang.getMachitietsanpham());
 				chiTietHoaDons.add(chiTietHoaDon);
 				tonghoadon=tonghoadon+tonggia1;
 
