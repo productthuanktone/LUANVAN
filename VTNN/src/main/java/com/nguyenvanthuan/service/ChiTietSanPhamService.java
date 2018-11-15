@@ -26,4 +26,10 @@ public class ChiTietSanPhamService implements ChiTietSanPhamImp {
 		
 		return chiTietSanPhamDao.chiTietSanPham(id);
 	}
+
+	@Override
+	public List<ChiTietSanPham> listsanphamdanhmuc(int iddanhmuc) {
+		// TODO Auto-generated method stub
+		return chiTietSanPhamDao.listsanphamdanhmuc(iddanhmuc);
+	}
 }

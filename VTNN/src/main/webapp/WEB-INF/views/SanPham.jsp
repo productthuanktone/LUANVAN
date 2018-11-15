@@ -13,12 +13,12 @@
 <title>Hương Lúa</title>
 <!-- Bootstrap core CSS -->
 <link
-	href='<c:url value="resources/vendor/bootstrap/css/bootstrap.min.css"/>'
+	href='<c:url value="/resources/vendor/bootstrap/css/bootstrap.min.css"/>'
 	rel="stylesheet">
 
 <!-- Custom fonts for this template -->
 <link
-	href='<c:url value="resources/vendor/fontawesome-free/css/all.min.css"/>'
+	href='<c:url value="/resources/vendor/fontawesome-free/css/all.min.css"/>'
 	rel="stylesheet" type="text/css">
 <link
 	href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
@@ -29,13 +29,13 @@
 
 <!-- Plugin CSS -->
 <link
-	href='<c:url value="resources/vendor/magnific-popup/magnific-popup.css"/>'
+	href='<c:url value="/resources/vendor/magnific-popup/magnific-popup.css"/>'
 	rel="stylesheet">
 
 <!-- Custom styles for this template -->
-<link href='<c:url value="resources/css/creative.min.css"/>'
+<link href='<c:url value="/resources/css/creative.min.css"/>'
 	rel="stylesheet">
-<link href='<c:url value="resources/mydesign/Style.css"/>'
+<link href='<c:url value="/resources/mydesign/Style.css"/>'
 	rel="stylesheet">
 
 </head>
@@ -127,7 +127,7 @@
 				<div class="col-md-10" id="backgroundsanpham">
 					<!-- <hr class="dark my-4"> -->
 					<div class="row">
-						<c:forEach var="listsanpham" items="${danhsachchitiet }">
+						<c:forEach var="listsanpham" items="${listsanpham }">
 							<a href="/VTNN/chitiet/${listsanpham.getMACHITIETSANPHAM() }"
 								style="color: black; text-decoration: none;">
 								<div class="col-md-4 col-lg-3 col-sm-6"
@@ -135,7 +135,7 @@
 									<div class="card"
 										style="width: 18rem; background-color: #00ffff7d;">
 										<img class="card-img-top"
-											src='<c:url value="resources/img/sanpham/${listsanpham.getHinh().getHINH() }"/>'
+											src='<c:url value="/resources/img/sanpham/${listsanpham.getHinh().getHINH() }"/>'
 											alt="Card image cap" style="width: 286px; height: 250px">
 										<div class="card-body">
 											<h5 class="card-title" style="height: 48px">${listsanpham.getSanpham().getTENSANPHAM() }</h5>
@@ -315,20 +315,20 @@
 	</section>
 
 	<!-- Bootstrap core JavaScript -->
-	<script src='<c:url value="resources/vendor/jquery/jquery.min.js"/>'></script>
+	<script src='<c:url value="/resources/vendor/jquery/jquery.min.js"/>'></script>
 	<script
-		src='<c:url value="resources/vendor/bootstrap/js/bootstrap.bundle.min.js"/>'></script>
+		src='<c:url value="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"/>'></script>
 
 	<!-- Plugin JavaScript -->
 	<script
-		src='<c:url value="resources/vendor/jquery-easing/jquery.easing.min.js"/>'></script>
+		src='<c:url value="/resources/vendor/jquery-easing/jquery.easing.min.js"/>'></script>
 	<script
-		src='<c:url value="resources/vendor/scrollreveal/scrollreveal.min.js"/>'></script>
+		src='<c:url value="/resources/vendor/scrollreveal/scrollreveal.min.js"/>'></script>
 	<script
-		src='<c:url value="resources/vendor/magnific-popup/jquery.magnific-popup.min.js"/>'></script>
+		src='<c:url value="/resources/vendor/magnific-popup/jquery.magnific-popup.min.js"/>'></script>
 
 	<!-- Custom scripts for this template -->
-	<script src='<c:url value="resources/js/creative.min.js"/>'></script>
+	<script src='<c:url value="/resources/js/creative.min.js"/>'></script>
 </body>
 <div class="modal fade" id="exampleModalCenter1"
 	aria-labelledby="exampleModalCenterTitle" disabled="false">

@@ -29,6 +29,8 @@ public class AdminController {
 	}
 	@GetMapping("{id}")
 	public String chitiethoadon(ModelMap modelMap,@PathVariable int id) {
+		List<HoaDon> listhoadon=hoadonService.listHoaDon();
+		modelMap.addAttribute("hoadon", listhoadon);
 		List<ChiTietHoaDon> chitiethoadons=chitiethoadonService.listchitiethoadonid(id);
 		modelMap.addAttribute("listchitiet", chitiethoadons);
 		return "admin";

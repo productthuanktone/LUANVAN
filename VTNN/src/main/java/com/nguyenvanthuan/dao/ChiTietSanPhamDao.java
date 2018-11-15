@@ -37,4 +37,12 @@ public class ChiTietSanPhamDao implements ChiTietSanPhamImp {
 		ChiTietSanPham SanPham = (ChiTietSanPham) session.createQuery("from chitietsanpham where MACHITIETSANPHAM="+id+"").getSingleResult();
 		return SanPham;
 	}
+
+	@Override
+	public List<ChiTietSanPham> listsanphamdanhmuc(int iddanhmuc) {
+		Session session = sessionFactory.getCurrentSession();
+		@SuppressWarnings("unchecked")
+		List<ChiTietSanPham> ListSanPhamdm = (List<ChiTietSanPham>) session.createQuery("from chitietsanpham where MADANHMUC="+iddanhmuc).getResultList();
+		return ListSanPhamdm;
+	}
 }
