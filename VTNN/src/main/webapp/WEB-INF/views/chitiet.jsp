@@ -62,15 +62,36 @@
 						href="#services">Chăm Sóc Khách Hàng</a></li>
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
 						href="#services">Kiểm Tra Đơn Hàng</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+					<c:choose>
+						<c:when test="${tendangnhap !=null}">
+							<div class="btn-group">
+								<button type="button" class="btn btn-danger dropdown-toggle cachdangnhap"
+									data-toggle="dropdown" aria-haspopup="true"
+									aria-expanded="false">${tendangnhap}</button>
+								<div class="dropdown-menu">
+									<a class="dropdown-item" href="#">Thông Tin Cá Nhân</a>
+									 <a class="dropdown-item" href="#">Thông Tin Giỏ Hàng</a>
+									  <a class="dropdown-item" href="/VTNN/dangxuat">Đăng xuất</a>
+									
+					
+									<!--   <a class="dropdown-item" href="/VTNN/dangnhap/dangxuat"></a> -->
+								</div>
+							</div>
+						</c:when>
+						<c:otherwise>
+							<li class="nav-item"><a class="nav-link js-scroll-trigger ponter"
 						data-toggle="modal" data-target="#exampleModalCenter1"
 						style="color: orange;">Đăng Ký</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+					<li class="nav-item"><a class="nav-link js-scroll-trigge ponter"
 						data-toggle="modal" data-target="#exampleModalCenter1"
-						style="color: orange;">Đăng Nhập</a></li>
-						
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="/VTNN/giohang/"><i class="fas fa-cart-arrow-down"></i><span class="icongiohang"><p>${soluonggiohang}</p></span></a></li>
+						style="color: orange;">Đăng Nhập ${error}</a></li>
+							<br />
+						</c:otherwise>
+					</c:choose>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/VTNN/giohang/">Giỏ hàng <i class="fas fa-cart-arrow-down"></i><span class="icongiohang">${soluonggiohang}</span></a></li>
+					<c:if test="${quyen==1}">
+						<li class="nav-item quanly"><a class="btn btn-primary" href="/VTNN/admin/">Quản Lý</a></li>
+					</c:if>
 				</ul>
 			</div>
 		</div>

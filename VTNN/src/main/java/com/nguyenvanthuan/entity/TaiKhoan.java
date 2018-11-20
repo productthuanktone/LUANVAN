@@ -19,7 +19,7 @@ public class TaiKhoan {
 	String TENDANGNHAP;
 	String MATKHAU;
 	String MATKHAU2;
-	String QUYEN;
+	int QUYEN;
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "MANHANVIEN")
 	NhanVien nhanvien;
@@ -51,10 +51,11 @@ public class TaiKhoan {
 	public void setMATKHAU2(String mATKHAU2) {
 		MATKHAU2 = mATKHAU2;
 	}
-	public String getQUYEN() {
+
+	public int getQUYEN() {
 		return QUYEN;
 	}
-	public void setQUYEN(String qUYEN) {
+	public void setQUYEN(int qUYEN) {
 		QUYEN = qUYEN;
 	}
 	public NhanVien getNhanvien() {

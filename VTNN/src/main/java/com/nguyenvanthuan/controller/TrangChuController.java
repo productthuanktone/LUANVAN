@@ -18,9 +18,11 @@ import com.nguyenvanthuan.entity.ChiTietSanPham;
 import com.nguyenvanthuan.entity.DanhMucSanPham;
 import com.nguyenvanthuan.entity.GioHang;
 import com.nguyenvanthuan.entity.SanPham;
+import com.nguyenvanthuan.entity.TaiKhoan;
 import com.nguyenvanthuan.service.ChiTietSanPhamService;
 import com.nguyenvanthuan.service.DanhMucSanPhamService;
 import com.nguyenvanthuan.service.SanPhamService;
+import com.nguyenvanthuan.service.TaiKhoanSevice;
 
 @Controller
 @RequestMapping("/")
@@ -33,6 +35,8 @@ public class TrangChuController {
 	ChiTietSanPhamService chitietsasnphamservice;
 	@Autowired
 	DanhMucSanPhamService danhmucservice;
+	@Autowired
+	TaiKhoanSevice taikhoanservice;
 
 	@GetMapping
 	@Transactional
@@ -50,14 +54,24 @@ public class TrangChuController {
 		}
 		List<ChiTietSanPham> ListChiTietSP=chitietsasnphamservice.ListChiTietSanPham();
 		String tendangnhap=(String) httpSession.getAttribute("tendangnhap");
+		try {
+			TaiKhoan taiKhoan=taikhoanservice.laytaikhoan(tendangnhap);
+			int quyen=taiKhoan.getQUYEN();
+			modelMap.addAttribute("quyen", quyen);
+		}
+		catch (Exception e) {
+			String quyen="";
+			modelMap.addAttribute("quyen", quyen);
+		}
+	
 		List<DanhMucSanPham> danhMucSanPhams=danhmucservice.listdanhmuc();
 		modelMap.addAttribute("danhsachchitiet",ListChiTietSP);
 		modelMap.addAttribute("tendangnhap", tendangnhap);
+		
 		modelMap.addAttribute("danhmucs", danhMucSanPhams);
-		System.out.println(tendangnhap);
 		return "index";
 	}
-	@PostMapping("dangxuat")
+	@GetMapping("dangxuat")
 	public String DangXuat(HttpSession httpSession) {
 		httpSession.removeAttribute("tendangnhap");
 		return "redirect:/";

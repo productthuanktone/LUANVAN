@@ -36,13 +36,13 @@ public class DangNhapController {
 	@PostMapping
 	@Transactional
 	public String XuLyDangNhap(@RequestParam String tendangnhap, @RequestParam String matkhau, ModelMap map,HttpSession httpSession,ModelMap modelMap) {
-		System.out.println(tendangnhap + matkhau);
+		//System.out.println(tendangnhap + matkhau);
 		boolean kiemtra = taikhoanService.kiemtradangnhap(tendangnhap, matkhau);
+		
 		if (kiemtra) {
 			map.addAttribute("tendangnhap", tendangnhap);
 			System.out.println("Success");
 			httpSession.setAttribute("tendangnhap", tendangnhap);
-			
 			return "redirect:/";
 		} else {
 			String error = "Lỗi đăng nhập!Sai email hoặc mật khẩu";

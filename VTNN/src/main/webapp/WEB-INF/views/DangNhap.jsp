@@ -90,36 +90,12 @@
 
 	<section id="about">
 		<div class="container" id="formdangnhap">
-			<div>
-				<h1 class="modal-title" id="exampleModalLongTitle" style="margin-left: 15px;">Đăng nhập</h1>
-				<c:if test="${error !=null }">
-					<h6 style="color: red;">${error}</h6>
+			<c:if test="${error !=null }">
+					<h1 style="color: red; width: 800px;">${error}</h1>
 				</c:if>
 			</div>
-			<div class="modal-body">
-				<form action="" method="post">
-					<div class="form-group">
-						<label for="exampleInputEmail1">Địa chỉ Email:</label> <input name="tendangnhap"
-							type="email" class="form-control" id="exampleInputEmail1"
-							aria-describedby="emailHelp" placeholder="Enter email"> <small
-							id="emailHelp" class="form-text text-muted">Đảm bảo quyền
-							riêng tư của bạn.</small>
-					</div>
-					<div class="form-group">
-						<label for="exampleInputPassword1">Mật Khẩu</label> <input name="matkhau"
-							type="password" class="form-control" id="exampleInputPassword1"
-							placeholder="Password">
-					</div>
-					<div class="form-check">
-						<input type="checkbox" class="form-check-input" id="exampleCheck1">
-						<label class="form-check-label" for="exampleCheck1">Nhớ
-							mật khẩu</label>
-					</div>
-					<button type="submit" class="btn btn-primary">Đăng nhập</button>
-				</form>
-			</div>
 	</section>
-	<section id="contact" class="footer">
+	<section id="contact" class="footer" style="margin-top:370px">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 mx-auto text-center">

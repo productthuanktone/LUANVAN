@@ -58,38 +58,38 @@
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
 						href="#about">Tin Tức Nông Nghiệp</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#services">Kiểm Tra Đơn Hàng</a></li>
-
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="/VTNN/giohang/">Giỏ hàng <i
-							class="fas fa-cart-arrow-down"></i><span class="icongiohang">${soluonggiohang}</span></a></li>
+					<li class="nav-item ponter"><a class="nav-link js-scroll-trigger"
+						>Kiểm Tra Đơn Hàng</a></li>
 					<c:choose>
 						<c:when test="${tendangnhap !=null}">
-							<div class="btn-group cachdangnhap">
-								<button type="button" class="btn btn-danger dropdown-toggle"
+							<div class="btn-group">
+								<button type="button" class="btn btn-danger dropdown-toggle cachdangnhap"
 									data-toggle="dropdown" aria-haspopup="true"
 									aria-expanded="false">${tendangnhap}</button>
 								<div class="dropdown-menu">
-									<a class="dropdown-item" href="#">Thông Tin Cá Nhân</a> <a
-										class="dropdown-item" href="#">Thông Tin Giỏ Hàng</a> <a
-										class="dropdown-item" href="#">Something else here</a>
-									<div class="dropdown-divider"></div>
-									<form action="/VTNN/dangxuat" method="post">
-										<button type="submit">Đăng Xuất</button>
-									</form>
+									<a class="dropdown-item" href="#">Thông Tin Cá Nhân</a>
+									 <a class="dropdown-item" href="#">Thông Tin Giỏ Hàng</a>
+									  <a class="dropdown-item" href="/VTNN/dangxuat">Đăng xuất</a>
+									
+					
 									<!--   <a class="dropdown-item" href="/VTNN/dangnhap/dangxuat"></a> -->
 								</div>
 							</div>
 						</c:when>
 						<c:otherwise>
-							<li class="nav-item cachdangnhap"><a class="btn btn-primary"
-								href="/VTNN/dangnhap/">Đăng Nhập</a></li>
-							<li class="nav-item"><a class="btn btn-primary"
-								href="/VTNN/dangnhap/">Đăng Ký</a></li>
+							<li class="nav-item"><a class="nav-link js-scroll-trigger ponter"
+						data-toggle="modal" data-target="#exampleModalCenter1"
+						style="color: orange;">Đăng Ký</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigge ponter"
+						data-toggle="modal" data-target="#exampleModalCenter1"
+						style="color: orange;">Đăng Nhập ${error}</a></li>
 							<br />
 						</c:otherwise>
 					</c:choose>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/VTNN/giohang/">Giỏ hàng <i class="fas fa-cart-arrow-down"></i><span class="icongiohang">${soluonggiohang}</span></a></li>
+					<c:if test="${quyen==1}">
+						<li class="nav-item quanly"><a class="btn btn-primary" href="/VTNN/admin/">Quản Lý</a></li>
+					</c:if>
 				</ul>
 			</div>
 		</div>
@@ -118,11 +118,11 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-2">
-				<c:forEach var="danhmuc" items="${danhmucs}">
-					<a href="/VTNN/sanpham/${danhmuc.getMADANHMUC() }">
-						<div class="alert alert-success" role="alert">${danhmuc.getTENDANHMUC() }</div>
-					</a>
-				</c:forEach>
+					<c:forEach var="danhmuc" items="${danhmucs}">
+						<a href="/VTNN/sanpham/${danhmuc.getMADANHMUC() }">
+							<div class="alert alert-success" role="alert">${danhmuc.getTENDANHMUC() }</div>
+						</a>
+					</c:forEach>
 				</div>
 				<div class="col-md-10" id="backgroundsanpham">
 					<!-- <hr class="dark my-4"> -->
@@ -330,45 +330,5 @@
 	<!-- Custom scripts for this template -->
 	<script src='<c:url value="resources/js/creative.min.js"/>'></script>
 </body>
-<div class="modal fade" id="exampleModalCenter1"
-	aria-labelledby="exampleModalCenterTitle" disabled="false">
-	<div class="modal-dialog modal-dialog-centered" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLongTitle">Đăng nhập</h5>
-				<button type="button" class="close" data-dismiss="modal"
-					aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-				<c:if test="${error !=null }">
-					<h6 style="color: red;">${error}</h6>
-				</c:if>
-			</div>
-			<div class="modal-body">
-				<form action="/VTNN/dangnhap/" method="post">
-					<div class="form-group">
-						<label for="exampleInputEmail1">Địa chỉ Email:</label> <input
-							type="email" name="tendangnhap" class="form-control"
-							id="exampleInputEmail1" aria-describedby="emailHelp"
-							placeholder="Enter email"> <small id="emailHelp"
-							class="form-text text-muted">Đảm bảo quyền riêng tư của
-							bạn.</small>
-					</div>
-					<div class="form-group">
-						<label for="exampleInputPassword1">Mật Khẩu</label> <input
-							type="password" name="matkhau" class="form-control"
-							id="exampleInputPassword1" placeholder="Password">
-					</div>
-					<div class="form-check">
-						<input type="checkbox" class="form-check-input" id="exampleCheck1">
-						<label class="form-check-label" for="exampleCheck1">Nhớ
-							mật khẩu</label>
-					</div>
-					<button type="submit" class="btn btn-primary">Đăng nhập</button>
-				</form>
-			</div>
-		</div>
-	</div>
-</div>
-
+<jsp:include page="modal.jsp"></jsp:include>
 </html>

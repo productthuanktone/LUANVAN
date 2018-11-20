@@ -99,7 +99,9 @@ a {
 }
 
 .cachdangnhap {
-	margin-left: 40px;
+	margin-left: -41px;
+	background-color: #49d26a;
+	border-color: #49d26a;
 }
 
 #texttendangnhap {
@@ -115,22 +117,36 @@ a {
 	height: 43px;
 	width: 110px;
 }
-.cachgiuatable{
+
+.cachgiuatable {
 	text-align: center;
 }
-.nhantainha{
+
+.nhantainha {
 	background-color: #17a2b8;
 }
-.mauheader{
-	background-color: rgba(0,123,255,.5);
+
+.mauheader {
+	background-color: rgba(0, 123, 255, .5);
 }
-.noibat{
+
+.noibat {
 	color: red;
 }
-.tablehd{
-	    box-shadow: 1px -7px 8px black;
+
+.tablehd {
+	box-shadow: 1px -7px 8px black;
 }
-.buttonhd{
+
+.buttonhd {
 	width: 106.90px;
 	height: 38px;
+}
+
+.ponter {
+	cursor: pointer;
+}
+
+.quanly {
+	margin-left: 40px;
 }
