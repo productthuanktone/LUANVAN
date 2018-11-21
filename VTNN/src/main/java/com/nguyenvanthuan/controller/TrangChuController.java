@@ -40,37 +40,31 @@ public class TrangChuController {
 
 	@GetMapping
 	@Transactional
-	public String TrangChu(ModelMap modelMap,HttpSession httpSession) {
+	public String TrangChu(ModelMap modelMap, HttpSession httpSession) {
 
-//		for (SanPham sanPham : ListSP) {
-//			for (ChiTietSanPham listchiTietSanPham : sanPham.getChitietsanpham()) {
-//				System.out.println("Hinf  " +listchiTietSanPham.getHinh().getHINH());
-//			}
-//		}
-		// tra vef danh sach san pham cho index
-		if(null!=httpSession.getAttribute("giohang")) {
-			List<GioHang> listgiohang=(List<GioHang>) httpSession.getAttribute("giohang");
-			modelMap.addAttribute("soluonggiohang",listgiohang.size());
+		if (null != httpSession.getAttribute("giohang")) {
+			List<GioHang> listgiohang = (List<GioHang>) httpSession.getAttribute("giohang");
+			modelMap.addAttribute("soluonggiohang", listgiohang.size());
 		}
-		List<ChiTietSanPham> ListChiTietSP=chitietsasnphamservice.ListChiTietSanPham();
-		String tendangnhap=(String) httpSession.getAttribute("tendangnhap");
+		List<ChiTietSanPham> ListChiTietSP = chitietsasnphamservice.ListChiTietSanPham();
+		String tendangnhap = (String) httpSession.getAttribute("tendangnhap");
 		try {
-			TaiKhoan taiKhoan=taikhoanservice.laytaikhoan(tendangnhap);
-			int quyen=taiKhoan.getQUYEN();
+			TaiKhoan taiKhoan = taikhoanservice.laytaikhoan(tendangnhap);
+			int quyen = taiKhoan.getQUYEN();
+			modelMap.addAttribute("quyen", quyen);
+		} catch (Exception e) {
+			String quyen = "";
 			modelMap.addAttribute("quyen", quyen);
 		}
-		catch (Exception e) {
-			String quyen="";
-			modelMap.addAttribute("quyen", quyen);
-		}
-	
-		List<DanhMucSanPham> danhMucSanPhams=danhmucservice.listdanhmuc();
-		modelMap.addAttribute("danhsachchitiet",ListChiTietSP);
+
+		List<DanhMucSanPham> danhMucSanPhams = danhmucservice.listdanhmuc();
+		modelMap.addAttribute("danhsachchitiet", ListChiTietSP);
 		modelMap.addAttribute("tendangnhap", tendangnhap);
-		
+
 		modelMap.addAttribute("danhmucs", danhMucSanPhams);
 		return "index";
 	}
+
 	@GetMapping("dangxuat")
 	public String DangXuat(HttpSession httpSession) {
 		httpSession.removeAttribute("tendangnhap");

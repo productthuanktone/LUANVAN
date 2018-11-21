@@ -32,6 +32,6 @@ public class SanPhamController {
 		List<DanhMucSanPham> danhMucSanPhams=danhmucservice.listdanhmuc();
 		modelMap.addAttribute("listsanpham", chiTietSanPhams);
 		modelMap.addAttribute("danhmucs", danhMucSanPhams);
-		return "SanPham";
+		return "sanpham";
 	}
 }

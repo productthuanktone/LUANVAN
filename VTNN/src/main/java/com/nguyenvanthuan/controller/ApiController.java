@@ -119,7 +119,7 @@ public class ApiController {
 			String error="Lỗi đăng nhập!Sai email hoặc mật khẩu";
 			System.out.println("failure");
 			map.addAttribute("error", error);
-			return "NewDangNhap";
+			return "dangnhap";
 		}
 
 	}

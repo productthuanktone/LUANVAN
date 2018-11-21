@@ -25,4 +25,16 @@ public class HoaDonService implements HoaDonImp{
 		// TODO Auto-generated method stub
 		return hoaDonDao.listHoaDon();
 	}
+
+	@Override
+	public HoaDon hoaDonid(int id) {
+		// TODO Auto-generated method stub
+		return hoaDonDao.hoaDonid(id);
+	}
+
+	@Override
+	public void SaveHoaDon(int tinhtrang, int id) {
+		hoaDonDao.SaveHoaDon(tinhtrang, id);
+		
+	}
 }

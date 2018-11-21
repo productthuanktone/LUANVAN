@@ -2,6 +2,8 @@ package com.nguyenvanthuan.dao;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,10 +41,27 @@ public class ChiTietSanPhamDao implements ChiTietSanPhamImp {
 	}
 
 	@Override
+	@Transactional
 	public List<ChiTietSanPham> listsanphamdanhmuc(int iddanhmuc) {
 		Session session = sessionFactory.getCurrentSession();
 		@SuppressWarnings("unchecked")
 		List<ChiTietSanPham> ListSanPhamdm = (List<ChiTietSanPham>) session.createQuery("from chitietsanpham where MADANHMUC="+iddanhmuc).getResultList();
 		return ListSanPhamdm;
+	}
+
+	@Override
+	@Transactional
+	public boolean Deletechitietsanpham(int id) {
+		Session session = sessionFactory.getCurrentSession();
+		try {
+			ChiTietSanPham SanPham = (ChiTietSanPham) session.createQuery("from chitietsanpham where MACHITIETSANPHAM="+id+"").getSingleResult();
+			session.delete(SanPham);
+			return true;
+		}catch (Exception e) {
+			// TODO: handle exception
+			return false;
+		}
+		
+		
 	}
 }

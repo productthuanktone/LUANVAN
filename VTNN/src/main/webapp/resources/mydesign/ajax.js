@@ -83,4 +83,11 @@ $(document).ready(
 
 						});
 					});
+			$(".xoa").click(function(){
+				var idspct= $(this).closest("tr").find(".idsp").attr("data-idsp");
+				var action=$(".modalsp").attr("action");
+				var submitaction=action+idspct;
+				 $(".modalsp").attr("action",submitaction);
+				
+			});
 		});

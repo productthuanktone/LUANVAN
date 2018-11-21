@@ -17,9 +17,6 @@ public class DonViTinh {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int MADONVITINH;
 	String TENDONVITINH;
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "MADONVITINH")
-	Set<DonViTinh> donvitinh;
 	int ISDELETE;
 	int DELETEID;
 	Date TIMEDELETE;
@@ -100,12 +97,5 @@ public class DonViTinh {
 		TIMEUPDATE = tIMEUPDATE;
 	}
 
-	public Set<DonViTinh> getDonvitinh() {
-		return donvitinh;
-	}
-
-	public void setDonvitinh(Set<DonViTinh> donvitinh) {
-		this.donvitinh = donvitinh;
-	}
 
 }

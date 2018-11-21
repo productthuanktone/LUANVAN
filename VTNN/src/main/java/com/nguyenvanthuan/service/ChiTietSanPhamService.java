@@ -32,4 +32,10 @@ public class ChiTietSanPhamService implements ChiTietSanPhamImp {
 		// TODO Auto-generated method stub
 		return chiTietSanPhamDao.listsanphamdanhmuc(iddanhmuc);
 	}
+
+	@Override
+	public boolean Deletechitietsanpham(int id) {
+		// TODO Auto-generated method stub
+		return chiTietSanPhamDao.Deletechitietsanpham(id);
+	}
 }

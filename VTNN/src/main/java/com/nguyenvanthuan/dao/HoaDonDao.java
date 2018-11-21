@@ -43,4 +43,22 @@ public class HoaDonDao implements HoaDonImp {
 		List<HoaDon> Listhoadon=(List<HoaDon>) session.createQuery("from hoadon").getResultList();
 		return Listhoadon;
 	}
+
+	@Override
+	@Transactional
+	public HoaDon hoaDonid(int id) {
+		Session session=sessionFactory.getCurrentSession();
+		HoaDon hoadonid=(HoaDon) session.createQuery("from hoadon where MAHOADON="+id).getSingleResult();
+		return hoadonid;
+	}
+
+	@Override
+	@Transactional
+	public void SaveHoaDon(int tinhtrang,int id) {
+		// TODO Auto-generated method stub
+		Session session=sessionFactory.getCurrentSession();
+		HoaDon hoadon=(HoaDon) session.createQuery("from hoadon where MAHOADON="+id).getSingleResult();
+		hoadon.setTINHTRANG(tinhtrang);
+		session.save(hoadon);
+	}
 }

@@ -62,7 +62,7 @@ public class GioHangController {
 			modelMap.addAttribute("taikhoan", taiKhoan);
 		}
 
-		return "GioHang";
+		return "giohang";
 	}
 
 	@PostMapping
@@ -168,6 +168,6 @@ public class GioHangController {
 		}
 		// @RequestParam float tonggia,
 
-		return "GioHang";
+		return "giohang";
 	}
 }

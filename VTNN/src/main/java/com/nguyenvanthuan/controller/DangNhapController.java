@@ -48,7 +48,7 @@ public class DangNhapController {
 			String error = "Lỗi đăng nhập!Sai email hoặc mật khẩu";
 			System.out.println("failure");
 			map.addAttribute("error", error);
-			return "DangNhap";
+			return "dangnhap";
 		}
 
 	}

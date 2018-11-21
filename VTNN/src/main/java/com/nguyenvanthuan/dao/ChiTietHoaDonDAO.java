@@ -15,20 +15,20 @@ import com.nguyenvanthuan.daoImp.ChiTietHoaDonImp;
 import com.nguyenvanthuan.entity.ChiTietHoaDon;
 
 
+
 @Repository
-@Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)
+@Scope(proxyMode = ScopedProxyMode.TARGET_CLASS )
 public class ChiTietHoaDonDAO implements ChiTietHoaDonImp {
 	@Autowired
 	SessionFactory sessionFactory;
-
 	@Override
 	@Transactional
 	public List<ChiTietHoaDon> listchitiethoadonid(int id) {
 		Session session = sessionFactory.getCurrentSession();
 		@SuppressWarnings("unchecked")
-		List<ChiTietHoaDon> ListChiTietHoaDon = (List<ChiTietHoaDon>) session.createQuery("from chitiethoadon where MAHOADON=44").getResultList();
+		List<ChiTietHoaDon> ListChiTietHoaDon = (List<ChiTietHoaDon>) session.createQuery("from chitiethoadon where MAHOADON="+id).getResultList();
 		for (ChiTietHoaDon chiTietHoaDon : ListChiTietHoaDon) {
-			System.out.println("No ne"+chiTietHoaDon.getChiTietSanPham().getSanpham().getTENSANPHAM());
+			System.out.println("No ne"+chiTietHoaDon.getSOLUONG());
 		}
 		return ListChiTietHoaDon;
 	}

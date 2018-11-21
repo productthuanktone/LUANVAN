@@ -9,4 +9,5 @@ public interface ChiTietSanPhamImp {
 	List<ChiTietSanPham> ListChiTietSanPham();
 	ChiTietSanPham chiTietSanPham(int id);
 	List<ChiTietSanPham> listsanphamdanhmuc(int iddanhmuc);
+	boolean Deletechitietsanpham( int id);
 }
