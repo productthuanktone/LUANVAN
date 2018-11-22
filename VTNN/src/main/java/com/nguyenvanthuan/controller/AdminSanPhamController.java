@@ -12,15 +12,27 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.nguyenvanthuan.dao.NhaSanXuatDAO;
 import com.nguyenvanthuan.entity.ChiTietSanPham;
 import com.nguyenvanthuan.entity.DanhMucSanPham;
+import com.nguyenvanthuan.entity.KhuyenMai;
+import com.nguyenvanthuan.entity.NhaSanXuat;
 import com.nguyenvanthuan.service.ChiTietSanPhamService;
+import com.nguyenvanthuan.service.DanhMucSanPhamService;
+import com.nguyenvanthuan.service.KhuyemMaiService;
+import com.nguyenvanthuan.service.NhaSanXuatService;
 
 @Controller
 @RequestMapping("adminsanpham/")
 public class AdminSanPhamController {
 	@Autowired
 	ChiTietSanPhamService chitietsanphamservice;
+	@Autowired
+	DanhMucSanPhamService danhmucservice;
+	@Autowired
+	KhuyemMaiService khuyemmaiservice;
+	@Autowired
+	NhaSanXuatService nhasanxuatservice;
 	@GetMapping
 	@Transactional
 	public String SanPham(ModelMap modelMap,HttpSession httpSession) {
@@ -45,5 +57,21 @@ public class AdminSanPhamController {
 			return "adminsanpham";
 		}
 		
+	}
+	@GetMapping("chinhsua/{id}")
+	@Transactional
+	public String ThemSanPham(ModelMap modelMap,HttpSession httpSession,@PathVariable int id) {
+		ChiTietSanPham chiTietSanPham=chitietsanphamservice.chiTietSanPham(id);
+		List<DanhMucSanPham>danhMucSanPhams=danhmucservice.listdanhmuc();
+		List<KhuyenMai>khuyenMais=khuyemmaiservice.khuyenMais();
+		List<NhaSanXuat> nhaSanXuats=nhasanxuatservice.listnhasanxuat();
+		modelMap.addAttribute("sanpham", chiTietSanPham);
+		modelMap.addAttribute("danhmuc", danhMucSanPhams);
+		modelMap.addAttribute("khuyenmai", khuyenMais);
+		modelMap.addAttribute("nhasanxuat", nhaSanXuats);
+		for (KhuyenMai khuyemmai : khuyenMais) {
+			System.out.println("ádasdasdasd"+khuyemmai.getMAKHUYENMAI());
+		}
+		return "chinhsuasanpham";
 	}
 }

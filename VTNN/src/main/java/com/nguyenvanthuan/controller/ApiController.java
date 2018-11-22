@@ -1,8 +1,12 @@
 package com.nguyenvanthuan.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 
@@ -15,9 +19,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.nguyenvanthuan.entity.GioHang;
 import com.nguyenvanthuan.service.TaiKhoanSevice;
+
 
 @Controller
 @RequestMapping("api/")
@@ -122,5 +129,27 @@ public class ApiController {
 			return "dangnhap";
 		}
 
+	}
+	@Autowired
+	ServletContext context;
+	@PostMapping("uploadfile")
+	@Transactional
+	public String uploadfile(MultipartHttpServletRequest request) {
+		String path_save_file=context.getRealPath("/resources/img/sanpham/");
+		Iterator<String> listNames=request.getFileNames();
+		MultipartFile mpf=request.getFile(listNames.next());
+		String tenhinh=mpf.getOriginalFilename();
+		File file_save=new File(path_save_file + mpf.getOriginalFilename());
+		try {
+			mpf.transferTo(file_save);
+		} catch (IllegalStateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(mpf.getOriginalFilename());
+		return tenhinh;
 	}
 }

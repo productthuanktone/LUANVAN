@@ -51,27 +51,30 @@
 									<td>${listsanpham.getSanpham().getMOTA() }</td>
 									<td>${listsanpham.getGia().getGIA()}</td>
 									<td>${listsanpham.getSOLUONG()}</td>
-									<td><button type="button" class="btn btn-secondary buttonhd xoa" data-toggle="modal" data-target="#exampleModalCenter11">Xóa</button>
+									<td><a class="btn btn-secondary buttonhd xoa" data-toggle="modal" data-target="#exampleModalCenter11">Xóa</a>
 												<div class="modal fade" id="exampleModalCenter11"
-											aria-labelledby="exampleModalCenterTitle" disabled="false">
-											<div class="modal-dialog modal-dialog-centered" role="document">
-												<div class="modal-content">
-													<div class="modal-header">
-														<h5 class="modal-title" id="exampleModalLongTitle">Thông Báo</h5>
-														<button type="button" class="close" data-dismiss="modal"
-															aria-label="Close">
-															<span aria-hidden="true">&times;</span>
-														</button>
-													</div>
-													<div class="modal-body">
-														<form class="modalsp" action="/VTNN/adminsanpham/" method="get">
-															<h2>Bạn có chắc xóa không ?</h2>
+													aria-labelledby="exampleModalCenterTitle" disabled="false">
+														<div class="modal-dialog modal-dialog-centered" role="document">
+															<div class="modal-content">
+																<div class="modal-header">
+																<h5 class="modal-title" id="exampleModalLongTitle">Thông Báo</h5>
+																<button type="button" class="close" data-dismiss="modal"
+																	aria-label="Close">
+																	<span aria-hidden="true">&times;</span>
+															</button>
+														</div>
+														<div class="modal-body">
+															<form class="modalsp" action="/VTNN/adminsanpham/" method="get">
+																<h2>Bạn có chắc xóa không ?</h2>
 															<button type="submit" class="btn btn-primary">Xóa</button>
 														</form>
 													</div>
 												</div>
 											</div>
 										</div>
+									<br>
+									<br>
+									<a href="/VTNN/adminsanpham/chinhsua/${listsanpham.getMACHITIETSANPHAM() }" type="button" class="btn btn-success" >Chỉnh Sửa</a>
 									</td>
 								</tr>
 							</c:forEach>

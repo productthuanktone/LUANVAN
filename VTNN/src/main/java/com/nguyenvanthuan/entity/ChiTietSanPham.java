@@ -17,6 +17,7 @@ public class ChiTietSanPham {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int MACHITIETSANPHAM;
 	int SOLUONG;
+	int ISDELETE;
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "MASANPHAM")
 	SanPham sanpham;
@@ -140,6 +141,14 @@ public class ChiTietSanPham {
 
 	public void setDanhMucSanPham(DanhMucSanPham danhMucSanPham) {
 		this.danhMucSanPham = danhMucSanPham;
+	}
+
+	public int getISDELETE() {
+		return ISDELETE;
+	}
+
+	public void setISDELETE(int iSDELETE) {
+		ISDELETE = iSDELETE;
 	}
 
 }

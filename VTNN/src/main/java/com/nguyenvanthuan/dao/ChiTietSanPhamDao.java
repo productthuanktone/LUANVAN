@@ -23,15 +23,17 @@ public class ChiTietSanPhamDao implements ChiTietSanPhamImp {
 	SessionFactory sessionFactory;
 
 	@Override
+	@Transactional
 	public List<ChiTietSanPham> ListChiTietSanPham() {
 		Session session = sessionFactory.getCurrentSession();
 		@SuppressWarnings("unchecked")
-		List<ChiTietSanPham> ListSanPhham = (List<ChiTietSanPham>) session.createQuery("from chitietsanpham")
+		List<ChiTietSanPham> ListSanPhham = (List<ChiTietSanPham>) session.createQuery("from chitietsanpham where ISDELETE=0")
 				.setFirstResult(0).setMaxResults(20).getResultList();
 		return ListSanPhham;
 	}
 
 	@Override
+	@Transactional
 	public ChiTietSanPham chiTietSanPham(int id) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
@@ -45,7 +47,7 @@ public class ChiTietSanPhamDao implements ChiTietSanPhamImp {
 	public List<ChiTietSanPham> listsanphamdanhmuc(int iddanhmuc) {
 		Session session = sessionFactory.getCurrentSession();
 		@SuppressWarnings("unchecked")
-		List<ChiTietSanPham> ListSanPhamdm = (List<ChiTietSanPham>) session.createQuery("from chitietsanpham where MADANHMUC="+iddanhmuc).getResultList();
+		List<ChiTietSanPham> ListSanPhamdm = (List<ChiTietSanPham>) session.createQuery("from chitietsanpham where MADANHMUC="+iddanhmuc+" and ISDELETE=0").getResultList();
 		return ListSanPhamdm;
 	}
 
@@ -55,7 +57,8 @@ public class ChiTietSanPhamDao implements ChiTietSanPhamImp {
 		Session session = sessionFactory.getCurrentSession();
 		try {
 			ChiTietSanPham SanPham = (ChiTietSanPham) session.createQuery("from chitietsanpham where MACHITIETSANPHAM="+id+"").getSingleResult();
-			session.delete(SanPham);
+			SanPham.setISDELETE(1);
+			session.save(SanPham);
 			return true;
 		}catch (Exception e) {
 			// TODO: handle exception
