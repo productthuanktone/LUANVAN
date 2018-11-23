@@ -128,7 +128,7 @@
 			</a>
 				<div class="dropdown-menu" aria-labelledby="pagesDropdown1">
 					<a class="dropdown-item" href="/VTNN/adminsanpham/">Danh Sách Sản Phẩm</a>
-					<a class="dropdown-item" href="login.html">Thêm Sản Phẩm</a> 
+					<a class="dropdown-item" href="/VTNN/adminsanpham/themsanpham">Thêm Sản Phẩm</a> 
 					<div class="dropdown-divider"></div>
 				</div></li>
 			<li class="nav-item"><a class="nav-link" href="charts.html">

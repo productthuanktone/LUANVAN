@@ -19,6 +19,8 @@
 								<th>Hình Sản Phẩm</th>
 								<th>Tên Sản Phẩm</th>
 								<th>Nhà Sản Xuất</th>
+								<th>Danh Mục</th>
+								<th>Khuyến Mãi</th>
 								<th>Mô Tả</th>
 								<th>Giá</th>
 								<th>Số Lượng</th>
@@ -31,6 +33,8 @@
 								<th>Hình Sản Phẩm</th>
 								<th>Tên Sản Phẩm</th>
 								<th>Nhà Sản Xuất</th>
+								<th>Danh Mục</th>
+								<th>Khuyến Mãi</th>
 								<th>Mô Tả</th>
 								<th>Giá</th>
 								<th>Số Lượng</th>
@@ -48,10 +52,12 @@
 											src='<c:url value="/resources/img/sanpham/${listsanpham.getHinh().getHINH() }"/>' /></td>
 									<td class="idsp" data-idsp="${listsanpham.getMACHITIETSANPHAM() }">${listsanpham.getSanpham().getTENSANPHAM()}</td>
 									<td>${listsanpham.getNhasanxuat().getTENNHASANXUAT()}</td>
+									<td>${listsanpham.getDanhMucSanPham().getTENDANHMUC() }</td>
+									<td>${listsanpham.getKhuyenmai().getTENKHUYENMAI() }(${listsanpham.getKhuyenmai().getPHANTRAM()}%)</td>
 									<td>${listsanpham.getSanpham().getMOTA() }</td>
 									<td>${listsanpham.getGia().getGIA()}</td>
 									<td>${listsanpham.getSOLUONG()}</td>
-									<td><a class="btn btn-secondary buttonhd xoa" data-toggle="modal" data-target="#exampleModalCenter11">Xóa</a>
+									<td><a class="btn btn-secondary buttonhd xoa" data-toggle="modal" data-target="#exampleModalCenter11" style="width: 97px;">Xóa</a>
 												<div class="modal fade" id="exampleModalCenter11"
 													aria-labelledby="exampleModalCenterTitle" disabled="false">
 														<div class="modal-dialog modal-dialog-centered" role="document">
@@ -72,8 +78,6 @@
 												</div>
 											</div>
 										</div>
-									<br>
-									<br>
 									<a href="/VTNN/adminsanpham/chinhsua/${listsanpham.getMACHITIETSANPHAM() }" type="button" class="btn btn-success" >Chỉnh Sửa</a>
 									</td>
 								</tr>

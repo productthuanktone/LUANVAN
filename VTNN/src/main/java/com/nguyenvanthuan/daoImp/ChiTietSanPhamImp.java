@@ -10,4 +10,5 @@ public interface ChiTietSanPhamImp {
 	ChiTietSanPham chiTietSanPham(int id);
 	List<ChiTietSanPham> listsanphamdanhmuc(int iddanhmuc);
 	boolean Deletechitietsanpham( int id);
+	boolean updatechitietsanpham(int id,String tensanpham,int soluong,float gia,String mota,int idnhasanxuat,int khuyenmai,int danhmuc,String hinh);
 }

@@ -5,5 +5,7 @@ import java.util.List;
 import com.nguyenvanthuan.entity.KhuyenMai;
 
 public interface KhuyenMaiImp {
-List<KhuyenMai> khuyenMais();
+	List<KhuyenMai> khuyenMais();
+
+	KhuyenMai khuyenMai(int id);
 }

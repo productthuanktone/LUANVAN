@@ -104,7 +104,10 @@ $(document).ready(
 			$("#choofile").change(function(event){
 				var hinh=$("#hinh").attr("src");
 				var hinhthaydoi=$(this).val();
-				alert(hinhthaydoi);
+				var chuoicat=hinhthaydoi.lastIndexOf("\\")+1;
+				var ketqua=hinhthaydoi.substring(chuoicat);
+				$("#hinh").attr("src","/VTNN/resources/img/sanpham/"+ ketqua);
+				//alert(ketqua);
 				files=event.target.files;
 				forms=new FormData();
 				forms.append("file",files[0]);
@@ -115,11 +118,13 @@ $(document).ready(
 					contentType:false,
 					processData:false,
 					enctype:"multipart/form-data",
-					success : function(value) {
-						alert(value);
+					success : function() {
 						
-					}
+					},
+					context: document.body
 
+				}).done(function(data) {
+					  alert(data);
 				});
 			});
 		});

@@ -7,4 +7,5 @@ import com.nguyenvanthuan.entity.DanhMucSanPham;
 public interface DanhMucSanPhamImp {
 	List<DanhMucSanPham> listdanhmuc();
 	List<DanhMucSanPham>listdanhmucid(int id);
+	DanhMucSanPham danhMucSanPham(int id);
 }

@@ -19,4 +19,10 @@ public class KhuyemMaiService implements KhuyenMaiImp {
 		// TODO Auto-generated method stub
 		return khuyenMaiDAO.khuyenMais();
 	}
+
+	@Override
+	public KhuyenMai khuyenMai(int id) {
+		// TODO Auto-generated method stub
+		return khuyenMaiDAO.khuyenMai(id);
+	}
 }

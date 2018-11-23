@@ -10,9 +10,10 @@ import com.nguyenvanthuan.daoImp.DanhMucSanPhamImp;
 import com.nguyenvanthuan.entity.DanhMucSanPham;
 
 @Service
-public class DanhMucSanPhamService implements DanhMucSanPhamImp{
+public class DanhMucSanPhamService implements DanhMucSanPhamImp {
 	@Autowired
 	DanhMucSanPhamDAO danhmucdao;
+
 	@Override
 	public List<DanhMucSanPham> listdanhmuc() {
 		// TODO Auto-generated method stub
@@ -23,6 +24,12 @@ public class DanhMucSanPhamService implements DanhMucSanPhamImp{
 	public List<DanhMucSanPham> listdanhmucid(int id) {
 		// TODO Auto-generated method stub
 		return danhmucdao.listdanhmucid(id);
+	}
+
+	@Override
+	public DanhMucSanPham danhMucSanPham(int id) {
+		// TODO Auto-generated method stub
+		return danhmucdao.danhMucSanPham(id);
 	}
 
 }

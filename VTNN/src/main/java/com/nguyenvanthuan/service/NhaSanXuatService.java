@@ -18,5 +18,10 @@ public class NhaSanXuatService implements NhaSanXuatImp{
 		// TODO Auto-generated method stub
 		return nhasanxuatdao.listnhasanxuat();
 	}
+	@Override
+	public NhaSanXuat nhaSanXuat(int id) {
+		// TODO Auto-generated method stub
+		return nhasanxuatdao.nhaSanXuat(id);
+	}
 
 }

@@ -28,4 +28,12 @@ public class NhaSanXuatDAO implements NhaSanXuatImp {
 		List<NhaSanXuat> listnhasanxuat=(List<NhaSanXuat>) session.createQuery("from nhasanxuat").setFirstResult(0).setMaxResults(20).getResultList();
 		return listnhasanxuat;
 	}
+
+	@Override
+	public NhaSanXuat nhaSanXuat(int id) {
+		// TODO Auto-generated method stub
+		Session session=sessionFactory.getCurrentSession();
+		NhaSanXuat nhasanxuat=(NhaSanXuat) session.createQuery("from nhasanxuat where MANHASANXUAT="+id).getSingleResult();
+		return nhasanxuat;
+	}
 }

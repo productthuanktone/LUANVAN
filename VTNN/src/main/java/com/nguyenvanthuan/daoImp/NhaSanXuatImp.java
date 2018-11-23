@@ -5,5 +5,7 @@ import java.util.List;
 import com.nguyenvanthuan.entity.NhaSanXuat;
 
 public interface NhaSanXuatImp {
-List<NhaSanXuat>listnhasanxuat();
+	List<NhaSanXuat> listnhasanxuat();
+
+	NhaSanXuat nhaSanXuat(int id);
 }

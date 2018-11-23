@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import com.nguyenvanthuan.daoImp.DanhMucSanPhamImp;
 import com.nguyenvanthuan.entity.ChiTietHoaDon;
 import com.nguyenvanthuan.entity.DanhMucSanPham;
+import com.nguyenvanthuan.entity.KhuyenMai;
 
 @Repository
 @Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)
@@ -23,7 +24,8 @@ public class DanhMucSanPhamDAO implements DanhMucSanPhamImp {
 	public List<DanhMucSanPham> listdanhmuc() {
 		Session session = sessionFactory.getCurrentSession();
 		@SuppressWarnings("unchecked")
-		List<DanhMucSanPham> Listdanhmuc = (List<DanhMucSanPham>) session.createQuery("from danhmucsanpham").getResultList();
+		List<DanhMucSanPham> Listdanhmuc = (List<DanhMucSanPham>) session.createQuery("from danhmucsanpham")
+				.getResultList();
 		return Listdanhmuc;
 	}
 
@@ -31,8 +33,17 @@ public class DanhMucSanPhamDAO implements DanhMucSanPhamImp {
 	public List<DanhMucSanPham> listdanhmucid(int id) {
 		Session session = sessionFactory.getCurrentSession();
 		@SuppressWarnings("unchecked")
-		List<DanhMucSanPham> Listdanhmucid = (List<DanhMucSanPham>) session.createQuery("from danhmucsanpham where MADANHMUC="+id).getResultList();
+		List<DanhMucSanPham> Listdanhmucid = (List<DanhMucSanPham>) session
+				.createQuery("from danhmucsanpham where MADANHMUC=" + id).getResultList();
 		return Listdanhmucid;
+	}
+
+	@Override
+	public DanhMucSanPham danhMucSanPham(int id) {
+		Session session = sessionFactory.getCurrentSession();
+		DanhMucSanPham danhMucSanPham = (DanhMucSanPham) session
+				.createQuery("from danhmucsanpham where madanhmuc=" + id).getSingleResult();
+		return danhMucSanPham;
 	}
 
 }
