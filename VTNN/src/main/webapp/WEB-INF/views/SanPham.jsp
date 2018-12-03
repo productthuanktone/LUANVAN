@@ -58,38 +58,38 @@
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
 						href="#about">Tin Tức Nông Nghiệp</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#services">Kiểm Tra Đơn Hàng</a></li>
-
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="/VTNN/giohang/">Giỏ hàng <i
-							class="fas fa-cart-arrow-down"></i><span class="icongiohang">${soluonggiohang}</span></a></li>
+					<li class="nav-item ponter"><a class="nav-link js-scroll-trigger"
+						>Kiểm Tra Đơn Hàng</a></li>
 					<c:choose>
 						<c:when test="${tendangnhap !=null}">
-							<div class="btn-group cachdangnhap">
-								<button type="button" class="btn btn-danger dropdown-toggle"
+							<div class="btn-group">
+								<button type="button" class="btn btn-danger dropdown-toggle cachdangnhap"
 									data-toggle="dropdown" aria-haspopup="true"
 									aria-expanded="false">${tendangnhap}</button>
 								<div class="dropdown-menu">
-									<a class="dropdown-item" href="#">Thông Tin Cá Nhân</a> <a
-										class="dropdown-item" href="#">Thông Tin Giỏ Hàng</a> <a
-										class="dropdown-item" href="#">Something else here</a>
-									<div class="dropdown-divider"></div>
-									<form action="/VTNN/dangxuat" method="post">
-										<button type="submit">Đăng Xuất</button>
-									</form>
+									<a class="dropdown-item" href="#">Thông Tin Cá Nhân</a>
+									 <a class="dropdown-item" href="#">Thông Tin Giỏ Hàng</a>
+									  <a class="dropdown-item" href="/VTNN/dangxuat">Đăng xuất</a>
+									
+					
 									<!--   <a class="dropdown-item" href="/VTNN/dangnhap/dangxuat"></a> -->
 								</div>
 							</div>
 						</c:when>
 						<c:otherwise>
-							<li class="nav-item cachdangnhap"><a class="btn btn-primary"
-								href="/VTNN/dangnhap/">Đăng Nhập</a></li>
-							<li class="nav-item"><a class="btn btn-primary"
-								href="/VTNN/dangnhap/">Đăng Ký</a></li>
+							
+					<li class="nav-item"><a class="nav-link js-scroll-trigge ponter"
+						data-toggle="modal" data-target="#exampleModalCenter1"
+						style="color: orange;">Đăng Nhập ${error}</a></li>
+						<li class="nav-item"><a class="nav-link js-scroll-trigger ponter"
+						style="color: orange;">Đăng Ký</a></li>
 							<br />
 						</c:otherwise>
 					</c:choose>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/VTNN/giohang/">Giỏ hàng <i class="fas fa-cart-arrow-down"></i><span class="icongiohang">${soluonggiohang}</span></a></li>
+					<c:if test="${quyen==1}">
+						<li class="nav-item quanly"><a class="btn btn-primary" href="/VTNN/admin/">Quản Lý</a></li>
+					</c:if>
 				</ul>
 			</div>
 		</div>
@@ -135,7 +135,7 @@
 									<div class="card"
 										style="width: 18rem; background-color: #00ffff7d;">
 										<img class="card-img-top"
-											src='<c:url value="/resources/img/sanpham/${listsanpham.getHinh().getHINH() }"/>'
+											src='<c:url value="//resources/img/sanpham/${listsanpham.getHinh().getHINH() }"/>'
 											alt="Card image cap" style="width: 286px; height: 250px">
 										<div class="card-body">
 											<h5 class="card-title" style="height: 48px">${listsanpham.getSanpham().getTENSANPHAM() }</h5>
@@ -163,7 +163,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 text-center">
-					<h2 class="section-heading">At Your Service</h2>
+					<h2 class="section-heading">Hương Lúa</h2>
 					<hr class="my-4">
 				</div>
 			</div>
@@ -173,118 +173,32 @@
 				<div class="col-lg-3 col-md-6 text-center">
 					<div class="service-box mt-5 mx-auto">
 						<i class="fas fa-4x fa-gem text-primary mb-3 sr-icon-1"></i>
-						<h3 class="mb-3">Sturdy Templates</h3>
-						<p class="text-muted mb-0">Our templates are updated regularly
-							so they don't break.</p>
+						<h3 class="mb-3">Sản Phẩm Chất Lượng</h3>
+						<p class="text-muted mb-0">Sản phẩm chất lượng quốc tế.</p>
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-6 text-center">
 					<div class="service-box mt-5 mx-auto">
 						<i class="fas fa-4x fa-paper-plane text-primary mb-3 sr-icon-2"></i>
-						<h3 class="mb-3">Ready to Ship</h3>
-						<p class="text-muted mb-0">You can use this theme as is, or
-							you can make changes!</p>
+						<h3 class="mb-3">Giao Hàng Nhanh</h3>
+						<p class="text-muted mb-0">Giao hàng đúng ngày, đúng thời điểm.</p>
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-6 text-center">
 					<div class="service-box mt-5 mx-auto">
 						<i class="fas fa-4x fa-code text-primary mb-3 sr-icon-3"></i>
-						<h3 class="mb-3">Up to Date</h3>
-						<p class="text-muted mb-0">We update dependencies to keep
-							things fresh.</p>
+						<h3 class="mb-3">Sản Phẩm Mới</h3>
+						<p class="text-muted mb-0">Chúng tôi luôn cập nhật sản phẩm mới.</p>
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-6 text-center">
 					<div class="service-box mt-5 mx-auto">
 						<i class="fas fa-4x fa-heart text-primary mb-3 sr-icon-4"></i>
-						<h3 class="mb-3">Made with Love</h3>
-						<p class="text-muted mb-0">You have to make your websites with
-							love these days!</p>
+						<h3 class="mb-3">An Toàn Sức Khỏe</h3>
+						<p class="text-muted mb-0">Sản phẩm luôn bảo vệ sức khỏe của bạn.</p>
 					</div>
 				</div>
 			</div>
-		</div>
-	</section>
-
-	<section class="p-0" id="portfolio">
-		<div class="container-fluid p-0">
-			<div class="row no-gutters popup-gallery">
-				<div class="col-lg-4 col-sm-6">
-					<a class="portfolio-box" href="img/portfolio/fullsize/1.jpg"> <img
-						class="img-fluid" src="img/portfolio/thumbnails/1.jpg" alt="">
-						<div class="portfolio-box-caption">
-							<div class="portfolio-box-caption-content">
-								<div class="project-category text-faded">Category</div>
-								<div class="project-name">Project Name</div>
-							</div>
-						</div>
-					</a>
-				</div>
-				<div class="col-lg-4 col-sm-6">
-					<a class="portfolio-box" href="img/portfolio/fullsize/2.jpg"> <img
-						class="img-fluid" src="img/portfolio/thumbnails/2.jpg" alt="">
-						<div class="portfolio-box-caption">
-							<div class="portfolio-box-caption-content">
-								<div class="project-category text-faded">Category</div>
-								<div class="project-name">Project Name</div>
-							</div>
-						</div>
-					</a>
-				</div>
-				<div class="col-lg-4 col-sm-6">
-					<a class="portfolio-box" href="img/portfolio/fullsize/3.jpg"> <img
-						class="img-fluid" src="img/portfolio/thumbnails/3.jpg" alt="">
-						<div class="portfolio-box-caption">
-							<div class="portfolio-box-caption-content">
-								<div class="project-category text-faded">Category</div>
-								<div class="project-name">Project Name</div>
-							</div>
-						</div>
-					</a>
-				</div>
-				<div class="col-lg-4 col-sm-6">
-					<a class="portfolio-box" href="img/portfolio/fullsize/4.jpg"> <img
-						class="img-fluid" src="img/portfolio/thumbnails/4.jpg" alt="">
-						<div class="portfolio-box-caption">
-							<div class="portfolio-box-caption-content">
-								<div class="project-category text-faded">Category</div>
-								<div class="project-name">Project Name</div>
-							</div>
-						</div>
-					</a>
-				</div>
-				<div class="col-lg-4 col-sm-6">
-					<a class="portfolio-box" href="img/portfolio/fullsize/5.jpg"> <img
-						class="img-fluid" src="img/portfolio/thumbnails/5.jpg" alt="">
-						<div class="portfolio-box-caption">
-							<div class="portfolio-box-caption-content">
-								<div class="project-category text-faded">Category</div>
-								<div class="project-name">Project Name</div>
-							</div>
-						</div>
-					</a>
-				</div>
-				<div class="col-lg-4 col-sm-6">
-					<a class="portfolio-box" href="img/portfolio/fullsize/6.jpg"> <img
-						class="img-fluid" src="img/portfolio/thumbnails/6.jpg" alt="">
-						<div class="portfolio-box-caption">
-							<div class="portfolio-box-caption-content">
-								<div class="project-category text-faded">Category</div>
-								<div class="project-name">Project Name</div>
-							</div>
-						</div>
-					</a>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="bg-dark text-white">
-		<div class="container text-center">
-			<h2 class="mb-4">Free Download at Start Bootstrap!</h2>
-			<a class="btn btn-light btn-xl sr-button"
-				href="http://startbootstrap.com/template-overviews/creative/">Download
-				Now!</a>
 		</div>
 	</section>
 
@@ -292,22 +206,20 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 mx-auto text-center">
-					<h2 class="section-heading">Let's Get In Touch!</h2>
+					<h2 class="section-heading">Liên Hệ Ngay!</h2>
 					<hr class="my-4">
-					<p class="mb-5">Ready to start your next project with us?
-						That's great! Give us a call or send us an email and we will get
-						back to you as soon as possible!</p>
+					<p class="mb-5">Chúng tôi luôn sẳn sàn phục vụ quý khách</p>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-lg-4 ml-auto text-center">
 					<i class="fas fa-phone fa-3x mb-3 sr-contact-1"></i>
-					<p>123-456-6789</p>
+					<p>01263241992</p>
 				</div>
 				<div class="col-lg-4 mr-auto text-center">
 					<i class="fas fa-envelope fa-3x mb-3 sr-contact-2"></i>
 					<p>
-						<a href="mailto:your-email@your-domain.com">feedback@startbootstrap.com</a>
+						<a href="mailto:your-email@your-domain.com">huonglua@gmail.com</a>
 					</p>
 				</div>
 			</div>
@@ -330,45 +242,6 @@
 	<!-- Custom scripts for this template -->
 	<script src='<c:url value="/resources/js/creative.min.js"/>'></script>
 </body>
-<div class="modal fade" id="exampleModalCenter1"
-	aria-labelledby="exampleModalCenterTitle" disabled="false">
-	<div class="modal-dialog modal-dialog-centered" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLongTitle">Đăng nhập</h5>
-				<button type="button" class="close" data-dismiss="modal"
-					aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-				<c:if test="${error !=null }">
-					<h6 style="color: red;">${error}</h6>
-				</c:if>
-			</div>
-			<div class="modal-body">
-				<form action="/VTNN/dangnhap/" method="post">
-					<div class="form-group">
-						<label for="exampleInputEmail1">Địa chỉ Email:</label> <input
-							type="email" name="tendangnhap" class="form-control"
-							id="exampleInputEmail1" aria-describedby="emailHelp"
-							placeholder="Enter email"> <small id="emailHelp"
-							class="form-text text-muted">Đảm bảo quyền riêng tư của
-							bạn.</small>
-					</div>
-					<div class="form-group">
-						<label for="exampleInputPassword1">Mật Khẩu</label> <input
-							type="password" name="matkhau" class="form-control"
-							id="exampleInputPassword1" placeholder="Password">
-					</div>
-					<div class="form-check">
-						<input type="checkbox" class="form-check-input" id="exampleCheck1">
-						<label class="form-check-label" for="exampleCheck1">Nhớ
-							mật khẩu</label>
-					</div>
-					<button type="submit" class="btn btn-primary">Đăng nhập</button>
-				</form>
-			</div>
-		</div>
-	</div>
-</div>
-
+<jsp:include page="modal.jsp"></jsp:include>
 </html>
+	

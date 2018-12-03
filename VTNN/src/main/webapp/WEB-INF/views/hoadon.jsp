@@ -47,8 +47,8 @@
 								<tr>
 									<td class="mauheader"><%=i++%></td>
 									<td>${hoadon.getMAHOADON() }</td>
-									<td>${hoadon.getKhachhang().getHOTEN() }</td>
-									<td>${hoadon.getKhachhang().getSODIENTHOAI()}</td>
+									<td>${hoadon.getTENKHACHHANG()	}</td>
+									<td>${hoadon.getSODIENTHOAI()}</td>
 									<td>${hoadon.getTONGGIA() }</td>
 									<td><c:if test="${hoadon.getHINHTHUCGIAOHANG()==0 }">
 											<span class="noibat">Nhận ở địa chỉ giao</span>

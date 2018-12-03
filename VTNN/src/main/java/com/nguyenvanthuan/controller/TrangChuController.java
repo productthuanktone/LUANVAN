@@ -10,14 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.nguyenvanthuan.entity.ChiTietSanPham;
 import com.nguyenvanthuan.entity.DanhMucSanPham;
 import com.nguyenvanthuan.entity.GioHang;
-import com.nguyenvanthuan.entity.SanPham;
 import com.nguyenvanthuan.entity.TaiKhoan;
 import com.nguyenvanthuan.service.ChiTietSanPhamService;
 import com.nguyenvanthuan.service.DanhMucSanPhamService;

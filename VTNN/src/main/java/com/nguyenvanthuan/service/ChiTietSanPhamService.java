@@ -45,4 +45,10 @@ public class ChiTietSanPhamService implements ChiTietSanPhamImp {
 		// TODO Auto-generated method stub
 		return chiTietSanPhamDao.updatechitietsanpham(id, tensanpham, soluong, gia, mota, idnhasanxuat, khuyenmai, danhmuc, hinh);
 	}
+
+	@Override
+	public boolean updatesoluongsanpham(int id, int soluongmoi) {
+		// TODO Auto-generated method stub
+		return chiTietSanPhamDao.updatesoluongsanpham(id, soluongmoi);
+	}
 }

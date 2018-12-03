@@ -23,10 +23,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.nguyenvanthuan.entity.ChiTietHoaDon;
+import com.nguyenvanthuan.entity.ChiTietSanPham;
 import com.nguyenvanthuan.entity.GioHang;
 import com.nguyenvanthuan.entity.HoaDon;
 import com.nguyenvanthuan.entity.KhachHang;
 import com.nguyenvanthuan.entity.TaiKhoan;
+import com.nguyenvanthuan.service.ChiTietSanPhamService;
 import com.nguyenvanthuan.service.HoaDonService;
 import com.nguyenvanthuan.service.KhachHangSevice;
 import com.nguyenvanthuan.service.TaiKhoanSevice;
@@ -43,6 +45,8 @@ public class GioHangController {
 	TaiKhoanSevice taikhoanSV;
 	@Autowired
 	KhachHangSevice khachhangservice;
+	@Autowired
+	ChiTietSanPhamService chitietsanphamservice;
 
 	@GetMapping
 	@Transactional
@@ -79,10 +83,11 @@ public class GioHangController {
 			float tonghoadon=0;
 			for (GioHang gioHang : listgiohang) {
 				ChiTietHoaDon chiTietHoaDon = new ChiTietHoaDon();
+				ChiTietSanPham chiTietSanPham=chitietsanphamservice.chiTietSanPham(gioHang.getMachitietsanpham());
 				chiTietHoaDon.setSOLUONG(gioHang.getSoluong());
 				float tonggia1=gioHang.getGia()*gioHang.getSoluong();
 				chiTietHoaDon.setTONGGIA(tonggia1);
-				//chiTietHoaDon.setMACHITIETSANPHAM(gioHang.getMachitietsanpham());
+				chiTietHoaDon.setChiTietSanPham(chiTietSanPham);
 				chiTietHoaDons.add(chiTietHoaDon);
 				tonghoadon=tonghoadon+tonggia1;
 

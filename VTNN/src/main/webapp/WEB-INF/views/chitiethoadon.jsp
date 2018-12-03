@@ -34,8 +34,11 @@
 	</table>
 </div>
 <h5>
-	Tổng Giá:<span style="color: red;">${hoadon.getTONGGIA()}</span> VNĐ
+	Tổng Giá:<span style="color: red;"> ${hoadon.getTONGGIA()}</span> VNĐ
 </h5>
+<c:if test="${$hethang !=''}">
+<h1>${hethang}</h1>
+</c:if>
 <div class="modal-footer">
 	<a href="/VTNN/hoadon/duyenhoadon/1/${hoadon.getMAHOADON() }" type="button" class="btn btn-success">Duyệt Đơn Hàng</a>
 	<a href="/VTNN/hoadon/duyenhoadon/2/${hoadon.getMAHOADON() }" type="button" class="btn btn-warning " >Hủy Hóa Đơn</a>

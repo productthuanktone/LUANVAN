@@ -1,5 +1,7 @@
 package com.nguyenvanthuan.dao;
 
+import javax.transaction.Transactional;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,7 @@ public class KhachHangDao implements KhachHangImp {
 	@Autowired
 	SessionFactory sessionFactory;
 	@Override
+	@Transactional
 	public KhachHang khachhang(int makhachkang) {
 		Session session=sessionFactory.getCurrentSession();
 		KhachHang khachhang = (KhachHang) session.createQuery("from khachhang where MAKHACHHANG=" + makhachkang).getSingleResult();

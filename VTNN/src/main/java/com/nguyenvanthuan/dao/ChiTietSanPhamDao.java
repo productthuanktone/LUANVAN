@@ -115,9 +115,26 @@ public class ChiTietSanPhamDao implements ChiTietSanPhamImp {
 			gia1.setNGAYCAPNHAT(date);
 			SanPham.setGia(gia1);
 		}
-		System.out.println("tao hinh ne"+hinh);
+		System.out.println("tao hinh ne" + hinh);
 		session.save(SanPham);
 		return true;
+
+	}
+
+	@Override
+	@Transactional
+	public boolean updatesoluongsanpham(int id, int soluongmoi) {
+		Session session = sessionFactory.getCurrentSession();
+		try {
+			ChiTietSanPham chiTietSanPham = (ChiTietSanPham) session
+					.createQuery("from chitietsanpham where MACHITIETSANPHAM=" + id).getSingleResult();
+			chiTietSanPham.setSOLUONG(soluongmoi);
+			session.save(chiTietSanPham);
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			return false;
+		}
 
 	}
 }

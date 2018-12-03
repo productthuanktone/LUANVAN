@@ -12,15 +12,16 @@ import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Repository;
 
 import com.nguyenvanthuan.daoImp.HoaDonImp;
+import com.nguyenvanthuan.entity.ChiTietSanPham;
 import com.nguyenvanthuan.entity.HoaDon;
 import com.nguyenvanthuan.entity.SanPham;
+import com.nguyenvanthuan.service.ChiTietSanPhamService;
 
 @Repository
 @Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class HoaDonDao implements HoaDonImp {
 	@Autowired
 	SessionFactory sessionFactory;
-
 	@Override
 	@Transactional
 	public boolean ThemHoaDon(HoaDon hoadon) {
