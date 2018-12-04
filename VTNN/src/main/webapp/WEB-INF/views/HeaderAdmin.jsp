@@ -111,26 +111,28 @@
 
 		<!-- Sidebar -->
 		<ul class="sidebar navbar-nav">
-			<li class="nav-item"><a class="nav-link" href="index.html">
+			<li class="nav-item"><a class="nav-link" href="#">
 					<i class="fas fa-fw fa-tachometer-alt"></i> <span>Quản Lý</span>
 			</a></li>
+			<li class="nav-item"><a class="nav-link" href="/VTNN/hoadon/">
+					<i class="fas fa-fw fa-chart-area"></i> <span>Danh Sách Hóa Đơn</span>
+			</a></li>
 			<li class="nav-item dropdown">
-			<a class="nav-link dropdown-toggle" id="pagesDropdown"data-toggle="dropdown" ><span>Hóa Đơn</span>
-			</a>
-				<div class="dropdown-menu" aria-labelledby="pagesDropdown">
-					<a class="dropdown-item" href="/VTNN/hoadon/">Danh Sách Hóa Đơn</a>
-					<a class="dropdown-item" href="login.html">Hóa Đơn Đã Duyệt</a> 
-					<a class="dropdown-item" href="register.html">Hóa Đơn Đã Hũy</a>
-					<div class="dropdown-divider"></div>
-				</div></li>
-				<li class="nav-item dropdown">
 			<a class="nav-link dropdown-toggle" id="pagesDropdown1"data-toggle="dropdown" ><span>Sản Phẩm</span>
 			</a>
 				<div class="dropdown-menu" aria-labelledby="pagesDropdown1">
 					<a class="dropdown-item" href="/VTNN/adminsanpham/">Danh Sách Sản Phẩm</a>
 					<a class="dropdown-item" href="/VTNN/adminsanpham/themsanpham">Thêm Sản Phẩm</a> 
 					<div class="dropdown-divider"></div>
+				</div></li><li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" id="pagesDropdown2"data-toggle="dropdown" ><span>Nhà Sản Xuất</span>
+			</a>
+				<div class="dropdown-menu" aria-labelledby="pagesDropdown2">
+					<a class="dropdown-item" href="/VTNN/nhasanxuat/">Danh Sách Nhà Sản Xuất</a>
+					<a class="dropdown-item" href="/VTNN/adminsanpham/themsanpham">Thêm Nhà Sản Xuất</a> 
+					<div class="dropdown-divider"></div>
 				</div></li>
+			
 			<li class="nav-item"><a class="nav-link" href="charts.html">
 					<i class="fas fa-fw fa-chart-area"></i> <span>Charts</span>
 			</a></li>

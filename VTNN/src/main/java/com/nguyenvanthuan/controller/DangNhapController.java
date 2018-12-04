@@ -48,7 +48,7 @@ public class DangNhapController {
 			String error = "Lỗi đăng nhập!Sai email hoặc mật khẩu";
 			System.out.println("failure");
 			map.addAttribute("error", error);
-			return "dangnhap";
+			return "dangnhaperror";
 		}
 
 	}
@@ -56,5 +56,21 @@ public class DangNhapController {
 	public String DangXuat(HttpSession httpSession) {
 		httpSession.removeAttribute("tendangnhap");
 		return "redirect:/";
+	}
+	@PostMapping("dangky")
+	public String dangky(ModelMap modelMap,@RequestParam String email,@RequestParam String matkhau1,@RequestParam String matkhau2,@RequestParam String hoten,@RequestParam int sodienthoai,@RequestParam String diachi, @RequestParam int gioitinh) {
+		if(taikhoanService.Themtaikhoan(email, matkhau1, matkhau2, hoten, sodienthoai, diachi, gioitinh)) {
+			String error = "Đăng Ký Thành Công";
+			System.out.println("failure");
+			modelMap.addAttribute("error", error);
+			return "dangnhaperror";
+		}
+		else {
+			String error = "Đăng ký thất bại";
+			System.out.println("failure");
+			modelMap.addAttribute("error", error);
+			return "dangnhaperror";
+		}
+
 	}
 }

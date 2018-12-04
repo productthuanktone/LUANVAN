@@ -82,6 +82,7 @@
 						data-toggle="modal" data-target="#exampleModalCenter1"
 						style="color: orange;">Đăng Nhập ${error}</a></li>
 						<li class="nav-item"><a class="nav-link js-scroll-trigger ponter"
+						data-toggle="modal" data-target="#exampleModalCenter2"
 						style="color: orange;">Đăng Ký</a></li>
 							<br />
 						</c:otherwise>
@@ -243,4 +244,5 @@
 	<script src='<c:url value="resources/js/creative.min.js"/>'></script>
 </body>
 <jsp:include page="modal.jsp"></jsp:include>
+<jsp:include page="modaldk.jsp"></jsp:include>
 </html>

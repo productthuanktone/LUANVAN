@@ -10,6 +10,7 @@ import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Repository;
 
 import com.nguyenvanthuan.daoImp.TaiKhoanImp;
+import com.nguyenvanthuan.entity.KhachHang;
 import com.nguyenvanthuan.entity.TaiKhoan;
 
 @Repository
@@ -39,14 +40,43 @@ public class TaiKhoanDAO implements TaiKhoanImp {
 	@Transactional
 	public TaiKhoan laytaikhoan(String tendangnhap) {
 		// TODO Auto-generated method stub
-		Session session=sessionFactory.getCurrentSession();
+		Session session = sessionFactory.getCurrentSession();
 		try {
-			TaiKhoan taikhoan = (TaiKhoan) session.createQuery("from taikhoan where TENDANGNHAP='" + tendangnhap + "'").getSingleResult();
+			TaiKhoan taikhoan = (TaiKhoan) session.createQuery("from taikhoan where TENDANGNHAP='" + tendangnhap + "'")
+					.getSingleResult();
 			return taikhoan;
 		} catch (Exception e) {
 			return null;
 		}
-		
+
+	}
+
+	@Override
+	@Transactional
+	public boolean Themtaikhoan(String email, String matkhau1, String matkhau2, String hoten, int sodienthoai,
+			String diachi, int gioitinh) {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.getCurrentSession();
+		try {
+			TaiKhoan taiKhoan = new TaiKhoan();
+			taiKhoan.setTENDANGNHAP(email);
+			taiKhoan.setMATKHAU(matkhau1);
+			taiKhoan.setMATKHAU2(matkhau2);
+			taiKhoan.setQUYEN(0);
+			taiKhoan.setISDELETE(0);
+			KhachHang khachHang =new KhachHang();
+			khachHang.setHOTEN(hoten);
+			khachHang.setEMAIL(email);
+			khachHang.setDIACHI(diachi);
+			khachHang.setGIOITINH(gioitinh);
+			khachHang.setSODIENTHOAI(sodienthoai);
+			taiKhoan.setKhachhang(khachHang);
+			session.save(taiKhoan);
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			return false;
+		}
 		
 	}
 

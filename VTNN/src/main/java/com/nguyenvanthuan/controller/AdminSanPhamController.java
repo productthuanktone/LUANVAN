@@ -17,10 +17,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.nguyenvanthuan.dao.NhaSanXuatDAO;
 import com.nguyenvanthuan.entity.ChiTietSanPham;
 import com.nguyenvanthuan.entity.DanhMucSanPham;
+import com.nguyenvanthuan.entity.DonViTinh;
 import com.nguyenvanthuan.entity.KhuyenMai;
 import com.nguyenvanthuan.entity.NhaSanXuat;
 import com.nguyenvanthuan.service.ChiTietSanPhamService;
 import com.nguyenvanthuan.service.DanhMucSanPhamService;
+import com.nguyenvanthuan.service.DonViTinhService;
 import com.nguyenvanthuan.service.KhuyemMaiService;
 import com.nguyenvanthuan.service.NhaSanXuatService;
 
@@ -35,6 +37,8 @@ public class AdminSanPhamController {
 	KhuyemMaiService khuyemmaiservice;
 	@Autowired
 	NhaSanXuatService nhasanxuatservice;
+	@Autowired
+	DonViTinhService donvitinhservice;
 
 	@GetMapping
 	@Transactional
@@ -69,10 +73,12 @@ public class AdminSanPhamController {
 		List<DanhMucSanPham> danhMucSanPhams = danhmucservice.listdanhmuc();
 		List<KhuyenMai> khuyenMais = khuyemmaiservice.khuyenMais();
 		List<NhaSanXuat> nhaSanXuats = nhasanxuatservice.listnhasanxuat();
+		List<DonViTinh> donViTinhs=donvitinhservice.donViTinhs();
 		modelMap.addAttribute("sanpham", chiTietSanPham);
 		modelMap.addAttribute("danhmuc", danhMucSanPhams);
 		modelMap.addAttribute("khuyenmai", khuyenMais);
 		modelMap.addAttribute("nhasanxuat", nhaSanXuats);
+		modelMap.addAttribute("donvitinh", donViTinhs);
 		for (KhuyenMai khuyemmai : khuyenMais) {
 			System.out.println("ádasdasdasd" + khuyemmai.getMAKHUYENMAI());
 		}
@@ -83,18 +89,40 @@ public class AdminSanPhamController {
 	@Transactional
 	public String Updatesanpham(ModelMap modelMap, @RequestParam int id, @RequestParam String tensp,
 			@RequestParam int nhasanxuat, @RequestParam int soluong, @RequestParam int khuyenmai,
-			@RequestParam float gia, @RequestParam int danhmuc, @RequestParam String mota, @RequestParam String hinh) {
+			@RequestParam String gia, @RequestParam int danhmuc, @RequestParam String mota, @RequestParam String hinh,@RequestParam int donvitinh) {
 		System.out.println("id" + id + " tensp: " + tensp + " nhasanxuat: " + nhasanxuat + " soluong: " + soluong
 				+ " khuyemmai:  " + khuyenmai + " gia: " + gia + "  danhmuc: " + danhmuc + " mota: " + mota);
-		boolean chiTietSanPham = chitietsanphamservice.updatechitietsanpham(id, tensp, soluong, gia, mota, nhasanxuat,
-				khuyenmai, danhmuc, hinh);
+		float gia1=Float.parseFloat(gia);
+		chitietsanphamservice.updatechitietsanpham(id, tensp, soluong, gia1, mota, nhasanxuat,
+				khuyenmai, danhmuc, hinh, donvitinh);
 		return "redirect:/adminsanpham/";
 	}
+
 	@GetMapping("themsanpham")
-	@Transactional
 	public String ThemSanPham(ModelMap modelMap, HttpSession httpSession) {
-	
+		List<DanhMucSanPham> danhMucSanPhams = danhmucservice.listdanhmuc();
+		List<KhuyenMai> khuyenMais = khuyemmaiservice.khuyenMais();
+		List<NhaSanXuat> nhaSanXuats = nhasanxuatservice.listnhasanxuat();
+		List<DonViTinh> donViTinhs=donvitinhservice.donViTinhs();
+		modelMap.addAttribute("danhmuc", danhMucSanPhams);
+		modelMap.addAttribute("khuyenmai", khuyenMais);
+		modelMap.addAttribute("nhasanxuat", nhaSanXuats);
+		modelMap.addAttribute("donvitinh", donViTinhs);
 
 		return "themsanpham";
 	}
+
+	@PostMapping("themsanpham")
+	public String ThemSanPhamPost(ModelMap modelMap, @RequestParam String tensp, @RequestParam int nhasanxuat,
+			@RequestParam int soluong, @RequestParam int khuyenmai, @RequestParam float gia, @RequestParam int danhmuc,
+			@RequestParam String mota, @RequestParam String hinh) {
+		System.out.println(tensp+" "+nhasanxuat+" "+soluong+" "+ khuyenmai+" "+ gia+" "+danhmuc+" "+mota+" " +hinh);
+		chitietsanphamservice.savechitietsanpham(tensp, nhasanxuat, soluong, khuyenmai, gia, danhmuc, mota, hinh, 1);
+
+		List<ChiTietSanPham> chiTietSanPhams = chitietsanphamservice.ListChiTietSanPham();
+		modelMap.addAttribute("listsanpham", chiTietSanPhams);
+
+		return "adminsanpham";
+	}
+
 }

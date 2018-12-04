@@ -100,6 +100,17 @@ $(document).ready(
 						$(".modalsp").attr("action", submitaction);
 
 					});
+			$(".xoansx").click(
+					function() {
+						
+						var idspct = $(this).closest("tr").find(".idnsx").attr(
+								"data-idnsx");
+						var action = $(".modalsp").attr("action");
+						var submitaction = action + idspct;
+						alert(submitaction);
+						$(".modalsp").attr("action", submitaction);
+
+					});
 			var files=[];
 			$("#choofile").change(function(event){
 				var hinh=$("#hinh").attr("src");

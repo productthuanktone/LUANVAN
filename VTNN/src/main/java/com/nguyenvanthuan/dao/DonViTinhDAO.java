@@ -11,32 +11,32 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Repository;
 
-import com.nguyenvanthuan.daoImp.KhuyenMaiImp;
-import com.nguyenvanthuan.entity.KhuyenMai;
-import com.nguyenvanthuan.entity.NhaSanXuat;
+import com.nguyenvanthuan.daoImp.DonViTinhImp;
+
+import com.nguyenvanthuan.entity.DonViTinh;
 
 @Repository
 @Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)
-public class KhuyenMaiDAO implements KhuyenMaiImp {
+public class DonViTinhDAO implements DonViTinhImp {
 	@Autowired
 	SessionFactory sessionFactory;
 
 	@Override
 	@Transactional
-	public List<KhuyenMai> khuyenMais() {
+	public DonViTinh donViTinhid(int id) {
 		Session session = sessionFactory.getCurrentSession();
-		List<KhuyenMai> khuyenMais = (List<KhuyenMai>) session.createQuery("from khuyenmai").getResultList();
-		return khuyenMais;
+		DonViTinh donViTinh = (DonViTinh) session.createQuery("from donvitinh where MADONVITINH=" + id).getSingleResult();
+		return donViTinh;
+
 	}
 
 	@Override
 	@Transactional
-	public KhuyenMai khuyenMai(int id) {
+	public List<DonViTinh> donViTinhs() {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
-		KhuyenMai khuyenMai = (KhuyenMai) session.createQuery("from khuyenmai where MAKHUYENMAI=" + id)
-				.getSingleResult();
-		return khuyenMai;
+		List<DonViTinh> donViTinhs = session.createQuery("from donvitinh").getResultList();
+		return donViTinhs;
 	}
 
 }

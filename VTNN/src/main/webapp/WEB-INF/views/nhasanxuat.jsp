@@ -7,7 +7,7 @@
 	<div class="container-fluid">
 		<div class="card mb-3">
 			<div class="card-header">
-				<i class="fas fa-table"></i> Danh Sách Sản Phẩm
+				<i class="fas fa-table"></i> Danh Sách Nhà Sản Xuất
 			</div>
 			<div class="card-body">
 				<div class="table-responsive">
@@ -16,30 +16,22 @@
 						<thead class="mauheader">
 							<tr>
 								<th>STT</th>
-								<th>Hình Sản Phẩm</th>
-								<th>Tên Sản Phẩm</th>
-								<th>Nhà Sản Xuất</th>
-								<th>Danh Mục</th>
-								<th>Khuyến Mãi</th>
-								<th>Mô Tả</th>
-								<th>Đơn vị tính</th>
-								<th>Giá</th>
-								<th>Số Lượng</th>
+								<th>Mã Nhà Sản Xuất</th>
+								<th>Tên Nhà Sản Xuất</th>
+								<th>Số Điện Thoại</th>
+								<th>Địa Chỉ</th>
+								<th>Email</th>
 								<th></th>
 							</tr>
 						</thead>
 						<tfoot>
 							<tr>
 								<th>STT</th>
-								<th>Hình Sản Phẩm</th>
-								<th>Tên Sản Phẩm</th>
-								<th>Nhà Sản Xuất</th>
-								<th>Danh Mục</th>
-								<th>Khuyến Mãi</th>
-								<th>Mô Tả</th>
-								<th>Đơn vị tính</th>
-								<th>Giá</th>
-								<th>Số Lượng</th>
+								<th>Mã Nhà Sản Xuất</th>
+								<th>Tên Nhà Sản Xuất</th>
+								<th>Số Điện Thoại</th>
+								<th>Địa Chỉ</th>
+								<th>Email</th>
 								<th></th>
 							</tr>
 						</tfoot>
@@ -47,20 +39,15 @@
 							<%
 										int i = 1;
 									%>
-							<c:forEach var="listsanpham" items="${listsanpham }">
+							<c:forEach var="nhasanxuat" items="${nhasanxuat }">
 								<tr>
-									<td><%=i++%></td>
-									<td><img class="hinhgiohang" alt="hinh"
-											src='<c:url value="/resources/img/sanpham/${listsanpham.getHinh().getHINH() }"/>' /></td>
-									<td class="idsp" data-idsp="${listsanpham.getMACHITIETSANPHAM() }">${listsanpham.getSanpham().getTENSANPHAM()}</td>
-									<td>${listsanpham.getNhasanxuat().getTENNHASANXUAT()}</td>
-									<td>${listsanpham.getDanhMucSanPham().getTENDANHMUC() }</td>
-									<td>${listsanpham.getKhuyenmai().getTENKHUYENMAI() }(${listsanpham.getKhuyenmai().getPHANTRAM()}%)</td>
-									<td>${listsanpham.getSanpham().getMOTA() }</td>
-									<td>${listsanpham.getDonvitinh().getTENDONVITINH()}</td>
-									<td>${listsanpham.getGia().getGIA()}</td>
-									<td>${listsanpham.getSOLUONG()}</td>
-									<td style="width: 250px;"><a class="btn btn-secondary buttonhd xoa" data-toggle="modal" data-target="#exampleModalCenter11" style="width: 97px;">Xóa</a>
+									<td class=""><%=i++%></td>
+									<td class ="idnsx" data-idnsx="${nhasanxuat.getMANHASANXUAT()}">${nhasanxuat.getMANHASANXUAT() }</td>
+									<td>${nhasanxuat.getTENNHASANXUAT()	}</td>
+									<td>${nhasanxuat.getSODIENTHOAI()}</td>
+									<td>${nhasanxuat.getDIACHI() }</td>
+									<td>${nhasanxuat.getEMAIL() }</td>
+									<td><a class="btn btn-secondary buttonhd xoansx" data-toggle="modal" data-target="#exampleModalCenter11" style="width: 97px;">Xóa</a>
 												<div class="modal fade" id="exampleModalCenter11"
 													aria-labelledby="exampleModalCenterTitle" disabled="false">
 														<div class="modal-dialog modal-dialog-centered" role="document">
@@ -73,7 +60,7 @@
 															</button>
 														</div>
 														<div class="modal-body">
-															<form class="modalsp" action="/VTNN/adminsanpham/" method="get">
+															<form class="modalsp" action="/VTNN/nhasanxuat/" method="get">
 																<h2>Bạn có chắc xóa không ?</h2>
 															<button type="submit" class="btn btn-primary">Xóa</button>
 														</form>
@@ -81,8 +68,9 @@
 												</div>
 											</div>
 										</div>
-									<a href="/VTNN/adminsanpham/chinhsua/${listsanpham.getMACHITIETSANPHAM() }" type="button" class="btn btn-success" >Chỉnh Sửa</a>
+									<a href="/VTNN/nhasanxuat/chinhsua/${nhasanxuat.getMANHASANXUAT() }" type="button" class="btn btn-success" >Chỉnh Sửa</a>
 									</td>
+									
 								</tr>
 							</c:forEach>
 

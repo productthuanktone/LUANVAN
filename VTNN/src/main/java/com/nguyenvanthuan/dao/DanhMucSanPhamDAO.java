@@ -2,6 +2,8 @@ package com.nguyenvanthuan.dao;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,7 @@ public class DanhMucSanPhamDAO implements DanhMucSanPhamImp {
 	SessionFactory sessionFactory;
 
 	@Override
+	@Transactional
 	public List<DanhMucSanPham> listdanhmuc() {
 		Session session = sessionFactory.getCurrentSession();
 		@SuppressWarnings("unchecked")
@@ -30,6 +33,7 @@ public class DanhMucSanPhamDAO implements DanhMucSanPhamImp {
 	}
 
 	@Override
+	@Transactional
 	public List<DanhMucSanPham> listdanhmucid(int id) {
 		Session session = sessionFactory.getCurrentSession();
 		@SuppressWarnings("unchecked")
@@ -39,6 +43,7 @@ public class DanhMucSanPhamDAO implements DanhMucSanPhamImp {
 	}
 
 	@Override
+	@Transactional
 	public DanhMucSanPham danhMucSanPham(int id) {
 		Session session = sessionFactory.getCurrentSession();
 		DanhMucSanPham danhMucSanPham = (DanhMucSanPham) session

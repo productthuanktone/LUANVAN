@@ -41,14 +41,21 @@ public class ChiTietSanPhamService implements ChiTietSanPhamImp {
 
 	@Override
 	public boolean updatechitietsanpham(int id, String tensanpham, int soluong, float gia, String mota,
-			int idnhasanxuat, int khuyenmai, int danhmuc, String hinh) {
+			int idnhasanxuat, int khuyenmai, int danhmuc, String hinh, int donvitinh) {
 		// TODO Auto-generated method stub
-		return chiTietSanPhamDao.updatechitietsanpham(id, tensanpham, soluong, gia, mota, idnhasanxuat, khuyenmai, danhmuc, hinh);
+		return chiTietSanPhamDao.updatechitietsanpham(id, tensanpham, soluong, gia, mota, idnhasanxuat, khuyenmai, danhmuc, hinh, donvitinh);
 	}
 
 	@Override
 	public boolean updatesoluongsanpham(int id, int soluongmoi) {
 		// TODO Auto-generated method stub
 		return chiTietSanPhamDao.updatesoluongsanpham(id, soluongmoi);
+	}
+
+	@Override
+	public boolean savechitietsanpham(String tensp, int nhasanxuat, int soluong, int khuyenmai, float gia, int danhmuc,
+			String mota, String hinh, int donvitinh) {
+		// TODO Auto-generated method stub
+		return chiTietSanPhamDao.savechitietsanpham(tensp, nhasanxuat, soluong, khuyenmai, gia, danhmuc, mota, hinh, donvitinh);
 	}
 }

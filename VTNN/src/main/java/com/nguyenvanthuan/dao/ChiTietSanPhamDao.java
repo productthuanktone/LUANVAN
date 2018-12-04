@@ -17,10 +17,14 @@ import org.springframework.stereotype.Repository;
 import com.nguyenvanthuan.daoImp.ChiTietSanPhamImp;
 import com.nguyenvanthuan.entity.ChiTietSanPham;
 import com.nguyenvanthuan.entity.DanhMucSanPham;
+import com.nguyenvanthuan.entity.DonViTinh;
 import com.nguyenvanthuan.entity.Gia;
+import com.nguyenvanthuan.entity.Hinh;
 import com.nguyenvanthuan.entity.KhuyenMai;
 import com.nguyenvanthuan.entity.NhaSanXuat;
+import com.nguyenvanthuan.entity.SanPham;
 import com.nguyenvanthuan.service.DanhMucSanPhamService;
+import com.nguyenvanthuan.service.DonViTinhService;
 import com.nguyenvanthuan.service.KhuyemMaiService;
 import com.nguyenvanthuan.service.NhaSanXuatService;
 
@@ -38,6 +42,8 @@ public class ChiTietSanPhamDao implements ChiTietSanPhamImp {
 	KhuyemMaiService khuyemmaiservice;
 	@Autowired
 	DanhMucSanPhamService danhmucservice;
+	@Autowired
+	DonViTinhService donvitinhservice;
 
 	@Override
 	@Transactional
@@ -91,32 +97,33 @@ public class ChiTietSanPhamDao implements ChiTietSanPhamImp {
 	@Override
 	@Transactional
 	public boolean updatechitietsanpham(int id, String tensanpham, int soluong, float gia, String mota,
-			int idnhasanxuat, int khuyenmai, int danhmuc, String hinh) {
+			int idnhasanxuat, int khuyenmai, int danhmuc, String hinh, int dovitinh) {
 		Session session = sessionFactory.getCurrentSession();
-		ChiTietSanPham SanPham = (ChiTietSanPham) session
+		ChiTietSanPham chitietsanpham = (ChiTietSanPham) session
 				.createQuery("from chitietsanpham where MACHITIETSANPHAM=" + id + "").getSingleResult();
-		SanPham.getSanpham().setTENSANPHAM(tensanpham);
-		SanPham.setSOLUONG(soluong);
-		SanPham.getSanpham().setMOTA(mota);
+		chitietsanpham.getSanpham().setTENSANPHAM(tensanpham);
+		chitietsanpham.setSOLUONG(soluong);
+		chitietsanpham.getSanpham().setMOTA(mota);
 		NhaSanXuat nhasanxuat = nhasanxuatservice.nhaSanXuat(idnhasanxuat);
-		SanPham.setNhasanxuat(nhasanxuat);
+		chitietsanpham.setNhasanxuat(nhasanxuat);
 		KhuyenMai khuyenMai = khuyemmaiservice.khuyenMai(khuyenmai);
-		SanPham.setKhuyenmai(khuyenMai);
+		chitietsanpham.setKhuyenmai(khuyenMai);
 		DanhMucSanPham danhMucSanPham = danhmucservice.danhMucSanPham(danhmuc);
-		SanPham.setDanhMucSanPham(danhMucSanPham);
-		if (hinh != "") {
-			SanPham.getHinh().setHINH(hinh);
+		chitietsanpham.setDanhMucSanPham(danhMucSanPham);
+		DonViTinh donViTinh=donvitinhservice.donViTinhid(dovitinh);
+		chitietsanpham.setDonvitinh(donViTinh);
+		if (hinh != null) {
+			chitietsanpham.getHinh().setHINH(hinh);
 		}
-		if (gia != chiTietSanPham(id).getGia().getGIA()) {
+		if (gia != chitietsanpham.getGia().getGIA()) {
 			Gia gia1 = new Gia();
 			gia1.setGIA(gia);
 			DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 			Date date = new Date();
 			gia1.setNGAYCAPNHAT(date);
-			SanPham.setGia(gia1);
+			chitietsanpham.setGia(gia1);
 		}
-		System.out.println("tao hinh ne" + hinh);
-		session.save(SanPham);
+		session.save(chitietsanpham);
 		return true;
 
 	}
@@ -133,6 +140,52 @@ public class ChiTietSanPhamDao implements ChiTietSanPhamImp {
 			return true;
 		} catch (Exception e) {
 			// TODO: handle exception
+			return false;
+		}
+
+	}
+
+	@Override
+	@Transactional
+	public boolean savechitietsanpham(String tensp, int nhasanxuat, int soluong, int khuyenmai, float gia, int danhmuc,
+			String mota, String hinh, int donvitinh) {
+		Session session = sessionFactory.getCurrentSession();
+		try {
+			ChiTietSanPham chiTietSanPham = new ChiTietSanPham();
+			chiTietSanPham.setSOLUONG(soluong);
+			chiTietSanPham.setISDELETE(0);
+			SanPham sanPham = new SanPham();
+			sanPham.setTENSANPHAM(tensp);
+			sanPham.setMOTA(mota);
+			sanPham.setISDELETE(0);
+			sanPham.setCREATEID(0);
+			sanPham.setDELETEID(0);
+			sanPham.setUPDATEID(0);
+			chiTietSanPham.setSanpham(sanPham);
+			// DonViTinh donViTinh=donvitinhservice.donViTinhid(donvitinh);
+			// chiTietSanPham.setDonvitinh(donViTinh);
+			 NhaSanXuat nhasanxuat1 = nhasanxuatservice.nhaSanXuat(nhasanxuat);
+			 chiTietSanPham.setNhasanxuat(nhasanxuat1);
+			 KhuyenMai khuyenMai = khuyemmaiservice.khuyenMai(khuyenmai);
+			 chiTietSanPham.setKhuyenmai(khuyenMai);
+			 DanhMucSanPham danhMucSanPham = danhmucservice.danhMucSanPham(danhmuc);
+			 chiTietSanPham.setDanhMucSanPham(danhMucSanPham);
+			 Hinh hinhs=new Hinh();
+			 hinhs.setHINH(hinh);
+			 hinhs.setLOAIHINH(1);
+			 chiTietSanPham.setHinh(hinhs);
+			 Gia gia2=new Gia();
+			 gia2.setGIA(gia);
+			 DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+			 Date date = new Date();
+			 gia2.setNGAYCAPNHAT(date);
+			session.save(chiTietSanPham);
+			chiTietSanPham.setGia(gia2);
+			System.out.println("them thanh cong");
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("them that bai");
 			return false;
 		}
 

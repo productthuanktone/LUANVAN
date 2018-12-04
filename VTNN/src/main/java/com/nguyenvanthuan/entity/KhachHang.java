@@ -13,7 +13,7 @@ public class KhachHang {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int MAKHACHHANG;
 	String HOTEN;
-	Boolean GIOITINH;
+	int GIOITINH;
 	String DIACHI;
 	String EMAIL;
 	int SODIENTHOAI;
@@ -41,11 +41,11 @@ public class KhachHang {
 		HOTEN = hOTEN;
 	}
 
-	public Boolean getGIOITINH() {
+	public int getGIOITINH() {
 		return GIOITINH;
 	}
 
-	public void setGIOITINH(Boolean gIOITINH) {
+	public void setGIOITINH(int gIOITINH) {
 		GIOITINH = gIOITINH;
 	}
 
