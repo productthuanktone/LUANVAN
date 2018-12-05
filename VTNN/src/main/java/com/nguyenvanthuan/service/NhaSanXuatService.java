@@ -33,5 +33,10 @@ public class NhaSanXuatService implements NhaSanXuatImp{
 		// TODO Auto-generated method stub
 		return nhasanxuatdao.Themnhasanxuat(tennsx, diachi, sodienthoai, email);
 	}
+	@Override
+	public boolean updatenhasanxuat(int id, String tennsx, String diachi, int sodienthoai, String email) {
+		// TODO Auto-generated method stub
+		return nhasanxuatdao.updatenhasanxuat(id, tennsx, diachi, sodienthoai, email);
+	}
 
 }

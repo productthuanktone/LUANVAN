@@ -25,12 +25,14 @@ public class NhaSanXuatDAO implements NhaSanXuatImp {
 	@Transactional
 	public List<NhaSanXuat> listnhasanxuat() {
 		Session session = sessionFactory.getCurrentSession();
+		@SuppressWarnings("unchecked")
 		List<NhaSanXuat> listnhasanxuat = (List<NhaSanXuat>) session.createQuery("from nhasanxuat where ISDELETE=0")
 				.setFirstResult(0).setMaxResults(20).getResultList();
 		return listnhasanxuat;
 	}
 
 	@Override
+	@Transactional
 	public NhaSanXuat nhaSanXuat(int id) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
@@ -75,5 +77,26 @@ public class NhaSanXuatDAO implements NhaSanXuatImp {
 			return false;
 		}
 
+	}
+
+	@Override
+	@Transactional
+	public boolean updatenhasanxuat(int id, String tennsx, String diachi, int sodienthoai, String email) {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.getCurrentSession();
+		try {
+			NhaSanXuat nhaSanXuat = (NhaSanXuat) session.createQuery("from nhasanxuat where MANHASANXUAT=" + id)
+					.getSingleResult();
+			nhaSanXuat.setTENNHASANXUAT(tennsx);
+			nhaSanXuat.setDIACHI(diachi);
+			nhaSanXuat.setSODIENTHOAI(sodienthoai);
+			nhaSanXuat.setEMAIL(email);
+			session.save(nhaSanXuat);
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			return false;
+		}
+		
 	}
 }

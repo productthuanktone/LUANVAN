@@ -51,4 +51,29 @@ public class NhaSanXuatController {
 		modelMap.addAttribute("nhasanxuat", nhaSanXuats);
 		return "nhasanxuat";
 	}
+
+	@GetMapping("chinhsua/{id}")
+	public String updatenhasanxuat(ModelMap modelMap, @PathVariable int id) {
+		NhaSanXuat nhaSanXuat = nhasanxuatservice.nhaSanXuat(id);
+
+		modelMap.addAttribute("nhasanxuat", nhaSanXuat);
+		return "chinhsuanhasanxuat";
+	}
+
+	@PostMapping("chinhsua")
+	public String update(ModelMap modelMap, @RequestParam String tennsx, @RequestParam int id,
+			@RequestParam String diachi, @RequestParam int sodienthoai, @RequestParam String email) {
+		if(nhasanxuatservice.updatenhasanxuat(id, tennsx, diachi, sodienthoai, email)==true) {
+			List<NhaSanXuat> nhaSanXuats = nhasanxuatservice.listnhasanxuat();
+			modelMap.addAttribute("nhasanxuat", nhaSanXuats);
+			return "nhasanxuat";
+		}else {
+			String error="Lỗi nhập dữ liệu. Xin kiểm tra lại !";
+			modelMap.addAttribute("loi", error);
+			System.out.println(error);
+			return "chinhsuanhasanxuat";
+		}
+		
+		
+	}
 }

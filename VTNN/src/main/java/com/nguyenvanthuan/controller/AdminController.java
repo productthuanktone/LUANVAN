@@ -28,7 +28,8 @@ public class AdminController {
 			String tendangnhap = (String) httpSession.getAttribute("tendangnhap");
 			TaiKhoan taiKhoan = taikhoanservice.laytaikhoan(tendangnhap);
 			int quyen = taiKhoan.getQUYEN();
-			if (quyen == 1) {
+			if (quyen == 1 || quyen==2) {
+				modelMap.addAttribute("quyen", quyen);
 				return "admin";
 			} else {
 				return "redirect:/";

@@ -12,4 +12,5 @@ public interface NhaSanXuatImp {
 	boolean deletenhasanxuat(int id);
 
 	boolean Themnhasanxuat(String tennsx, String diachi, int sodienthoai, String email);
+	boolean updatenhasanxuat(int id, String tennsx, String diachi, int sodienthoai, String email);
 }

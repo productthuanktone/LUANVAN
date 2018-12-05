@@ -6,7 +6,8 @@
 
 <head>
 
-<meta  http-equiv="Content-Type" content="text/html; charset=utf-8;charset=UTF-8">
+<meta http-equiv="Content-Type"
+	content="text/html; charset=utf-8;charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -111,28 +112,52 @@
 
 		<!-- Sidebar -->
 		<ul class="sidebar navbar-nav">
-			<li class="nav-item"><a class="nav-link" href="#">
-					<i class="fas fa-fw fa-tachometer-alt"></i> <span>Quản Lý</span>
+			<li class="nav-item"><a class="nav-link" href="#"> <i
+					class="fas fa-fw fa-tachometer-alt"></i> <span>Quản Lý</span>
 			</a></li>
 			<li class="nav-item"><a class="nav-link" href="/VTNN/hoadon/">
-					<i class="fas fa-fw fa-chart-area"></i> <span>Danh Sách Hóa Đơn</span>
+					<i class="fas fa-fw fa-chart-area"></i> <span>Danh Sách Hóa
+						Đơn</span>
 			</a></li>
-			<li class="nav-item dropdown">
-			<a class="nav-link dropdown-toggle" id="pagesDropdown1"data-toggle="dropdown" ><span>Sản Phẩm</span>
-			</a>
+			<li class="nav-item dropdown"><a
+				class="nav-link dropdown-toggle" id="pagesDropdown1"
+				data-toggle="dropdown"><span>Sản Phẩm</span> </a>
 				<div class="dropdown-menu" aria-labelledby="pagesDropdown1">
-					<a class="dropdown-item" href="/VTNN/adminsanpham/">Danh Sách Sản Phẩm</a>
-					<a class="dropdown-item" href="/VTNN/adminsanpham/themsanpham">Thêm Sản Phẩm</a> 
-					<div class="dropdown-divider"></div>
-				</div></li><li class="nav-item dropdown">
-			<a class="nav-link dropdown-toggle" id="pagesDropdown2"data-toggle="dropdown" ><span>Nhà Sản Xuất</span>
-			</a>
-				<div class="dropdown-menu" aria-labelledby="pagesDropdown2">
-					<a class="dropdown-item" href="/VTNN/nhasanxuat/">Danh Sách Nhà Sản Xuất</a>
-					<a class="dropdown-item" href="/VTNN/nhasanxuat/themnhasanxuat">Thêm Nhà Sản Xuất</a> 
+					<a class="dropdown-item" href="/VTNN/adminsanpham/">Danh Sách
+						Sản Phẩm</a> <a class="dropdown-item"
+						href="/VTNN/adminsanpham/themsanpham">Thêm Sản Phẩm</a>
 					<div class="dropdown-divider"></div>
 				</div></li>
-			
+			<li class="nav-item dropdown"><a
+				class="nav-link dropdown-toggle" id="pagesDropdown2"
+				data-toggle="dropdown"><span>Nhà Sản Xuất</span> </a>
+				<div class="dropdown-menu" aria-labelledby="pagesDropdown2">
+					<a class="dropdown-item" href="/VTNN/nhasanxuat/">Danh Sách Nhà
+						Sản Xuất</a> <a class="dropdown-item"
+						href="/VTNN/nhasanxuat/themnhasanxuat">Thêm Nhà Sản Xuất</a>
+					<div class="dropdown-divider"></div>
+				</div></li>
+				<li class="nav-item dropdown"><a
+				class="nav-link dropdown-toggle" id="pagesDropdown3"
+				data-toggle="dropdown"><span>Khuyến Mãi</span> </a>
+				<div class="dropdown-menu" aria-labelledby="pagesDropdown3">
+					<a class="dropdown-item" href="/VTNN/khuyenmai/">Danh Sách Khuyến Mãi</a> <a class="dropdown-item"
+						href="/VTNN/nhasanxuat/themkhuyenmai">Thêm Khuyến Mãi</a>
+					<div class="dropdown-divider"></div>
+				</div></li>
+			<c:if test="${quyen==1 }">
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" id="pagesDropdown2"
+					data-toggle="dropdown"><span>Nhân Viên</span> </a>
+					<div class="dropdown-menu" aria-labelledby="pagesDropdown2">
+						<a class="dropdown-item" href="/VTNN/nhasanxuat/">Danh sách
+							nhân viện Sản Xuất</a> <a class="dropdown-item"
+							href="/VTNN/nhasanxuat/themnhasanxuat">Thêm nhân viên</a>
+						<div class="dropdown-divider"></div>
+					</div></li>
+			</c:if>
+
+
 			<li class="nav-item"><a class="nav-link" href="charts.html">
 					<i class="fas fa-fw fa-chart-area"></i> <span>Charts</span>
 			</a></li>
