@@ -129,7 +129,7 @@
 			</a>
 				<div class="dropdown-menu" aria-labelledby="pagesDropdown2">
 					<a class="dropdown-item" href="/VTNN/nhasanxuat/">Danh Sách Nhà Sản Xuất</a>
-					<a class="dropdown-item" href="/VTNN/adminsanpham/themsanpham">Thêm Nhà Sản Xuất</a> 
+					<a class="dropdown-item" href="/VTNN/nhasanxuat/themnhasanxuat">Thêm Nhà Sản Xuất</a> 
 					<div class="dropdown-divider"></div>
 				</div></li>
 			

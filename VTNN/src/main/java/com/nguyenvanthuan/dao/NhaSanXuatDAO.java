@@ -24,16 +24,56 @@ public class NhaSanXuatDAO implements NhaSanXuatImp {
 	@Override
 	@Transactional
 	public List<NhaSanXuat> listnhasanxuat() {
-		Session session=sessionFactory.getCurrentSession();
-		List<NhaSanXuat> listnhasanxuat=(List<NhaSanXuat>) session.createQuery("from nhasanxuat").setFirstResult(0).setMaxResults(20).getResultList();
+		Session session = sessionFactory.getCurrentSession();
+		List<NhaSanXuat> listnhasanxuat = (List<NhaSanXuat>) session.createQuery("from nhasanxuat where ISDELETE=0")
+				.setFirstResult(0).setMaxResults(20).getResultList();
 		return listnhasanxuat;
 	}
 
 	@Override
 	public NhaSanXuat nhaSanXuat(int id) {
 		// TODO Auto-generated method stub
-		Session session=sessionFactory.getCurrentSession();
-		NhaSanXuat nhasanxuat=(NhaSanXuat) session.createQuery("from nhasanxuat where MANHASANXUAT="+id).getSingleResult();
+		Session session = sessionFactory.getCurrentSession();
+		NhaSanXuat nhasanxuat = (NhaSanXuat) session.createQuery("from nhasanxuat where MANHASANXUAT=" + id)
+				.getSingleResult();
 		return nhasanxuat;
+	}
+
+	@Override
+	@Transactional
+	public boolean deletenhasanxuat(int id) {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.getCurrentSession();
+		try {
+			NhaSanXuat nhasanxuat = (NhaSanXuat) session.createQuery("from nhasanxuat where MANHASANXUAT=" + id)
+					.getSingleResult();
+			nhasanxuat.setISDELETE(1);
+			session.save(nhasanxuat);
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			return false;
+		}
+
+	}
+
+	@Override
+	@Transactional
+	public boolean Themnhasanxuat(String tennsx, String diachi, int sodienthoai, String email) {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.getCurrentSession();
+		try {
+			NhaSanXuat nhaSanXuat = new NhaSanXuat();
+			nhaSanXuat.setTENNHASANXUAT(tennsx);
+			nhaSanXuat.setDIACHI(diachi);
+			nhaSanXuat.setSODIENTHOAI(sodienthoai);
+			nhaSanXuat.setEMAIL(email);
+			session.save(nhaSanXuat);
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			return false;
+		}
+
 	}
 }

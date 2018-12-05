@@ -8,4 +8,8 @@ public interface NhaSanXuatImp {
 	List<NhaSanXuat> listnhasanxuat();
 
 	NhaSanXuat nhaSanXuat(int id);
+
+	boolean deletenhasanxuat(int id);
+
+	boolean Themnhasanxuat(String tennsx, String diachi, int sodienthoai, String email);
 }

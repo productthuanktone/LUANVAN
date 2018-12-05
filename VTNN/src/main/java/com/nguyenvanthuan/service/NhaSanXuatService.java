@@ -23,5 +23,15 @@ public class NhaSanXuatService implements NhaSanXuatImp{
 		// TODO Auto-generated method stub
 		return nhasanxuatdao.nhaSanXuat(id);
 	}
+	@Override
+	public boolean deletenhasanxuat(int id) {
+		// TODO Auto-generated method stub
+		return nhasanxuatdao.deletenhasanxuat(id);
+	}
+	@Override
+	public boolean Themnhasanxuat(String tennsx, String diachi, int sodienthoai, String email) {
+		// TODO Auto-generated method stub
+		return nhasanxuatdao.Themnhasanxuat(tennsx, diachi, sodienthoai, email);
+	}
 
 }

@@ -102,40 +102,41 @@ $(document).ready(
 					});
 			$(".xoansx").click(
 					function() {
-						
+
 						var idspct = $(this).closest("tr").find(".idnsx").attr(
 								"data-idnsx");
 						var action = $(".modalsp").attr("action");
 						var submitaction = action + idspct;
-						alert(submitaction);
 						$(".modalsp").attr("action", submitaction);
 
 					});
-			var files=[];
-			$("#choofile").change(function(event){
-				var hinh=$("#hinh").attr("src");
-				var hinhthaydoi=$(this).val();
-				var chuoicat=hinhthaydoi.lastIndexOf("\\")+1;
-				var ketqua=hinhthaydoi.substring(chuoicat);
-				$("#hinh").attr("src","/VTNN/resources/img/sanpham/"+ ketqua);
-				//alert(ketqua);
-				files=event.target.files;
-				forms=new FormData();
-				forms.append("file",files[0]);
-				$.ajax({
-					url : "/VTNN/api/uploadfile",
-					type : "POST",
-					data :forms,
-					contentType:false,
-					processData:false,
-					enctype:"multipart/form-data",
-					success : function() {
-						
-					},
-					context: document.body
+			var files = [];
+			$("#choofile").change(
+					function(event) {
+						var hinh = $("#hinh").attr("src");
+						var hinhthaydoi = $(this).val();
+						var chuoicat = hinhthaydoi.lastIndexOf("\\") + 1;
+						var ketqua = hinhthaydoi.substring(chuoicat);
+						$("#hinh").attr("src",
+								"/VTNN/resources/img/sanpham/" + ketqua);
+						// alert(ketqua);
+						files = event.target.files;
+						forms = new FormData();
+						forms.append("file", files[0]);
+						$.ajax({
+							url : "/VTNN/api/uploadfile",
+							type : "POST",
+							data : forms,
+							contentType : false,
+							processData : false,
+							enctype : "multipart/form-data",
+							success : function() {
 
-				}).done(function(data) {
-					  alert(data);
-				});
-			});
+							},
+							context : document.body
+
+						}).done(function(data) {
+							alert(data);
+						});
+					});
 		});
