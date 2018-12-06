@@ -1,5 +1,6 @@
 package com.nguyenvanthuan.dao;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -13,7 +14,6 @@ import org.springframework.stereotype.Repository;
 
 import com.nguyenvanthuan.daoImp.KhuyenMaiImp;
 import com.nguyenvanthuan.entity.KhuyenMai;
-import com.nguyenvanthuan.entity.NhaSanXuat;
 
 @Repository
 @Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)
@@ -25,7 +25,9 @@ public class KhuyenMaiDAO implements KhuyenMaiImp {
 	@Transactional
 	public List<KhuyenMai> khuyenMais() {
 		Session session = sessionFactory.getCurrentSession();
-		List<KhuyenMai> khuyenMais = (List<KhuyenMai>) session.createQuery("from khuyenmai").getResultList();
+		@SuppressWarnings("unchecked")
+		List<KhuyenMai> khuyenMais = (List<KhuyenMai>) session.createQuery("from khuyenmai where ISDELETE=0")
+				.getResultList();
 		return khuyenMais;
 	}
 
@@ -37,6 +39,43 @@ public class KhuyenMaiDAO implements KhuyenMaiImp {
 		KhuyenMai khuyenMai = (KhuyenMai) session.createQuery("from khuyenmai where MAKHUYENMAI=" + id)
 				.getSingleResult();
 		return khuyenMai;
+	}
+
+	@Override
+	@Transactional
+	public boolean deletekhuyenmai(int id) {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.getCurrentSession();
+		try {
+			KhuyenMai khuyenMai = (KhuyenMai) session.createQuery("from khuyenmai where MAKHUYENMAI=" + id)
+					.getSingleResult();
+			khuyenMai.setISDELETE(1);
+			session.save(khuyenMai);
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			return false;
+		}
+
+	}
+
+	@Override
+	@Transactional
+	public boolean updateKhuyenmai(int id, String tenkm, Date ngaybatdau, Date ngayketthuc, int phantram, String mota) {
+		Session session = sessionFactory.getCurrentSession();
+		try {
+			KhuyenMai khuyenmai = (KhuyenMai) session.createQuery("from khuyenmai where MAKHUYENMAI=" + id).getSingleResult();
+			khuyenmai.setTENKHUYENMAI(tenkm);
+			khuyenmai.setTHOIGIANBATDAU(ngaybatdau);
+			khuyenmai.setTHOIGIANKETTHUC(ngayketthuc);
+			khuyenmai.setPHANTRAM(phantram);
+			khuyenmai.setMOTA(mota);
+			session.save(khuyenmai);
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			return false;
+		}
 	}
 
 }

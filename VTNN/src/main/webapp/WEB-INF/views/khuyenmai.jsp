@@ -63,7 +63,7 @@
 															</button>
 														</div>
 														<div class="modal-body">
-															<form class="modalsp" action="/VTNN/khuyenmai/" method="get">
+															<form class="modalsp" action="/VTNN/khuyenmai/deletekm/" method="get">
 																<h2>Bạn có chắc xóa không ?</h2>
 															<button type="submit" class="btn btn-primary">Xóa</button>
 														</form>

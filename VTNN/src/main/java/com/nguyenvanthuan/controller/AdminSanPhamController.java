@@ -53,9 +53,7 @@ public class AdminSanPhamController {
 	public String deletesp(@PathVariable int id, ModelMap modelMap) {
 		System.out.println(id);
 		if (chitietsanphamservice.Deletechitietsanpham(id)) {
-			List<ChiTietSanPham> chiTietSanPhams = chitietsanphamservice.ListChiTietSanPham();
-			modelMap.addAttribute("listsanpham", chiTietSanPhams);
-			return "adminsanpham";
+			return "redirect:/adminsanpham/";
 		} else {
 			String error = "Xóa Thất Bại !";
 			List<ChiTietSanPham> chiTietSanPhams = chitietsanphamservice.ListChiTietSanPham();

@@ -31,9 +31,7 @@ public class NhaSanXuatController {
 	@GetMapping("{id}")
 	public String deletenhasanxuat(ModelMap modelMap, @PathVariable int id) {
 		nhasanxuatservice.deletenhasanxuat(id);
-		List<NhaSanXuat> nhaSanXuats = nhasanxuatservice.listnhasanxuat();
-		modelMap.addAttribute("nhasanxuat", nhaSanXuats);
-		return "nhasanxuat";
+		return "redirect:/nhasanxuat/";
 	}
 
 	@GetMapping("themnhasanxuat")
