@@ -1,7 +1,5 @@
 package com.nguyenvanthuan.controller;
 
-import static org.hamcrest.CoreMatchers.endsWith;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -14,6 +12,8 @@ import javax.transaction.Transactional;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -48,6 +48,9 @@ public class GioHangController {
 	@Autowired
 	ChiTietSanPhamService chitietsanphamservice;
 
+	@Autowired
+	private JavaMailSender mailSender2;
+
 	@GetMapping
 	@Transactional
 	public String GioHang(ModelMap modelMap, HttpSession httpSession) {
@@ -72,7 +75,8 @@ public class GioHangController {
 	@PostMapping
 	@Transactional
 	public String MuaHang(@RequestParam String tenkhachhang, @RequestParam int sodienthoai,
-			@RequestParam int hinhthucgiaohang, @RequestParam String diachigiaohang, @RequestParam String mota, HttpSession httpSession, ModelMap modelMap) {
+			@RequestParam int hinhthucgiaohang, @RequestParam String diachigiaohang, @RequestParam String mota,
+			HttpSession httpSession, ModelMap modelMap) {
 		System.out.println(tenkhachhang);
 		if (null != httpSession.getAttribute("giohang")) {
 			List<GioHang> listgiohang = (List<GioHang>) httpSession.getAttribute("giohang");
@@ -80,16 +84,16 @@ public class GioHangController {
 			Date date = new Date();
 			System.out.println(dateFormat.format(date));
 			Set<ChiTietHoaDon> chiTietHoaDons = new HashSet<>();
-			float tonghoadon=0;
+			float tonghoadon = 0;
 			for (GioHang gioHang : listgiohang) {
 				ChiTietHoaDon chiTietHoaDon = new ChiTietHoaDon();
-				ChiTietSanPham chiTietSanPham=chitietsanphamservice.chiTietSanPham(gioHang.getMachitietsanpham());
+				ChiTietSanPham chiTietSanPham = chitietsanphamservice.chiTietSanPham(gioHang.getMachitietsanpham());
 				chiTietHoaDon.setSOLUONG(gioHang.getSoluong());
-				float tonggia1=gioHang.getGia()*gioHang.getSoluong();
+				float tonggia1 = gioHang.getGia() * gioHang.getSoluong();
 				chiTietHoaDon.setTONGGIA(tonggia1);
 				chiTietHoaDon.setChiTietSanPham(chiTietSanPham);
 				chiTietHoaDons.add(chiTietHoaDon);
-				tonghoadon=tonghoadon+tonggia1;
+				tonghoadon = tonghoadon + tonggia1;
 
 			}
 			// Set<ChiTietHoaDon> chiTietHoaDons=new HashSet<>();
@@ -125,6 +129,14 @@ public class GioHangController {
 					System.out.println("Them TC");
 					httpSession.removeAttribute("giohang");
 					String thanhcong = "Đặt Hàng Thành Công!";
+					SimpleMailMessage message = new SimpleMailMessage();
+					message.setFrom("thuandev2019@gmail.com");
+					message.setTo("thuanb1401193@student.ctu.edu.vn");
+					message.setSubject("Subject");
+					message.setText("test send gmail using spring");
+					// sending message
+					mailSender2.send(message);
+					System.out.println("Sending text done!");
 					String tendangnhap1 = (String) httpSession.getAttribute("tendangnhap");
 					if (null != tendangnhap1) {
 						TaiKhoan taiKhoan1 = taikhoanSV.laytaikhoan(tendangnhap);
@@ -154,6 +166,14 @@ public class GioHangController {
 					System.out.println("Them TC");
 					httpSession.removeAttribute("giohang");
 					String thanhcong = "Đặt Hàng Thành Công!";
+					SimpleMailMessage message = new SimpleMailMessage();
+					message.setFrom("thuandev2019@gmail.com");
+					message.setTo("thuanb1401193@student.ctu.edu.vn");
+					message.setSubject("Subject");
+					message.setText("test send gmail using spring");
+					// sending message
+					mailSender2.send(message);
+					System.out.println("Sending text done!");
 					String tendangnhap1 = (String) httpSession.getAttribute("tendangnhap");
 					if (null != tendangnhap1) {
 						TaiKhoan taiKhoan1 = taikhoanSV.laytaikhoan(tendangnhap);
