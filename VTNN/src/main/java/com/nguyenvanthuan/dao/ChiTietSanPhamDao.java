@@ -112,7 +112,7 @@ public class ChiTietSanPhamDao implements ChiTietSanPhamImp {
 		chitietsanpham.setDanhMucSanPham(danhMucSanPham);
 		DonViTinh donViTinh=donvitinhservice.donViTinhid(dovitinh);
 		chitietsanpham.setDonvitinh(donViTinh);
-		if (hinh != null) {
+		if (hinh != "") {
 			chitietsanpham.getHinh().setHINH(hinh);
 		}
 		if (gia != chitietsanpham.getGia().getGIA()) {

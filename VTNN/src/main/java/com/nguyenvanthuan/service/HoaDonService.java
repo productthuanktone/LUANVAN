@@ -37,4 +37,10 @@ public class HoaDonService implements HoaDonImp{
 		hoaDonDao.SaveHoaDon(tinhtrang, id);
 		
 	}
+
+	@Override
+	public List<HoaDon> tingtranghoaDons(int tinhtrang) {
+		// TODO Auto-generated method stub
+		return hoaDonDao.tingtranghoaDons(tinhtrang);
+	}
 }

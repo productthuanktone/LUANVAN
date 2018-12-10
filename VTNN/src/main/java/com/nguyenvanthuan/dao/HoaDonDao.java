@@ -41,7 +41,7 @@ public class HoaDonDao implements HoaDonImp {
 	public List<HoaDon> listHoaDon() {
 		// TODO Auto-generated method stub
 		Session session=sessionFactory.getCurrentSession();
-		List<HoaDon> Listhoadon=(List<HoaDon>) session.createQuery("from hoadon").getResultList();
+		List<HoaDon> Listhoadon=(List<HoaDon>) session.createQuery("from hoadon ORDER BY TIMECREATE DESC").getResultList();
 		return Listhoadon;
 	}
 
@@ -61,5 +61,14 @@ public class HoaDonDao implements HoaDonImp {
 		HoaDon hoadon=(HoaDon) session.createQuery("from hoadon where MAHOADON="+id).getSingleResult();
 		hoadon.setTINHTRANG(tinhtrang);
 		session.save(hoadon);
+	}
+
+	@Override
+	@Transactional
+	public List<HoaDon> tingtranghoaDons(int tinhtrang) {
+		// TODO Auto-generated method stub
+		Session session=sessionFactory.getCurrentSession();
+		List<HoaDon> Listhoadon=(List<HoaDon>) session.createQuery("from hoadon where TINHTRANG="+tinhtrang+"ORDER BY TIMECREATE DESC").getResultList();
+		return Listhoadon;
 	}
 }

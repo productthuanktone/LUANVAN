@@ -40,7 +40,13 @@ public class HoaDonController {
 	@GetMapping
 	public String getHoaDon(ModelMap modelMap) {
 		List<HoaDon> listhoadon = hoadonService.listHoaDon();
+		List<HoaDon>listhoadonchuaduyet=hoadonService.tingtranghoaDons(0);
+		List<HoaDon>listhoadondaduyet=hoadonService.tingtranghoaDons(1);
+		List<HoaDon>listhoadondahuy=hoadonService.tingtranghoaDons(2);
 		modelMap.addAttribute("hoadon", listhoadon);
+		modelMap.addAttribute("hoadonchuaduyet", listhoadonchuaduyet);
+		modelMap.addAttribute("hoadondaduyet", listhoadondaduyet);
+		modelMap.addAttribute("hoadondahuy", listhoadondahuy);
 		return "hoadon";
 	}
 

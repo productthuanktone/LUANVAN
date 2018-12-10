@@ -9,4 +9,5 @@ public interface HoaDonImp {
 	List<HoaDon> listHoaDon();
 	HoaDon hoaDonid(int id);
 	void SaveHoaDon(int tinhtrang,int id);
+	List<HoaDon> tingtranghoaDons(int tinhtrang);
 }

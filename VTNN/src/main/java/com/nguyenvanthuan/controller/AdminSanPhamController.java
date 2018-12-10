@@ -89,7 +89,7 @@ public class AdminSanPhamController {
 			@RequestParam int nhasanxuat, @RequestParam int soluong, @RequestParam int khuyenmai,
 			@RequestParam String gia, @RequestParam int danhmuc, @RequestParam String mota, @RequestParam String hinh,@RequestParam int donvitinh) {
 		System.out.println("id" + id + " tensp: " + tensp + " nhasanxuat: " + nhasanxuat + " soluong: " + soluong
-				+ " khuyemmai:  " + khuyenmai + " gia: " + gia + "  danhmuc: " + danhmuc + " mota: " + mota);
+				+ " khuyemmai:  " + khuyenmai + " gia: " + gia + "  danhmuc: " + danhmuc + " mota: " + mota+"hình :"+hinh);
 		float gia1=Float.parseFloat(gia);
 		chitietsanphamservice.updatechitietsanpham(id, tensp, soluong, gia1, mota, nhasanxuat,
 				khuyenmai, danhmuc, hinh, donvitinh);
