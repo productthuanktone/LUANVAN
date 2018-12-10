@@ -78,4 +78,24 @@ public class KhuyenMaiDAO implements KhuyenMaiImp {
 		}
 	}
 
+	@Override
+	@Transactional
+	public boolean savekhuyenmai(String tenkm, Date ngaybatdau, Date ngayketthuc, int phantram, String mota) {
+		Session session=sessionFactory.getCurrentSession();
+		try {
+			KhuyenMai khuyenmai1=new KhuyenMai();
+			khuyenmai1.setTENKHUYENMAI(tenkm);
+			khuyenmai1.setTHOIGIANBATDAU(ngaybatdau);
+			khuyenmai1.setTHOIGIANKETTHUC(ngayketthuc);
+			khuyenmai1.setPHANTRAM(phantram);
+			khuyenmai1.setMOTA(mota);
+			session.save(khuyenmai1);
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			return false;
+		}
+		
+	}
+
 }

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,6 +37,7 @@
 	rel="stylesheet">
 <link href='<c:url value="/resources/mydesign/Style.css"/>'
 	rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 </head>
 
 <body id="page-top">
@@ -142,7 +144,7 @@
 				data-toggle="dropdown"><span>Khuyến Mãi</span> </a>
 				<div class="dropdown-menu" aria-labelledby="pagesDropdown3">
 					<a class="dropdown-item" href="/VTNN/khuyenmai/">Danh Sách Khuyến Mãi</a> <a class="dropdown-item"
-						href="/VTNN/nhasanxuat/themkhuyenmai">Thêm Khuyến Mãi</a>
+						href="/VTNN/khuyenmai/themkhuyenmai">Thêm Khuyến Mãi</a>
 					<div class="dropdown-divider"></div>
 				</div></li>
 			<c:if test="${quyen==1 }">
@@ -158,10 +160,8 @@
 			</c:if>
 
 
-			<li class="nav-item"><a class="nav-link" href="charts.html">
-					<i class="fas fa-fw fa-chart-area"></i> <span>Charts</span>
+			<li class="nav-item"><a class="nav-link" href="/VTNN/thongke/">
+					<i class="fas fa-fw fa-chart-area"></i> <span>Thống kê</span>
 			</a></li>
-			<li class="nav-item active"><a class="nav-link"
-				href="tables.html"> <i class="fas fa-fw fa-table"></i> <span>Tables</span></a>
-			</li>
+			
 		</ul>

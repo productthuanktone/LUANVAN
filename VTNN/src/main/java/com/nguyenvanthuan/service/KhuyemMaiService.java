@@ -38,4 +38,10 @@ public class KhuyemMaiService implements KhuyenMaiImp {
 		// TODO Auto-generated method stub
 		return khuyenMaiDAO.updateKhuyenmai(id, tenkm, ngaybatdau, ngayketthuc, phantram, mota);
 	}
+
+	@Override
+	public boolean savekhuyenmai(String tenkm, Date ngaybatdau, Date ngayketthuc, int phantram, String mota) {
+		// TODO Auto-generated method stub
+		return khuyenMaiDAO.savekhuyenmai(tenkm, ngaybatdau, ngayketthuc, phantram, mota);
+	}
 }

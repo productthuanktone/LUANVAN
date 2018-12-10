@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -135,9 +136,9 @@
 					<hr>
 					<div>
 						<label>Giá sản phẩm: </label>
-						<p class="card-text gia" data-gia="${chitiet.getGia().getGIA()*(1-(chitiet.getKhuyenmai().getPHANTRAM()/100))}">${chitiet.getGia().getGIA()} VNĐ<br>
+						<p class="card-text gia" data-gia="${chitiet.getGia().getGIA()*(1-(chitiet.getKhuyenmai().getPHANTRAM()/100))}"><fmt:formatNumber type="number" pattern="###,###" value="${chitiet.getGia().getGIA()}"/> VNĐ<br>
 						<h6>Giảm ${chitiet.getKhuyenmai().getPHANTRAM()}% Còn:</h6>
-						<h3 style="color: red;">${chitiet.getGia().getGIA()*(1-(chitiet.getKhuyenmai().getPHANTRAM()/100))} VNĐ</h3>
+						<h3 style="color: red;"><fmt:formatNumber type="number" pattern="###,###" value="${chitiet.getGia().getGIA()*(1-(chitiet.getKhuyenmai().getPHANTRAM()/100))}"/> VNĐ</h3>
 						</p>
 					</div>
 					<hr>

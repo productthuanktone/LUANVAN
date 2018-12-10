@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -140,11 +141,11 @@
 											alt="Card image cap" style="width: 286px; height: 250px">
 										<div class="card-body">
 											<h5 class="card-title" style="height: 48px">${listsanpham.getSanpham().getTENSANPHAM() }</h5>
-											<p class="card-text">${listsanpham.getGia().getGIA()}
+											<p class="card-text"><fmt:formatNumber type="number" pattern="###,###" value="${listsanpham.getGia().getGIA()}"/>
 												VNĐ<br>
 											<h6>Giảm ${listsanpham.getKhuyenmai().getPHANTRAM()}%
 												Còn :</h6>
-											<h3 style="color: red;">${listsanpham.getGia().getGIA()*(1-(listsanpham.getKhuyenmai().getPHANTRAM()/100))}
+											<h3 style="color: red;"><fmt:formatNumber type="number" pattern="###,###" value="${listsanpham.getGia().getGIA()*(1-(listsanpham.getKhuyenmai().getPHANTRAM()/100))}"/>
 												VNĐ</h3>
 											</p>
 											<a href="/VTNN/chitiet/${listsanpham.getMACHITIETSANPHAM() }"

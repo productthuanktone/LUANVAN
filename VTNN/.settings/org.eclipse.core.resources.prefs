@@ -6,5 +6,6 @@ encoding//src/main/java/com/nguyenvanthuan/controller/GioHangController.java=UTF
 encoding//src/main/java/com/nguyenvanthuan/controller/HoaDonController.java=UTF-8
 encoding//src/main/java/com/nguyenvanthuan/controller/KhuyenMaiController.java=UTF-8
 encoding//src/main/java/com/nguyenvanthuan/controller/NhaSanXuatController.java=UTF-8
+encoding//src/main/java/com/nguyenvanthuan/controller/ThongKeController.java=UTF-8
 encoding//src/main/java/com/nguyenvanthuan/dao/SanPhamDao.java=UTF-8
 encoding//src/main/webapp/WEB-INF/views/modal.jsp=UTF-8

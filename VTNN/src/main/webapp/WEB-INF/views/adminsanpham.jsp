@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:include page="HeaderAdmin.jsp"></jsp:include>
 <div id="content-wrapper">
 
@@ -35,10 +36,10 @@
 								<th>Tên Sản Phẩm</th>
 								<th>Nhà Sản Xuất</th>
 								<th>Danh Mục</th>
-								<th>Khuyến Mãi</th>
+								<th style="width: 150px;">Khuyến Mãi</th>
 								<th>Mô Tả</th>
 								<th>Đơn vị tính</th>
-								<th>Giá</th>
+								<th style="width: 100px;">Giá</th>
 								<th>Số Lượng</th>
 								<th></th>
 							</tr>
@@ -58,7 +59,7 @@
 									<td>${listsanpham.getKhuyenmai().getTENKHUYENMAI() }(${listsanpham.getKhuyenmai().getPHANTRAM()}%)</td>
 									<td>${listsanpham.getSanpham().getMOTA() }</td>
 									<td>${listsanpham.getDonvitinh().getTENDONVITINH()}</td>
-									<td>${listsanpham.getGia().getGIA()}</td>
+									<td> <fmt:formatNumber type="number" pattern="###,###" value="${listsanpham.getGia().getGIA()}" /> VNĐ</td>
 									<td>${listsanpham.getSOLUONG()}</td>
 									<td style="width: 250px;"><a class="btn btn-secondary buttonhd xoa" data-toggle="modal" data-target="#exampleModalCenter11" style="width: 97px;">Xóa</a>
 												<div class="modal fade" id="exampleModalCenter11"

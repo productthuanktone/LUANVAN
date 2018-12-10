@@ -138,7 +138,7 @@
 											class="soluongcuagiohang" type="number"
 											value="${giohang.getSoluong() }"></td>
 										<td style="color: red" class="giatien"
-											data-giatien="${giohang.getGia()}"><p>${giohang.getGia()}</p></td>
+											data-giatien="${giohang.getGia()}">${giohang.getGia()}</td>
 										<td class="btnxoa"><i class="fa fa-times fa-lg"></i></td>
 									</tr>
 								</c:forEach>

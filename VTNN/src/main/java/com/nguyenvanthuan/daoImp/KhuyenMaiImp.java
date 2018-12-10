@@ -10,7 +10,9 @@ public interface KhuyenMaiImp {
 
 	KhuyenMai khuyenMai(int id);
 
-	boolean updateKhuyenmai(int id, String tenkm, Date ngaybatdau, Date ngayketthuc,int phantram, String mota);
+	boolean updateKhuyenmai(int id, String tenkm, Date ngaybatdau, Date ngayketthuc, int phantram, String mota);
 
 	boolean deletekhuyenmai(int id);
+
+	boolean savekhuyenmai(String tenkm, Date ngaybatdau, Date ngayketthuc, int phantram, String mota);
 }

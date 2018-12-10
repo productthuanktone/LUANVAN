@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:include page="HeaderAdmin.jsp"></jsp:include>
 <div id="content-wrapper">
 	<ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -63,7 +64,7 @@
 									<td>${hoadon.getMAHOADON() }</td>
 									<td>${hoadon.getTENKHACHHANG()	}</td>
 									<td>${hoadon.getSODIENTHOAI()}</td>
-									<td>${hoadon.getTONGGIA() }</td>
+									<td><fmt:formatNumber type="number" pattern="###,###" value="${hoadon.getTONGGIA() }"/> VNĐ</td>
 									<td><c:if test="${hoadon.getHINHTHUCGIAOHANG()==0 }">
 											<span class="noibat">Nhận ở địa chỉ giao</span>
 										</c:if> <c:if test="${hoadon.getHINHTHUCGIAOHANG()==1 }">
@@ -133,7 +134,7 @@
 									<td>${hoadonchuaduyet.getMAHOADON() }</td>
 									<td>${hoadonchuaduyet.getTENKHACHHANG()	}</td>
 									<td>${hoadonchuaduyet.getSODIENTHOAI()}</td>
-									<td>${hoadonchuaduyet.getTONGGIA() }</td>
+									<td><fmt:formatNumber type="number" pattern="###,###" value="${hoadonchuaduyet.getTONGGIA() }"/> VNĐ</td>
 									<td><c:if
 											test="${hoadonchuaduyet.getHINHTHUCGIAOHANG()==0 }">
 											<span class="noibat">Nhận ở địa chỉ giao</span>
@@ -207,7 +208,7 @@
 									<td>${hoadondaduyet.getMAHOADON() }</td>
 									<td>${hoadondaduyet.getTENKHACHHANG()	}</td>
 									<td>${hoadondaduyet.getSODIENTHOAI()}</td>
-									<td>${hoadondaduyet.getTONGGIA() }</td>
+									<td><fmt:formatNumber type="number" pattern="###,###" value="${hoadondaduyet.getTONGGIA() }"/> VNĐ</td>
 									<td><c:if
 											test="${hoadondaduyet.getHINHTHUCGIAOHANG()==0 }">
 											<span class="noibat">Nhận ở địa chỉ giao</span>
@@ -279,7 +280,7 @@
 									<td>${hoadondahuy.getMAHOADON() }</td>
 									<td>${hoadondahuy.getTENKHACHHANG()	}</td>
 									<td>${hoadondahuy.getSODIENTHOAI()}</td>
-									<td>${hoadondahuy.getTONGGIA() }</td>
+									<td><fmt:formatNumber type="number" pattern="###,###" value="${hoadondahuy.getTONGGIA() }"/> VNĐ</td>
 									<td><c:if test="${hoadondahuy.getHINHTHUCGIAOHANG()==0 }">
 											<span class="noibat">Nhận ở địa chỉ giao</span>
 										</c:if> <c:if test="${hoadondahuy.getHINHTHUCGIAOHANG()==1 }">

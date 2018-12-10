@@ -18,6 +18,7 @@ import com.nguyenvanthuan.dao.NhaSanXuatDAO;
 import com.nguyenvanthuan.entity.ChiTietSanPham;
 import com.nguyenvanthuan.entity.DanhMucSanPham;
 import com.nguyenvanthuan.entity.DonViTinh;
+import com.nguyenvanthuan.entity.Gia;
 import com.nguyenvanthuan.entity.KhuyenMai;
 import com.nguyenvanthuan.entity.NhaSanXuat;
 import com.nguyenvanthuan.service.ChiTietSanPhamService;
@@ -116,7 +117,6 @@ public class AdminSanPhamController {
 			@RequestParam String mota, @RequestParam String hinh) {
 		System.out.println(tensp+" "+nhasanxuat+" "+soluong+" "+ khuyenmai+" "+ gia+" "+danhmuc+" "+mota+" " +hinh);
 		chitietsanphamservice.savechitietsanpham(tensp, nhasanxuat, soluong, khuyenmai, gia, danhmuc, mota, hinh, 1);
-
 		List<ChiTietSanPham> chiTietSanPhams = chitietsanphamservice.ListChiTietSanPham();
 		modelMap.addAttribute("listsanpham", chiTietSanPhams);
 
