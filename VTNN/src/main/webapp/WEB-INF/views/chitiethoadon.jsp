@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:include page="HeaderAdmin.jsp"></jsp:include>
 <div class="container">
 <div id="lablehoadon">
@@ -15,6 +16,7 @@
 				<th>Tên Sản Phẩm</th>
 				<th>Giá</th>
 				<th>Số Lượng</th>
+				<th>Khuyến mãi</th>
 				<th>Tổng Giá</th>
 			</tr>
 		</thead>
@@ -26,7 +28,8 @@
 					<td>${chitiet.getChiTietSanPham().getSanpham().getTENSANPHAM()}</td>
 					<td>${chitiet.getChiTietSanPham().getGia().getGIA() }</td>
 					<td>${chitiet.getSOLUONG()}</td>
-					<td>${chitiet.getTONGGIA()}</td>
+					<td>${chitiet.getChiTietSanPham().getKhuyenmai().getPHANTRAM()}%</td>
+					<td><fmt:formatNumber type="number" pattern="###,###" value="${chitiet.getTONGGIA()}" /> VNĐ</td>
 				</tr>
 			</c:forEach>
 
@@ -34,7 +37,7 @@
 	</table>
 </div>
 <h5>
-	Tổng Giá:<span style="color: red;"> ${hoadon.getTONGGIA()}</span> VNĐ
+	Tổng Giá: <span style="color: red;"><fmt:formatNumber type="number" pattern="###,###" value=" ${hoadon.getTONGGIA()}" /></span> VNĐ
 </h5>
 <c:if test="${$hethang !=''}">
 <h1>${hethang}</h1>

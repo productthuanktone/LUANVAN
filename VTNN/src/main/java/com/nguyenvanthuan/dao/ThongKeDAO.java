@@ -21,9 +21,9 @@ public class ThongKeDAO implements ThongKeImp {
 	SessionFactory sessionFactory;
 	@Override
 	@Transactional
-	public List<HoaDon> hoaDons(int day, int thang) {
+	public List<HoaDon> hoaDons(int day, int thang,int nam) {
 		Session session=sessionFactory.getCurrentSession();
-		List<HoaDon> Listhoadon=(List<HoaDon>) session.createQuery("from hoadon where DAY(TIMECREATE)="+day+" and MONTH(TIMECREATE)="+thang+"and TINHTRANG=1").getResultList();
+		List<HoaDon> Listhoadon=(List<HoaDon>) session.createQuery("from hoadon where DAY(TIMECREATE)="+day+" and MONTH(TIMECREATE)="+thang+"and TINHTRANG=1"+" and YEAR(TIMECREATE)="+nam).getResultList();
 		return Listhoadon;
 	}
 

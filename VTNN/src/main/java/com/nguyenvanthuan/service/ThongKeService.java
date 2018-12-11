@@ -12,9 +12,9 @@ import com.nguyenvanthuan.entity.HoaDon;
 public class ThongKeService implements ThongKeImp{
 @Autowired ThongKeDAO thongkedao;
 	@Override
-	public List<HoaDon> hoaDons(int day, int thang) {
+	public List<HoaDon> hoaDons(int day, int thang, int nam) {
 		// TODO Auto-generated method stub
-		return thongkedao.hoaDons(day,thang);
+		return thongkedao.hoaDons(day,thang,nam);
 	}
 
 }

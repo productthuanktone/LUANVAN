@@ -57,7 +57,7 @@
 									<td>${listsanpham.getNhasanxuat().getTENNHASANXUAT()}</td>
 									<td>${listsanpham.getDanhMucSanPham().getTENDANHMUC() }</td>
 									<td>${listsanpham.getKhuyenmai().getTENKHUYENMAI() }(${listsanpham.getKhuyenmai().getPHANTRAM()}%)</td>
-									<td>${listsanpham.getSanpham().getMOTA() }</td>
+									<td><p>${listsanpham.getSanpham().getMOTA() }</p></td>
 									<td>${listsanpham.getDonvitinh().getTENDONVITINH()}</td>
 									<td> <fmt:formatNumber type="number" pattern="###,###" value="${listsanpham.getGia().getGIA()}" /> VNĐ</td>
 									<td>${listsanpham.getSOLUONG()}</td>
